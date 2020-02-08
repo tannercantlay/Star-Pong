@@ -23,7 +23,7 @@ func _physics_process(delta):
 		velocity = velocity.bounce(collision.normal)
 		if collision.collider.has_method("hit"):
 			print("Entered Hit Method")
-			collision.colldier.hit()
+			collision.collider.hit()
 
 	#returnValue = move_and_collide(velocity)
 	
