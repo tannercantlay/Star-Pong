@@ -4,7 +4,7 @@ extends KinematicBody2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-
+var timer
 var velocity = Vector2()
 var returnValue
 var speed = 250
@@ -12,9 +12,14 @@ var lastHit = "purple"
 
 onready var paddle1 = get_node("../Paddle1")
 onready var paddle2 = get_node("../Paddle2")
+onready var Ring = get_node("../OuterRing/CollisionPolygon2D/OuterRing_P")
+
+onready var yelRing = load("res://Sprites/SpriteSheets/OuterRingPtoY.png")
+onready var purpRing = load("res://Sprites/SpriteSheets/OuterRingYtoP.png")
+onready var animate = get_node("../OuterRing/CollisionPolygon2D/OuterRing_P/AnimationPlayer")
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	velocity = Vector2(0,(0-speed))
+	velocity = Vector2(0,(speed))
 	
 	pass # Replace with function body.
 
@@ -49,7 +54,29 @@ func _physics_process(delta):
 		if collision.collider.has_method("getTeam"):
 			print_debug("Entered team Method")
 			lastHit = collision.collider.getTeam()
-			velocity = 1.2 * velocity.bounce(collision.normal)
+			if(lastHit == "purple"):
+				animate.play("changeColor")
+				Ring.texture = yelRing
+			elif(lastHit == "yellow"):
+				animate.play("changeColor")
+				Ring.texture = purpRing
+			velocity = 1.1 * velocity.bounce(collision.normal)
+		if collision.collider.has_method("middleStar"):
+			var temp
+			var collisionNode = get_node("../Middle Star/CollisionShape2D")
+			collisionNode.disabled = true
+			temp = collision.collider.middleStar(velocity)
+			velocity = temp;
+			var t = Timer.new()
+			t.set_wait_time(2)
+			t.set_one_shot(true)
+			add_child(t)
+			t.start()
+			yield(t, "timeout")
+			collisionNode.disabled = false
+
+#			$CollisionShape2D.disabled = false
+			
 			
 	if(velocity == Vector2(0,0) && lastHit == "yellow" && (Input.is_key_pressed(65) || Input.is_key_pressed(68))):
 		velocity = Vector2(0,(speed))
@@ -61,4 +88,19 @@ func _physics_process(delta):
 		#print(returnValue.get_collider())
 	
 	pass
-	
+#func _wait( seconds ):
+#	self._create_timer(self, seconds, true, "_emit_timer_end_signal")
+#	yield(self,"$CollisionShape2D.disabled = false")
+#
+#func _emit_timer_end_signal():
+#	emit_signal("timer_end")
+#
+#func _create_timer(object_target, float_wait_time, bool_is_oneshot, string_function):
+#	timer = Timer.new()
+#	timer.set_one_shot(bool_is_oneshot)
+#	timer.set_timer_process_mode(0)
+#	timer.set_wait_time(float_wait_time)
+#	timer.connect("timeout", object_target, string_function)
+#	self.add_child(timer)
+#	timer.start()
+
