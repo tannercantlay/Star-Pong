@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Sprites/OuterRing_P.png" type="Texture" id=1]
 [ext_resource path="res://paddle1.gd" type="Script" id=2]
@@ -9,18 +9,147 @@
 [ext_resource path="res://Sprites/SpriteSheets/Ball.png" type="Texture" id=7]
 [ext_resource path="res://gameManager.gd" type="Script" id=8]
 [ext_resource path="res://joystix/JOYSTIX.TTF" type="DynamicFontData" id=9]
+[ext_resource path="res://Sprites/Background.png" type="Texture" id=10]
 [ext_resource path="res://p1Score.gd" type="Script" id=11]
 [ext_resource path="res://p2Score.gd" type="Script" id=12]
+[ext_resource path="res://Sprites/SpriteSheets/Star.png" type="Texture" id=13]
 
-[sub_resource type="CanvasItemMaterial" id=1]
+[sub_resource type="Animation" id=1]
+resource_name = "twinkle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+}
 
-[sub_resource type="CanvasItemMaterial" id=2]
+[sub_resource type="Animation" id=2]
+resource_name = "twinkle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 5, 6, 7, 8, 9, 0, 1, 2, 3, 4 ]
+}
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="Animation" id=3]
+resource_name = "twinkle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 9, 0, 1, 2, 3, 4, 5, 6, 7, 8 ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "twinkle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "twinkle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 4, 5, 6, 7, 8, 9, 0, 1, 2 ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "twinkle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 6, 7, 8, 9, 0, 1, 2, 3, 4, 5 ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "twinkle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 8, 9, 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "twinkle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6, 7, 8, 9, 0, 1, 2, 3 ]
+}
+
+[sub_resource type="CanvasItemMaterial" id=4]
+
+[sub_resource type="CanvasItemMaterial" id=5]
+
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 50.2757, 9.44635 )
 
-[sub_resource type="Animation" id=4]
-resource_name = "paddle"
+[sub_resource type="Animation" id=7]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -36,8 +165,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5 ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "yellow paddle"
+[sub_resource type="Animation" id=8]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -53,10 +181,10 @@ tracks/0/keys = {
 "values": [ 1, 2, 3, 4, 5 ]
 }
 
-[sub_resource type="CircleShape2D" id=6]
+[sub_resource type="CircleShape2D" id=9]
 radius = 10.9642
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=10]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -71,13 +199,104 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
 }
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=11]
 font_data = ExtResource( 9 )
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Background" type="Sprite" parent="."]
-hframes = 2
+z_index = -1
+texture = ExtResource( 10 )
+
+[node name="Star1" type="Sprite" parent="."]
+position = Vector2( -307.022, -146.211 )
+texture = ExtResource( 13 )
+hframes = 10
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Star1"]
+autoplay = "twinkle"
+anims/twinkle = SubResource( 1 )
+
+[node name="Star2" type="Sprite" parent="."]
+position = Vector2( 277.158, 121.086 )
+rotation = 1.5708
+scale = Vector2( 1, -1 )
+texture = ExtResource( 13 )
+hframes = 10
+frame = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Star2"]
+autoplay = "twinkle"
+anims/twinkle = SubResource( 2 )
+
+[node name="Star3" type="Sprite" parent="."]
+position = Vector2( -168.328, 352.454 )
+scale = Vector2( -1, -1 )
+texture = ExtResource( 13 )
+hframes = 10
+frame = 7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Star3"]
+autoplay = "twinkle"
+anims/twinkle = SubResource( 3 )
+
+[node name="Star4" type="Sprite" parent="."]
+position = Vector2( 25.3472, -365.665 )
+rotation = 4.71239
+scale = Vector2( 1, -1 )
+texture = ExtResource( 13 )
+hframes = 10
+frame = 7
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Star4"]
+autoplay = "twinkle"
+anims/twinkle = SubResource( 12 )
+
+[node name="Star6" type="Sprite" parent="."]
+position = Vector2( 518.275, -179.873 )
+rotation = 3.14159
+texture = ExtResource( 13 )
+hframes = 10
+frame = 7
+
+[node name="AnimationPlayer4" type="AnimationPlayer" parent="Star6"]
+autoplay = "twinkle"
+anims/twinkle = SubResource( 13 )
+
+[node name="Star7" type="Sprite" parent="."]
+position = Vector2( 774.225, 416.538 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+texture = ExtResource( 13 )
+hframes = 10
+frame = 7
+
+[node name="AnimationPlayer5" type="AnimationPlayer" parent="Star7"]
+autoplay = "twinkle"
+anims/twinkle = SubResource( 14 )
+
+[node name="Star8" type="Sprite" parent="."]
+position = Vector2( -711.245, -304.931 )
+rotation = 3.14159
+scale = Vector2( -1, -1 )
+texture = ExtResource( 13 )
+hframes = 10
+frame = 7
+
+[node name="AnimationPlayer6" type="AnimationPlayer" parent="Star8"]
+autoplay = "twinkle"
+anims/twinkle = SubResource( 15 )
+
+[node name="Star9" type="Sprite" parent="."]
+position = Vector2( -588.279, 279.873 )
+rotation = 3.14159
+texture = ExtResource( 13 )
+hframes = 10
+frame = 7
+
+[node name="AnimationPlayer7" type="AnimationPlayer" parent="Star9"]
+autoplay = "twinkle"
+anims/twinkle = SubResource( 16 )
 
 [node name="CenterPoint" type="Position2D" parent="."]
 
@@ -90,7 +309,7 @@ position = Vector2( 0, 1.199 )
 script = ExtResource( 8 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="OuterRing"]
-material = SubResource( 1 )
+material = SubResource( 4 )
 position = Vector2( -45.3893, 146.891 )
 scale = Vector2( 88.7414, 75.6079 )
 build_mode = 1
@@ -105,9 +324,9 @@ texture = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle1"]
-material = SubResource( 2 )
+material = SubResource( 5 )
 position = Vector2( 0, 475.204 )
-shape = SubResource( 3 )
+shape = SubResource( 6 )
 
 [node name="paddleSpriteP" type="Sprite" parent="Paddle1/CollisionShape2D"]
 texture = ExtResource( 6 )
@@ -116,15 +335,15 @@ hframes = 6
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Paddle1/CollisionShape2D/paddleSpriteP"]
 autoplay = "paddle"
 method_call_mode = 1
-anims/paddle = SubResource( 4 )
+anims/paddle = SubResource( 7 )
 
 [node name="Paddle2" type="KinematicBody2D" parent="."]
 script = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle2"]
-material = SubResource( 2 )
+material = SubResource( 5 )
 position = Vector2( 0, -475.204 )
-shape = SubResource( 3 )
+shape = SubResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="Paddle2/CollisionShape2D"]
 rotation = 3.14159
@@ -135,13 +354,13 @@ frame = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Paddle2/CollisionShape2D/Sprite"]
 autoplay = "yellow paddle"
-"anims/yellow paddle" = SubResource( 5 )
+"anims/yellow paddle" = SubResource( 8 )
 
 [node name="Ball" type="KinematicBody2D" parent="."]
 script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
-shape = SubResource( 6 )
+shape = SubResource( 9 )
 
 [node name="ballSprite" type="Sprite" parent="Ball/CollisionShape2D"]
 scale = Vector2( 2, 2 )
@@ -150,7 +369,7 @@ hframes = 10
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Ball/CollisionShape2D/ballSprite"]
 autoplay = "ballRotate"
-anims/ballRotate = SubResource( 7 )
+anims/ballRotate = SubResource( 10 )
 
 [node name="Node" type="Node" parent="."]
 
@@ -159,7 +378,7 @@ margin_left = -820.0
 margin_top = -475.0
 margin_right = -655.0
 margin_bottom = -370.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 align = 1
 script = ExtResource( 11 )
@@ -172,7 +391,7 @@ margin_left = 655.0
 margin_top = -475.0
 margin_right = 820.0
 margin_bottom = -370.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 align = 1
 script = ExtResource( 12 )
