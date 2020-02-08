@@ -83,6 +83,9 @@ func _physics_process(delta):
 			yield(t, "timeout")
 			$CollisionShape2D.disabled = false
 			pass
+		if collision.collider.has_method("speedracer"):
+			velocity *= 1.1
+			pass
 
 			
 			
