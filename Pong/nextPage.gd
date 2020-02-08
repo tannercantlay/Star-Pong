@@ -13,11 +13,16 @@ func pressed_handler(which):
 
 func _unhandled_input(event):
 	if event is InputEventMouseButton and event.pressed and not event.is_echo() and event.button_index == BUTTON_LEFT:
-		if get_rect().has_point(to_local(event.position)):
+		print_debug("Inside IF")
+		#print_debug(get_rect().has_point(to_local_mouse_position())    #(event.position)))
+		if get_rect().has_point(get_local_mouse_position()):
+			print_debug("Inside IF 2")
 			if(get_tree().get_current_scene().get_name() == "Name1"):
 				get_tree().change_scene("res://Scenes/EnterName2.tscn")
 			elif(get_tree().get_current_scene().get_name() == "Name2"):
-				get_tree().change_scene("res://Scenes/EnterName2.tscn")
+				get_tree().change_scene("res://Scenes/OuterCollider.tscn")
+			elif(get_tree().get_current_scene().get_name() == "main"):
+				get_tree().change_scene("res://Scenes/EnterName1.tscn")
 			else:
 				print_debug("1st: " + get_tree().get_current_scene().get_name())
 				print_debug("2nd: " + "EnterName1")
