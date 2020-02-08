@@ -120,3 +120,14 @@ frame = 5
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Ball/CollisionShape2D/ballSprite"]
 autoplay = "ballRotate"
 anims/ballRotate = SubResource( 6 )
+
+[node name="Node" type="Node" parent="."]
+
+[node name="P1 score" type="Label" parent="Node"]
+margin_left = -783.601
+margin_top = -407.737
+margin_right = -743.601
+margin_bottom = -393.737
+__meta__ = {
+"_edit_use_anchors_": false
+}

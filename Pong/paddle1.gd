@@ -20,6 +20,12 @@ func _ready():
 	pass
 func getTeam():
 	return team
+	
+func reset():
+	print_debug("reset")
+	rotation = 0
+	rotation_dir = 0
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):

@@ -1,5 +1,6 @@
 extends KinematicBody2D
-
+var p1Name = "Player 1"
+var p2Name = "Player 2"
 var p1Score = 0
 var p2Score = 0
 # Declare member variables here. Examples:
