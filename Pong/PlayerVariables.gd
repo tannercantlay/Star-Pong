@@ -1,10 +1,14 @@
-extends Label
+extends Node
 
 
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-onready var player_vars = get_node("/root/PlayerVariables")
+var player1 = "Player 1"
+var player2 = "Player 2"
+var p1Score = 0
+var p2Score = 0
+var numrounds = 11
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,7 +16,5 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
-	var text = player_vars.player2 + "\nScore: " + str(player_vars.p2Score)
-	set_text(text)
-	pass
+#func _process(delta):
+#	pass
