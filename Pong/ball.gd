@@ -24,15 +24,12 @@ func _ready():
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func hit():
-	print_debug("ball hit")
 	
 func _physics_process(delta):
 	var collision = move_and_collide(velocity * delta)
 	if collision:
 		# if ball hit the outer ring
 		if collision.collider.has_method("hit"):
-			print_debug("Entered Hit Method")
 			collision.collider.hit(lastHit)
 			velocity = Vector2(0,lastHit)
 			
@@ -52,7 +49,6 @@ func _physics_process(delta):
 				#velocity = Vector2(0,speed)
 		# if ball hits a paddle
 		if collision.collider.has_method("getTeam"):
-			print_debug("Entered team Method")
 			lastHit = collision.collider.getTeam()
 			if(lastHit == "purple"):
 				animate.play("changeColor")
@@ -74,8 +70,21 @@ func _physics_process(delta):
 			t.start()
 			yield(t, "timeout")
 			collisionNode.disabled = false
+		if collision.collider.has_method("throughWormhole"):
+			var temp
+			temp = collision.collider.throughWormhole()
+			$CollisionShape2D.disabled = true
+			position = temp
+			var t = Timer.new()
+			t.set_wait_time(.2)
+			t.set_one_shot(true)
+			add_child(t)
+			t.start()
+			yield(t, "timeout")
+			$CollisionShape2D.disabled = false
+			pass
 
-#			$CollisionShape2D.disabled = false
+			
 			
 			
 	if(velocity == Vector2(0,0) && lastHit == "yellow" && (Input.is_key_pressed(65) || Input.is_key_pressed(68))):
