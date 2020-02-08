@@ -86,7 +86,9 @@ hframes = 2
 position = Vector2( 0.583742, 2.97754 )
 current = true
 
+
 [node name="Outer ring" type="KinematicBody2D" parent="."]
+
 position = Vector2( 0, 1.199 )
 script = ExtResource( 8 )
 
