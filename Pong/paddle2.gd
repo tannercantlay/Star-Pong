@@ -4,7 +4,7 @@ extends KinematicBody2D
 # var a = 2
 # var b = "text"
 
-var theta
+var theta = 0
 var locationX = 0
 var locationY = 1
 var location
@@ -27,13 +27,23 @@ func reset():
 	rotation = 0
 	rotation_dir = 0
 	pass
+	
+func _input(event):
+	print_debug("in input event")
+	if event is InputEventKey and ((event.get_scancode() == 16777233 and event.is_pressed() == false) or (event.get_scancode() == 16777231 and event.is_pressed() == false)):
+		print_debug("in first event conditional")
+		theta = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	if(Input.is_key_pressed(16777233)): #Key_Right
-		rotation_dir += .1
+		if (abs(theta) < 0.1):
+			(theta += 0.006)
+		rotation_dir += theta
 	if(Input.is_key_pressed(16777231)): #Key_left
-		rotation_dir -= .1
+		if (abs(theta) < 0.1):
+			(theta += 0.006)
+		rotation_dir -= theta
 		
 	rotation = rotation_dir * rotation_speed * delta
 	
