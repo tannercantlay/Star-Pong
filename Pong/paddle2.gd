@@ -29,9 +29,7 @@ func reset():
 	pass
 	
 func _input(event):
-	print_debug("in input event")
 	if event is InputEventKey and ((event.get_scancode() == 16777233 and event.is_pressed() == false) or (event.get_scancode() == 16777231 and event.is_pressed() == false)):
-		print_debug("in first event conditional")
 		theta = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
