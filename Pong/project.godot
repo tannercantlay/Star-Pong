@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Planetary-Pong"
-run/main_scene="res://Scenes/MainMenu.tscn"
+run/main_scene="res://Scenes/OuterCollider.tscn"
 config/icon="res://icon.png"
 
 [autoload]
