@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Sprites/OuterRing_Y.png" type="Texture" id=1]
+[ext_resource path="res://startButton.gd" type="Script" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Title" type="Label" parent="."]
+margin_left = 440.0
+margin_top = 150.0
+margin_right = 670.0
+margin_bottom = 248.0
+rect_scale = Vector2( 0.820073, 0.663547 )
+rect_pivot_offset = Vector2( -198.856, 0 )
+text = "Planetary Pong"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 512.632, 301.053 )
+
+[node name="startButton" type="Sprite" parent="."]
+position = Vector2( 500, 473.025 )
+texture = ExtResource( 3 )
+script = ExtResource( 2 )
+
+[node name="outer_ring" type="Sprite" parent="."]
+position = Vector2( 500, 300 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
