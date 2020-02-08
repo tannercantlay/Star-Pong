@@ -11,7 +11,7 @@ var location
 var radius = 22.5
 var rotation_dir
 var rotation_speed = 30
-var team = 1
+var team = "yellow"
 #var teamColor = player.color or whatever
 
 # Called when the node enters the scene tree for the first time.
@@ -20,7 +20,8 @@ func _ready():
 	rotation_dir = 0
 	pass
 #	
-
+func getTeam():
+	return team
 
 
 

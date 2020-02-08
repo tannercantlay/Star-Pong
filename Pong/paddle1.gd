@@ -11,14 +11,15 @@ var location
 var radius = 22.5
 var rotation_dir
 var rotation_speed = 30
-var team = -1
+var team = "purple"
 #var teamColor = player.color or whatever
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	rotation_dir = 0
 	pass
-
+func getTeam():
+	return team
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
