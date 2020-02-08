@@ -23,6 +23,8 @@ func _unhandled_input(event):
 				get_tree().change_scene("res://Scenes/OuterCollider.tscn")
 			elif(get_tree().get_current_scene().get_name() == "main"):
 				get_tree().change_scene("res://Scenes/EnterName1.tscn")
+			elif(get_tree().get_current_scene().get_name() == "gamewin"):
+				get_tree().change_scene("res://Scenes/MainMenu.tscn")
 			else:
 				print_debug("1st: " + get_tree().get_current_scene().get_name())
 				print_debug("2nd: " + "EnterName1")

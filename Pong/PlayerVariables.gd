@@ -9,6 +9,7 @@ var player2 = "Player 2"
 var p1Score = 0
 var p2Score = 0
 var numrounds = 11
+var winner = player1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
