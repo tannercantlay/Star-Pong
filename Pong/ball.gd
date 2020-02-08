@@ -14,8 +14,9 @@ onready var paddle1 = get_node("../Paddle1")
 onready var paddle2 = get_node("../Paddle2")
 onready var Ring = get_node("../OuterRing/CollisionPolygon2D/OuterRing_P")
 
-onready var purpRing = load("res://Sprites/OuterRing_P.png")
-onready var yelRing = load("res://Sprites/OuterRing_Y.png")
+onready var yelRing = load("res://Sprites/SpriteSheets/OuterRingPtoY.png")
+onready var purpRing = load("res://Sprites/SpriteSheets/OuterRingYtoP.png")
+onready var animate = get_node("../OuterRing/CollisionPolygon2D/OuterRing_P/AnimationPlayer")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	velocity = Vector2(0,(speed))
@@ -54,15 +55,25 @@ func _physics_process(delta):
 			print_debug("Entered team Method")
 			lastHit = collision.collider.getTeam()
 			if(lastHit == "purple"):
-					Ring.texture = yelRing
+				animate.play("changeColor")
+				Ring.texture = yelRing
 			elif(lastHit == "yellow"):
-					Ring.texture = purpRing
+				animate.play("changeColor")
+				Ring.texture = purpRing
 			velocity = 1.1 * velocity.bounce(collision.normal)
 		if collision.collider.has_method("middleStar"):
 			var temp
-			$CollisionShape2D.disabled = true
+			var collisionNode = get_node("../Middle Star/CollisionShape2D")
+			collisionNode.disabled = true
 			temp = collision.collider.middleStar(velocity)
 			velocity = temp;
+			var t = Timer.new()
+			t.set_wait_time(2)
+			t.set_one_shot(true)
+			add_child(t)
+			t.start()
+			yield(t, "timeout")
+			collisionNode.disabled = false
 
 #			$CollisionShape2D.disabled = false
 			

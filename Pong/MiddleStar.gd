@@ -11,10 +11,9 @@ func _ready():
 	pass # Replace with function body.
 
 func middleStar(vector):
-	var angle = randi()%180
+	var angle = rand_range(-(PI/2), (PI/2))
 	print(angle)
-	randomDir.x = (vector.x * cos(angle)) - (sin(angle) * vector.y)
-	randomDir.y = (vector.x * sin(angle)) + (cos(angle) * vector.y)
+	randomDir = vector.rotated(angle)
 	print(randomDir)
 	print_debug("calculating")
 	return randomDir
