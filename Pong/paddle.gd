@@ -27,6 +27,13 @@ func _input(event):
 			theta -= .1
 	pass
 
+func _integrate_forces(state):
+	var t = state.get_transform()
+	t.origin.x = locationX
+	t.origin.y = locationY
+	state.set_transform(t)
+	pass
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	locationX = cos(theta)
