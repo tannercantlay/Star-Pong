@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/OuterRing_P.png-57588e2db2cb1d633d8b0ea940e2ad6c.stex"
+path="res://.import/Platform_Y.png-1d4693432c2b0368bcf5f2ac58a1d4fe.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/OuterRing_P.png"
-dest_files=[ "res://.import/OuterRing_P.png-57588e2db2cb1d633d8b0ea940e2ad6c.stex" ]
+source_file="res://Sprites/SpriteSheets/Platform_Y.png"
+dest_files=[ "res://.import/Platform_Y.png-1d4693432c2b0368bcf5f2ac58a1d4fe.stex" ]
 
 [params]
 
