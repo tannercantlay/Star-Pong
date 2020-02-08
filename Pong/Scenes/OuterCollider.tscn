@@ -73,4 +73,5 @@ position = Vector2( -141.367, -27.2835 )
 shape = SubResource( 4 )
 
 [node name="Sprite2" type="Sprite" parent="Ball/CollisionShape2D"]
+position = Vector2( 1.4682, -1.4682 )
 texture = ExtResource( 3 )
