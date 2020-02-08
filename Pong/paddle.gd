@@ -7,11 +7,13 @@ extends KinematicBody2D
 var theta
 var locationX
 var locationY
+var location
+var radius = 50
 #var teamColor = player.color or whatever
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	theta = PI/2
+	theta = 3 * PI/4
 	pass
 #	if teamColor == "purple":
 #		theta = PI/2
@@ -23,8 +25,10 @@ func _input(event):
 		#if statement to determine what teamColor we are
 		if event.scancode == KEY_A:
 			theta += .1
+			translate(location)
 		elif event.scancode == KEY_D:
 			theta -= .1
+			translate(location)
 	pass
 
 func _integrate_forces(state):
@@ -36,6 +40,9 @@ func _integrate_forces(state):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	locationX = cos(theta)
-	locationY = sin(theta)
+	locationX = radius * cos(theta)
+	locationY = radius * sin(theta)
+	
+	location = Vector2(locationX, locationY)
+	
 	pass
