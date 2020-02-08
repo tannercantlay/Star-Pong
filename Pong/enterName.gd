@@ -17,7 +17,7 @@ func _unhandled_input(event):
 			if(get_tree().get_current_scene().get_name() == "Name1"):
 				get_tree().change_scene("res://Scenes/EnterName2.tscn")
 			elif(get_tree().get_current_scene().get_name() == "Name2"):
-				get_tree().change_scene("res://Scenes/EnterName2.tscn")
+				get_tree().change_scene("res://Scenes/OuterCollider.tscn")
 			else:
 				print_debug("1st: " + get_tree().get_current_scene().get_name())
 				print_debug("2nd: " + "EnterName1")

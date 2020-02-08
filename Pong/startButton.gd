@@ -10,6 +10,8 @@ extends Sprite
 func _ready():
 	
 	pass # Replace with function body.
+func pressed_handler(which):
+	pass
 	
 func _unhandled_input(event):
 	if event is InputEventMouseButton and event.pressed and not event.is_echo() and event.button_index == BUTTON_LEFT:
