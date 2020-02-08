@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Sprites/OuterRing_P.png" type="Texture" id=1]
 [ext_resource path="res://paddle1.gd" type="Script" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Paddle.png" type="Texture" id=3]
 [ext_resource path="res://ball.gd" type="Script" id=4]
 [ext_resource path="res://paddle2.gd" type="Script" id=5]
 [ext_resource path="res://Sprites/SpriteSheets/Platform_P.png" type="Texture" id=6]
@@ -13,9 +13,9 @@
 [sub_resource type="CanvasItemMaterial" id=2]
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 35.3214, 14.5625 )
+extents = Vector2( 50.2757, 9.44635 )
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "paddle"
 length = 0.6
 loop = true
@@ -32,8 +32,8 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5 ]
 }
 
-[sub_resource type="CircleShape2D" id=4]
-radius = 53.5937
+[sub_resource type="CircleShape2D" id=5]
+radius = 10.9642
 
 [sub_resource type="Animation" id=6]
 resource_name = "ballRotate"
@@ -55,6 +55,10 @@ tracks/0/keys = {
 
 [node name="CenterPoint" type="Position2D" parent="."]
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 0.583742, 2.97754 )
+current = true
+
 [node name="OuterRing_P" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 
@@ -73,44 +77,39 @@ script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle1"]
 material = SubResource( 2 )
-position = Vector2( 0, 460.97 )
+position = Vector2( 0, 475.204 )
 shape = SubResource( 3 )
 
 [node name="paddleSpriteP" type="Sprite" parent="Paddle1/CollisionShape2D"]
-position = Vector2( -0.00899482, -0.0224657 )
 texture = ExtResource( 6 )
 hframes = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Paddle1/CollisionShape2D/paddleSpriteP"]
 autoplay = "paddle"
 method_call_mode = 1
-anims/paddle = SubResource( 5 )
+anims/paddle = SubResource( 4 )
 
 [node name="Paddle2" type="KinematicBody2D" parent="."]
 script = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle2"]
 material = SubResource( 2 )
-position = Vector2( 0, -460.97 )
+position = Vector2( 0, -475.204 )
 shape = SubResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="Paddle2/CollisionShape2D"]
-position = Vector2( -0.203922, 19.5629 )
+rotation = 3.14159
 texture = ExtResource( 3 )
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 0.583742, 2.97754 )
-current = true
-zoom = Vector2( 2, 2 )
 
 [node name="Ball" type="KinematicBody2D" parent="."]
 script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
 position = Vector2( -141.367, -27.2835 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="ballSprite" type="Sprite" parent="Ball/CollisionShape2D"]
+scale = Vector2( 2, 2 )
 texture = ExtResource( 7 )
 hframes = 10
 frame = 5

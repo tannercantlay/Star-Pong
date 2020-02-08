@@ -10,11 +10,16 @@ var velocity = Vector2(0,0)
 func _ready():
 	pass # Replace with function body.
 
-func hit():
-	var ball = move_and_collide(velocity)
-	if ball:
-		ball.collider_velocity(velocity)
-		print("f")
+func hit(team):
+	var collision = move_and_collide(velocity)
+#	if collision:
+#		if collision.collider.has_method("hit"):
+#			print_debug("ball Entered Hit Method")
+#			collision.collider.hit()
+	if(team == "purple"):
+		print ("team 1")
+	if(team == yellow):
+		print("team 2")
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
