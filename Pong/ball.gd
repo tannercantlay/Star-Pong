@@ -24,10 +24,23 @@ func _physics_process(delta):
 	var collision = move_and_collide(velocity * delta)
 	if collision:
 		velocity = velocity.bounce(collision.normal)
+		
+		# if ball hit the outer ring
 		if collision.collider.has_method("hit"):
 			print("Entered Hit Method")
 			collision.collider.hit(lastHit)
 			velocity = Vector2(0,lastHit)
+			
+			# repositions ball to center of game, offset up if purple scored or down if yellow scored
+			# ? will call logic from gameManager to update game score, reposition paddles after a score?
+			if lastHit == "yellow":
+				set_pos(0,1)
+			elif lastHit == "purple":
+				set_pos(0,-1)
+		
+		# if ball hits a paddle
+		if collision.collider.has_method("getTeam"):
+			lastHit = collision.collider.getTeam()
 			
 
 	#returnValue = move_and_collide(velocity)
