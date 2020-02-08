@@ -1,13 +1,14 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Sprites/OuterRing_P.png" type="Texture" id=1]
 [ext_resource path="res://paddle1.gd" type="Script" id=2]
-[ext_resource path="res://Sprites/Paddle.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/SpriteSheets/Platform_Y.png" type="Texture" id=3]
 [ext_resource path="res://ball.gd" type="Script" id=4]
 [ext_resource path="res://paddle2.gd" type="Script" id=5]
 [ext_resource path="res://Sprites/SpriteSheets/Platform_P.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/SpriteSheets/Ball.png" type="Texture" id=7]
 [ext_resource path="res://gameManager.gd" type="Script" id=8]
+[ext_resource path="res://joystix/JOYSTIX.TTF" type="DynamicFontData" id=9]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
@@ -33,11 +34,27 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5 ]
 }
 
-[sub_resource type="CircleShape2D" id=5]
+[sub_resource type="Animation" id=5]
+resource_name = "yellow paddle"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4, 5 ]
+}
+
+[sub_resource type="CircleShape2D" id=6]
 radius = 10.9642
 
-[sub_resource type="Animation" id=6]
-resource_name = "ballRotate"
+[sub_resource type="Animation" id=7]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -51,6 +68,10 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
 }
+
+[sub_resource type="DynamicFont" id=8]
+size = 30
+font_data = ExtResource( 9 )
 
 [node name="Node2D" type="Node2D"]
 
@@ -104,19 +125,39 @@ shape = SubResource( 3 )
 [node name="Sprite" type="Sprite" parent="Paddle2/CollisionShape2D"]
 rotation = 3.14159
 texture = ExtResource( 3 )
+normal_map = ExtResource( 3 )
+hframes = 6
+frame = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Paddle2/CollisionShape2D/Sprite"]
+autoplay = "yellow paddle"
+"anims/yellow paddle" = SubResource( 5 )
 
 [node name="Ball" type="KinematicBody2D" parent="."]
 script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="ballSprite" type="Sprite" parent="Ball/CollisionShape2D"]
 scale = Vector2( 2, 2 )
 texture = ExtResource( 7 )
 hframes = 10
-frame = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Ball/CollisionShape2D/ballSprite"]
 autoplay = "ballRotate"
-anims/ballRotate = SubResource( 6 )
+anims/ballRotate = SubResource( 7 )
+
+[node name="Node" type="Node" parent="."]
+
+[node name="P1 score" type="Label" parent="Node"]
+margin_left = -819.0
+margin_top = -473.0
+margin_right = -654.0
+margin_bottom = -368.0
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Hello"
+__meta__ = {
+"_edit_use_anchors_": false
+}
