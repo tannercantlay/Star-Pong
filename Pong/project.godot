@@ -19,10 +19,6 @@ config/name="Planetary-Pong"
 run/main_scene="res://Scenes/OuterCollider.tscn"
 config/icon="res://icon.png"
 
-[autoload]
-
-PlayerVariables="*res://PlayerVariables.gd"
-
 [display]
 
 window/size/width=1920

@@ -398,16 +398,3 @@ script = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="RoundsPlayed" type="Label" parent="Node"]
-margin_left = 655.0
-margin_top = 370.0
-margin_right = 820.0
-margin_bottom = 475.0
-custom_fonts/font = SubResource( 8 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-align = 1
-valign = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
