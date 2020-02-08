@@ -12,7 +12,7 @@ var lastHit = "purple"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	velocity = Vector2(speed,speed)
+	velocity = Vector2(0,(0-speed))
 	
 	pass # Replace with function body.
 
@@ -33,8 +33,10 @@ func _physics_process(delta):
 			# ? will call logic from gameManager to update game score, reposition paddles after a score?
 			if lastHit == "yellow":
 				position = Vector2(0,-100)
+				velocity = Vector2(0,(0-speed))
 			elif lastHit == "purple":
 				position = Vector2(0,100)
+				velocity = Vector2(0,speed)
 		
 		# if ball hits a paddle
 		if collision.collider.has_method("getTeam"):
