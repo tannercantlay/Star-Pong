@@ -4,16 +4,18 @@ extends KinematicBody2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var velocity
+var velocity = Vector2(250,250)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	velocity = Vector2(10,10)
+	
 	
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	move_and_collide(velocity)
-	pass
+	var collision_info = move_and_collide(velocity * delta)
+	if collision_info:
+		velocity = velocity.bounce(collision_info.normal)
+	
+

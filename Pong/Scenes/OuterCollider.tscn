@@ -12,12 +12,13 @@
 [sub_resource type="CanvasItemMaterial" id=2]
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 35.3214, 14.5625 )
+extents = Vector2( 50.0512, 10.2198 )
 
 [sub_resource type="CircleShape2D" id=4]
 radius = 53.5937
 
 [node name="Node2D" type="Node2D"]
+scale = Vector2( 2, 2 )
 
 [node name="CenterPoint" type="Position2D" parent="."]
 
@@ -39,11 +40,11 @@ script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle1"]
 material = SubResource( 2 )
-position = Vector2( 0, 460.97 )
+position = Vector2( 0, 474.35 )
 shape = SubResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="Paddle1/CollisionShape2D"]
-position = Vector2( -0.203922, 8.51324 )
+position = Vector2( -0.0102117, -0.203771 )
 texture = ExtResource( 6 )
 
 [node name="Paddle2" type="KinematicBody2D" parent="."]
@@ -51,14 +52,15 @@ script = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle2"]
 material = SubResource( 2 )
-position = Vector2( 0, -460.97 )
+position = Vector2( 0, -474.35 )
 shape = SubResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="Paddle2/CollisionShape2D"]
-position = Vector2( -0.203922, 19.5629 )
-texture = ExtResource( 3 )
+position = Vector2( 0, 0.327 )
+rotation = 3.14159
+texture = ExtResource( 6 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D    " type="Camera2D" parent="."]
 position = Vector2( 0.583742, 2.97754 )
 current = true
 zoom = Vector2( 2, 2 )
