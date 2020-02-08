@@ -38,7 +38,11 @@ func _input(event):
 			#locationY = -sin(theta)
 			#translate(location)
 			rotation_dir -= .1
+	
 	rotation = rotation_dir * rotation_speed
+	#if event.pressed == false and abs(rotation_dir) != 0:
+		#while(event.pressed == false and abs(rotation_dir) > 0.001):
+			#rotation_dir = rotation_dir * (3/4)
 	pass
 
 

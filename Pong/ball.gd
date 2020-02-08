@@ -8,7 +8,7 @@ var velocity
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	velocity = Vector2(1,1)
+	velocity = Vector2(10,10)
 	
 	pass # Replace with function body.
 
