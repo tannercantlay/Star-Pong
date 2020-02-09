@@ -131,7 +131,7 @@ func _physics_process(delta):
 			pass
 			
 		elif collision.collider.has_method("speedracer"):
-			get_node("CollisionShape2D/ballSprite/speedracer").play()
+			get_node("CollisionShape2D/ballSprite/Speedracer").play()
 			$CollisionShape2D.disabled = true
 			velocity = velocity * 2.0
 			

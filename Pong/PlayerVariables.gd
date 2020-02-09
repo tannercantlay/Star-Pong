@@ -10,6 +10,7 @@ var p1Score
 var p2Score
 var numrounds
 var winner
+var maxwins
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

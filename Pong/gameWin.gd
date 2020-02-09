@@ -22,7 +22,7 @@ func _ready():
 	else:
 		print_debug("what why are we here")
 	musicPlayer.music.stop()
-	musicPlayer.stream = load("res://Sounds/mainmenu.ogg")
+	musicPlayer.stream = load("res://Sounds/victory.ogg")
 	musicPlayer.music.set_stream(musicPlayer.stream)
 	musicPlayer.music.volume_db = 1
 	musicPlayer.music.pitch_scale = 1

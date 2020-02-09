@@ -35,6 +35,12 @@ func hit(team):
 		player_vars.numrounds -= 1
 	roundsPlayed += 1
 	roundLabel.set_text("Round: " + str(roundsPlayed))
+	if(player_vars.p1Score == player_vars.maxwins):
+		player_vars.winner = player_vars.player1
+		get_tree().change_scene("res://Scenes/GameWin.tscn")
+	if(player_vars.p2Score == player_vars.maxwins):
+		player_vars.winner = player_vars.player2
+		get_tree().change_scene("res://Scenes/GameWin.tscn")
 	if(player_vars.numrounds == 0):
 		if(player_vars.p2Score > player_vars.p1Score):
 			player_vars.winner = player_vars.player2
@@ -70,8 +76,7 @@ func _physics_process(delta):
 			t.start()
 			yield(t, "timeout")
 			
-		#whichpowerup = randi()%3
-		whichpowerup = 1
+		whichpowerup = randi()%3
 		#print_debug(whichpowerup)
 		if(powerup != null):
 			get_node("..").remove_child(powerup)
