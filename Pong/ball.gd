@@ -30,6 +30,7 @@ func _physics_process(delta):
 	if collision:
 		# if ball hit the outer ring
 		if collision.collider.has_method("hit"):
+			get_node("../OuterRing/CollisionPolygon2D/OuterRing_P/AudioStreamPlayer2D").play()
 			collision.collider.hit(lastHit)
 			velocity = Vector2(0,0)
 			$CollisionShape2D.disabled = true
@@ -105,6 +106,7 @@ func _physics_process(delta):
 			collisionNode.disabled = false
 			
 		if collision.collider.has_method("throughWormhole"):
+			get_node("CollisionShape2D/ballSprite/Wormhole sounds").play()
 			var temp
 			temp = collision.collider.throughWormhole()
 			$CollisionShape2D.disabled = true
