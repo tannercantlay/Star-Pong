@@ -1,4 +1,4 @@
-# Planetary-Pong
+# Star-Pong
 Made by: Tanner Cantlay, Thomas Kent, Harrison Weese, Jameson Hale
 For: UGAHacks5
 
