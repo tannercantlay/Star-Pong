@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/JamesonDontDeleteThis.png-389c3cc4b98ba1a5c8ad4bc1810c00a5.stex"
+path="res://.import/Boost_sheet.png-f7c05b918a9c1e4c48e505ad5703bfc2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/SpriteSheets/JamesonDontDeleteThis.png"
-dest_files=[ "res://.import/JamesonDontDeleteThis.png-389c3cc4b98ba1a5c8ad4bc1810c00a5.stex" ]
+source_file="res://Sprites/SpriteSheets/Boost_sheet.png"
+dest_files=[ "res://.import/Boost_sheet.png-f7c05b918a9c1e4c48e505ad5703bfc2.stex" ]
 
 [params]
 
