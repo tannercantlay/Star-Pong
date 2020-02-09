@@ -12,6 +12,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	if(get_text() != null):
+	if(get_text().length() > 1):
 		player_vars.player2 = get_text()
 	pass

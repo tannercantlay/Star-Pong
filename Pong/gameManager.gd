@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends StaticBody2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -17,7 +17,6 @@ func _ready():
 	pass # Replace with function body.
 
 func hit(team):
-	var collision = move_and_collide(velocity)
 	if(team == "purple"):
 		player_vars.p1Score += 1
 		player_vars.numrounds -= 1
@@ -56,8 +55,8 @@ func _physics_process(delta):
 			var boosters = get_node("../Boosterdad/Booster")
 			var temp = Vector2(rand_range(-250, 250), rand_range(-250,250))
 			boosters.position = temp
-			
-			
+
+
 		timer = 500
 	pass
 

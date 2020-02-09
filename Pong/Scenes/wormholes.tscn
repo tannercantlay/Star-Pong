@@ -19,6 +19,8 @@ shape = SubResource( 1 )
 scale = Vector2( 0.407396, 0.426512 )
 texture = ExtResource( 2 )
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Wormhole1/CollisionShape2D/Sprite"]
+
 [node name="Wormhole2" type="KinematicBody2D" parent="."]
 position = Vector2( 46.8986, -25.0805 )
 script = ExtResource( 3 )
@@ -29,3 +31,5 @@ shape = SubResource( 1 )
 [node name="Sprite" type="Sprite" parent="Wormhole2/CollisionShape2D"]
 scale = Vector2( 0.407396, 0.426512 )
 texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Wormhole2/CollisionShape2D/Sprite"]

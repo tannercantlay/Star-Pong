@@ -1,5 +1,6 @@
 extends Sprite
 
+onready var player_vars = get_node("/root/PlayerVariables")
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -8,6 +9,10 @@ extends Sprite
 
 # Called when the node enters the scene tree for the first time.
 	
+func _ready():
+	player_vars.p1Score = 0
+	player_vars.p2Score = 0
+	player_vars.numrounds = 11
 func pressed_handler(which):
 	pass
 
