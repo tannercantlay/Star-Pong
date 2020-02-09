@@ -98,7 +98,7 @@ func _physics_process(delta):
 			temp = collision.collider.middleStar(velocity)
 			velocity = temp;
 			var t = Timer.new()
-			t.set_wait_time(2)
+			t.set_wait_time(.2)
 			t.set_one_shot(true)
 			add_child(t)
 			t.start()
