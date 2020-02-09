@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://Sprites/SpriteSheets/OuterRingPtoY.png" type="Texture" id=1]
 [ext_resource path="res://paddle1.gd" type="Script" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://Sounds/starexplosion.wav" type="AudioStream" id=20]
 [ext_resource path="res://Sounds/scoring.wav" type="AudioStream" id=21]
 [ext_resource path="res://Sounds/wormhole.wav" type="AudioStream" id=22]
+[ext_resource path="res://Sounds/speed.wav" type="AudioStream" id=23]
 
 [sub_resource type="Animation" id=1]
 resource_name = "twinkle"
@@ -461,6 +462,10 @@ frame = 10
 [node name="Wormhole sounds" type="AudioStreamPlayer2D" parent="Ball/CollisionShape2D/ballSprite"]
 scale = Vector2( 0.5, 0.5 )
 stream = ExtResource( 22 )
+
+[node name="Speedracer" type="AudioStreamPlayer2D" parent="Ball/CollisionShape2D/ballSprite"]
+scale = Vector2( 0.5, 0.5 )
+stream = ExtResource( 23 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Ball/CollisionShape2D/ballSprite"]
 autoplay = "ballRotate"
