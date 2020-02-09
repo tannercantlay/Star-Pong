@@ -5,6 +5,8 @@ extends StaticBody2D
 var roundsPlayed = 1
 var velocity = Vector2(0,0)
 var timer = 500
+var whichpowerup = 0
+var thread
 
 onready var wormholes = preload("res://Scenes/wormholes.tscn")
 onready var booster = preload("res://Scenes/booster.tscn")
@@ -35,7 +37,30 @@ func _physics_process(delta):
 	timer -= 1
 
 	if(timer == 0):
-		var whichpowerup = randi()%3
+		if(whichpowerup == 1 && powerup != null):
+			#thread =  Thread.new()
+			#thread.start(self,"_wormholeleave")
+			var animator1 = get_node("../Wormholes/Wormhole1/CollisionShape2D/Sprite/AnimationPlayer")
+			var animator2 = get_node("../Wormholes/Wormhole2/CollisionShape2D/Sprite/AnimationPlayer")
+			animator1.play("Exit")
+			animator2.play("Exit")
+			var t = Timer.new()
+			t.set_wait_time(.7)
+			t.set_one_shot(true)
+			add_child(t)
+			t.start()
+			yield(t, "timeout")
+		if(whichpowerup == 2 && powerup != null):
+			var animator = get_node("../Boosterdad/Booster/CollisionShape2D/Sprite/AnimationPlayer")
+			animator.play("Exit")
+			var t = Timer.new()
+			t.set_wait_time(.7)
+			t.set_one_shot(true)
+			add_child(t)
+			t.start()
+			yield(t, "timeout")
+			
+		whichpowerup = randi()%3
 		print_debug(whichpowerup)
 		if(powerup != null):
 			get_node("..").remove_child(powerup)
@@ -45,20 +70,57 @@ func _physics_process(delta):
 			get_node("..").add_child(powerup)
 			var wormhole1 = get_node("../Wormholes/Wormhole1")
 			var wormhole2 = get_node("../Wormholes/Wormhole2")
+			
 			var temp = Vector2(rand_range(-25, -250), rand_range(-250,250))
+			print_debug(temp)
 			wormhole1.position = temp
+	
 			temp = Vector2(rand_range(25, 250), rand_range(-250,250))
+			print_debug(temp)
 			wormhole2.position = temp
+		
+		
+			var animator1 = get_node("../Wormholes/Wormhole1/CollisionShape2D/Sprite/AnimationPlayer")
+			var animator2 = get_node("../Wormholes/Wormhole2/CollisionShape2D/Sprite/AnimationPlayer")
+			var t = Timer.new()
+			t.set_wait_time(.7)
+			t.set_one_shot(true)
+			add_child(t)
+			t.start()
+			yield(t, "timeout")
+			animator1.play("Idle")
+			animator2.play("Idle")
+		
 		if(whichpowerup == 2):
 			powerup = booster.instance()
 			get_node("..").add_child(powerup)
 			var boosters = get_node("../Boosterdad/Booster")
 			var temp = Vector2(rand_range(-250, 250), rand_range(-250,250))
 			boosters.position = temp
+			var animator = get_node("../Boosterdad/Booster/CollisionShape2D/Sprite/AnimationPlayer")
+			var t = Timer.new()
+			t.set_wait_time(.7)
+			t.set_one_shot(true)
+			add_child(t)
+			t.start()
+			yield(t, "timeout")
+			animator.play("Idle")
 
 
 		timer = 500
+		if(whichpowerup == 0):
+			timer = 250
 	pass
+
+func _wormholeleave(animator):
+	print_debug("threading")
+	animator.play("Exit")
+	var t = Timer.new()
+	t.set_wait_time(1.4)
+	t.set_one_shot(true)
+	add_child(t)
+	t.start()
+	yield(t, "timeout")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
