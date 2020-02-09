@@ -466,6 +466,7 @@ stream = ExtResource( 22 )
 [node name="Speedracer" type="AudioStreamPlayer2D" parent="Ball/CollisionShape2D/ballSprite"]
 scale = Vector2( 0.5, 0.5 )
 stream = ExtResource( 23 )
+volume_db = 5.843
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Ball/CollisionShape2D/ballSprite"]
 autoplay = "ballRotate"

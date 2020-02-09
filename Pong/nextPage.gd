@@ -16,14 +16,8 @@ func _ready():
 #	musicPlayer.music.volume_db = 1
 #	musicPlayer.music.pitch_scale = 1
 #	musicPlayer.music.play()
-	player_vars.p1Score = 0
-	player_vars.p2Score = 0
-	player_vars.numrounds = 11
-	player_vars.maxwins = player_vars.numrounds / 2 + 1 #All that matters
-	player_vars.player1 = "Player 1"
-	player_vars.player2 = "Player 2"
-	player_vars.winner = player_vars.player1
-	
+	pass
+
 func _unhandled_input(event):
 	if event is InputEventMouseButton and event.pressed and not event.is_echo() and event.button_index == BUTTON_LEFT:
 		#print_debug("Inside IF")
@@ -35,6 +29,13 @@ func _unhandled_input(event):
 			elif(get_tree().get_current_scene().get_name() == "Name2"):
 				get_tree().change_scene("res://Scenes/OuterCollider.tscn")
 			elif(get_tree().get_current_scene().get_name() == "main"):
+				player_vars.p1Score = 0
+				player_vars.p2Score = 0
+				player_vars.numrounds = 11
+				player_vars.maxwins = player_vars.numrounds / 2 + 1 #All that matters
+				player_vars.player1 = "Player 1"
+				player_vars.player2 = "Player 2"
+				player_vars.winner = player_vars.player1
 				get_tree().change_scene("res://Scenes/EnterName1.tscn")
 			elif(get_tree().get_current_scene().get_name() == "gamewin"):
 				musicPlayer.music.stop()
