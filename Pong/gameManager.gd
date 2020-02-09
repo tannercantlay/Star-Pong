@@ -11,11 +11,18 @@ var thread
 onready var wormholes = preload("res://Scenes/wormholes.tscn")
 onready var booster = preload("res://Scenes/booster.tscn")
 onready var player_vars = get_node("/root/PlayerVariables")
+onready var musicPlayer = get_node("/root/Music")
 onready var roundLabel = get_node("../Node/RoundsPlayed")
 var powerup
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	roundLabel.set_text("Round: " + str(roundsPlayed))
+	musicPlayer.music.stop()
+	musicPlayer.stream = load("res://Sounds/gameplay.ogg")
+	musicPlayer.music.set_stream(musicPlayer.stream)
+	musicPlayer.music.volume_db = 1
+	musicPlayer.music.pitch_scale = 1
+	musicPlayer.music.play()
 	pass # Replace with function body.
 
 func hit(team):
