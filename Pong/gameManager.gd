@@ -9,6 +9,7 @@ var timer = 500
 onready var wormholes = preload("res://Scenes/wormholes.tscn")
 onready var player_vars = get_node("/root/PlayerVariables")
 onready var roundLabel = get_node("../Node/RoundsPlayed")
+var powerup
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	roundLabel.set_text("Round: " + str(roundsPlayed))
@@ -30,10 +31,22 @@ func _physics_process(delta):
 	timer -= 1
 
 	if(timer == 0):
-		var powerup
-		powerup = wormholes.instance()
+		var whichpowerup = 1
+		
+		if(powerup != null):
+			get_node("..").remove_child(powerup)
 		print_debug("time up")
-		get_node("..").add_child(powerup)
+		if (whichpowerup == 1):
+			powerup = wormholes.instance()
+			get_node("..").add_child(powerup)
+			var wormhole1 = get_node("../Wormholes/Wormhole1")
+			var wormhole2 = get_node("../Wormholes/Wormhole2")
+			var temp = Vector2(rand_range(-25, -250), rand_range(-250,250))
+			wormhole1.position = temp
+			temp = Vector2(rand_range(25, 250), rand_range(-250,250))
+			wormhole2.position = temp
+		#f(whichpowerup == 2):
+			
 		timer = 500
 	pass
 

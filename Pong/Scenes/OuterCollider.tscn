@@ -227,7 +227,6 @@ font_data = ExtResource( 9 )
 font_data = ExtResource( 14 )
 
 [sub_resource type="CircleShape2D" id=19]
-
 radius = 25.915
 
 [node name="Node2D" type="Node2D"]
@@ -274,7 +273,7 @@ rotation = 4.71239
 scale = Vector2( 1, -1 )
 texture = ExtResource( 13 )
 hframes = 10
-frame = 1
+frame = 7
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="Star4"]
 autoplay = "twinkle"
@@ -309,7 +308,7 @@ rotation = 3.14159
 scale = Vector2( -1, -1 )
 texture = ExtResource( 13 )
 hframes = 10
-frame = 8
+frame = 7
 
 [node name="AnimationPlayer6" type="AnimationPlayer" parent="Star8"]
 autoplay = "twinkle"
@@ -320,7 +319,7 @@ position = Vector2( -588.279, 279.873 )
 rotation = 3.14159
 texture = ExtResource( 13 )
 hframes = 10
-frame = 4
+frame = 7
 
 [node name="AnimationPlayer7" type="AnimationPlayer" parent="Star9"]
 autoplay = "twinkle"
