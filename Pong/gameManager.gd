@@ -19,6 +19,7 @@ func _ready():
 	pass # Replace with function body.
 
 func hit(team):
+	print_debug(player_vars.numrounds)
 	if(team == "purple"):
 		player_vars.p1Score += 1
 		player_vars.numrounds -= 1
@@ -61,7 +62,7 @@ func _physics_process(delta):
 			yield(t, "timeout")
 			
 		whichpowerup = randi()%3
-		print_debug(whichpowerup)
+		#print_debug(whichpowerup)
 		if(powerup != null):
 			get_node("..").remove_child(powerup)
 		print_debug("time up")

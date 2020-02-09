@@ -10,6 +10,8 @@
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
+outline_size = 1
+outline_color = Color( 0.607843, 0.678431, 0.717647, 1 )
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=2]
@@ -39,6 +41,8 @@ margin_bottom = 9.0
 rect_scale = Vector2( 0.820073, 0.663547 )
 rect_pivot_offset = Vector2( -198.856, 0 )
 custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0.0784314, 0.784314, 0, 1 )
 text = "Cosmic Pong"
 align = 1
 valign = 1
@@ -60,6 +64,7 @@ margin_right = 149.118
 margin_bottom = 52.1011
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.0784314, 0.784314, 0, 1 )
 text = "Start Game"
 align = 1
 valign = 1
@@ -80,6 +85,7 @@ margin_right = 149.118
 margin_bottom = 52.1011
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.0784314, 0.784314, 0, 1 )
 text = "Exit"
 align = 1
 valign = 1

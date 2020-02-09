@@ -13,9 +13,10 @@ func _ready():
 	player_vars.p1Score = 0
 	player_vars.p2Score = 0
 	player_vars.numrounds = 3 #All that matters
-func pressed_handler(which):
-	pass
-
+	player_vars.player1 = "Player 1"
+	player_vars.player2 = "Player 2"
+	player_vars.winner = player_vars.player1
+	
 func _unhandled_input(event):
 	if event is InputEventMouseButton and event.pressed and not event.is_echo() and event.button_index == BUTTON_LEFT:
 		print_debug("Inside IF")

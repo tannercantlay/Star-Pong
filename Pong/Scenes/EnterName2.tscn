@@ -30,7 +30,7 @@ current = true
 [node name="Label" type="Label" parent="."]
 margin_left = -200.0
 margin_top = -100.0
-margin_right = 4.0
+margin_right = 3.0
 margin_bottom = -40.0
 rect_scale = Vector2( 2, 2 )
 custom_fonts/font = SubResource( 1 )
@@ -45,6 +45,7 @@ __meta__ = {
 }
 
 [node name="EnterName2" type="TextEdit" parent="."]
+modulate = Color( 0.607843, 0.678431, 0.717647, 1 )
 margin_left = -154.0
 margin_top = -20.0
 margin_right = 146.0
@@ -69,6 +70,7 @@ margin_right = 149.559
 margin_bottom = 49.7616
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.0784314, 0.784314, 0, 1 )
 text = "Next"
 align = 1
 valign = 1
