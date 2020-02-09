@@ -76,11 +76,13 @@ func _physics_process(delta):
 		if collision.collider.has_method("getTeam"):
 			lastHit = collision.collider.getTeam()
 			if(lastHit == "purple"):
+				get_node("../Paddle1/CollisionShape2D/paddleSpriteP/AudioStreamPlayer2D").play()
 				get_node("../Paddle1/CollisionShape2D").disabled = true
 				get_node("../Paddle2/CollisionShape2D").disabled = false
 				animate.play("changeColor")
 				Ring.texture = yelRing
 			elif(lastHit == "yellow"):
+				get_node("../Paddle2/CollisionShape2D/paddleSpriteY/AudioStreamPlayer2D").play()
 				get_node("../Paddle2/CollisionShape2D").disabled = true
 				get_node("../Paddle1/CollisionShape2D").disabled = false
 				animate.play("changeColor")
@@ -88,6 +90,7 @@ func _physics_process(delta):
 			velocity = 1.03 * velocity.bounce(collision.normal)
 			
 		if collision.collider.has_method("middleStar"):
+			get_node("../Middle Star/CollisionShape2D/Sprite/AudioStreamPlayer2D").play()
 			var temp
 			var collisionNode = get_node("../Middle Star/CollisionShape2D")
 			collisionNode.disabled = true
