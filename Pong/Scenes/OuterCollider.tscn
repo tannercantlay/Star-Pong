@@ -1,11 +1,11 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://Sprites/SpriteSheets/OuterRingPtoY.png" type="Texture" id=1]
 [ext_resource path="res://paddle1.gd" type="Script" id=2]
 [ext_resource path="res://Sprites/SpriteSheets/Platform_Y.png" type="Texture" id=3]
 [ext_resource path="res://ball.gd" type="Script" id=4]
 [ext_resource path="res://paddle2.gd" type="Script" id=5]
-[ext_resource path="res://Sprites/SpriteSheets/Platform_Y4.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/SpriteSheets/Platform_P2.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/SpriteSheets/Ball_withFadeIn.png" type="Texture" id=7]
 [ext_resource path="res://gameManager.gd" type="Script" id=8]
 [ext_resource path="res://joystix/JOYSTIX.TTF" type="DynamicFontData" id=9]
@@ -17,12 +17,11 @@
 [ext_resource path="res://RingChange.gd" type="Script" id=15]
 [ext_resource path="res://MiddleStar.gd" type="Script" id=16]
 [ext_resource path="res://Sprites/SpriteSheets/Star_sheet.png" type="Texture" id=17]
-[ext_resource path="res://Sprites/SpriteSheets/Platform_P4.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/SpriteSheets/Platform_Y2.png" type="Texture" id=18]
 [ext_resource path="res://Sounds/paddlehit.wav" type="AudioStream" id=19]
 [ext_resource path="res://Sounds/starexplosion.wav" type="AudioStream" id=20]
 [ext_resource path="res://Sounds/scoring.wav" type="AudioStream" id=21]
 [ext_resource path="res://Sounds/wormhole.wav" type="AudioStream" id=22]
-[ext_resource path="res://Sounds/speed.wav" type="AudioStream" id=23]
 
 [sub_resource type="Animation" id=1]
 resource_name = "twinkle"
@@ -155,7 +154,7 @@ tracks/0/keys = {
 [sub_resource type="CanvasItemMaterial" id=9]
 
 [sub_resource type="RectangleShape2D" id=10]
-extents = Vector2( 50.2694, 19.2959 )
+extents = Vector2( 50.2757, 9.44635 )
 
 [sub_resource type="Animation" id=11]
 length = 0.6
@@ -405,11 +404,11 @@ script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle1"]
 material = SubResource( 9 )
-position = Vector2( 0, 492.7 )
+position = Vector2( 0, 480 )
 shape = SubResource( 10 )
 
 [node name="paddleSpriteP" type="Sprite" parent="Paddle1/CollisionShape2D"]
-texture = ExtResource( 18 )
+texture = ExtResource( 6 )
 hframes = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Paddle1/CollisionShape2D/paddleSpriteP"]
@@ -426,12 +425,12 @@ script = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle2"]
 material = SubResource( 9 )
-position = Vector2( 0, -492.7 )
+position = Vector2( 0, -480 )
 shape = SubResource( 10 )
 
 [node name="paddleSpriteY" type="Sprite" parent="Paddle2/CollisionShape2D"]
 rotation = 3.14159
-texture = ExtResource( 6 )
+texture = ExtResource( 18 )
 normal_map = ExtResource( 3 )
 hframes = 6
 
@@ -485,7 +484,7 @@ build_mode = 1
 polygon = PoolVector2Array( 0.0575035, -8.35868, 0.818746, -8.3942, 1.31438, -8.34034, 1.74577, -8.23261, 2.08537, -8.11411, 2.52593, -7.9202, 2.98485, -7.70475, 3.47131, -7.38156, 3.8568, -7.05838, 4.21476, -6.70288, 4.56354, -6.29351, 4.83889, -5.92724, 5.20603, -5.29165, 5.39878, -4.84996, 5.62824, -4.26823, 5.83016, -3.50337, 5.9403, -2.74928, 5.99537, -2.16755, 5.96784, -1.42423, 5.83016, -0.42236, 5.61906, 0.374824, 5.35288, 1.04274, 5.16932, 1.48442, 4.85725, 1.97997, 4.49929, 2.48629, 4.03119, 2.9926, 3.5172, 3.41274, 2.94814, 3.81133, 2.38826, 4.09143, 1.85591, 4.28534, 1.3511, 4.40384, 0.644357, 4.46847, 0.0385821, 4.46847, -0.695691, 4.31765, -1.31982, 4.11297, -1.85217, 3.85442, -2.45795, 3.47738, -2.93522, 3.08956, -3.44004, 2.54015, -3.82553, 1.99074, -4.14678, 1.48442, -4.42213, 0.870371, -4.65159, 0.267097, -4.83516, -0.486997, -4.9453, -1.33804, -4.96365, -2.23218, -4.89023, -3.04014, -4.72502, -3.89119, -4.45884, -4.73146, -4.05499, -5.57174, -3.57771, -6.30429, -3.00865, -6.93988, -2.41205, -7.43543, -1.85217, -7.8017, -1.18214, -8.10334, -0.677331, -8.24338, -0.291837, -8.32956, 0.0299303, -8.36138, 0.257409, -8.48274, 0.443527, -8.6068, -0.140104, -8.55286, -0.74158, -8.43729, -1.35653, -8.1572, -2.06327, -7.93097, -2.32027, -7.70474, -2.67823, -7.46774, -3.10961, -7.15533, -3.50428, -6.67056, -3.84388, -6.3366, -4.18349, -5.80874, -4.50473, -5.20546, -4.74337, -4.61296, -4.94529, -4.04201, -5.12886, -3.39564, -5.239, -2.23218, -5.16558, -1.25186, -5.11968, -0.551632, -5.03708, 0.224007, -4.79844, 0.838054, -4.67912, 1.37669, -4.44966, 1.72142, -4.20184, 2.14156, -3.86224, 2.62633, -3.32071, 3.22961, -3.1555, 3.42352, -2.41205, 4.03756, -1.9256, 4.34997, -1.09036, 4.55466, -0.5213, 4.8132, 0.352887, 4.9139, 1.373, 4.83036, 2.25077, 4.69114, 2.9862, 4.38485, 3.95887, 3.86973, 4.5994, 3.20146, 5.0976, 2.3522, 5.59579, 1.41941, 6.03468, 0.347403, 6.20074, -0.682842, 6.2126, -1.58779, 6.24819, -2.68764, 6.17702, -3.6622, 5.57317, -5.13005, 5.27028, -5.73333, 4.75629, -6.51974, 4.13216, -7.12301, 3.65488, -7.53238, 2.94814, -7.98484, 2.69115, -8.13565, 2.04866, -8.36188, 1.62645, -8.48038, 1.18589, -8.57734, 0.494078, -8.6041, 0.413657, -8.56634 )
 
 [node name="OuterRing_P" type="Sprite" parent="OuterRing/CollisionPolygon2D"]
-position = Vector2( 0.511478, -1.96511 )
+position = Vector2( 0.511478, -1.95866 )
 scale = Vector2( 0.0112687, 0.0132261 )
 texture = ExtResource( 1 )
 hframes = 7
