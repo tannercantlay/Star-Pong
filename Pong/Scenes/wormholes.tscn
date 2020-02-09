@@ -6,7 +6,7 @@
 
 [sub_resource type="CircleShape2D" id=1]
 
-[node name="Node2D" type="Node2D"]
+[node name="Wormholes" type="Node2D"]
 
 [node name="Wormhole1" type="KinematicBody2D" parent="."]
 position = Vector2( -96.8557, -36.2954 )
