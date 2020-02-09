@@ -12,17 +12,17 @@ onready var player_vars = get_node("/root/PlayerVariables")
 func _ready():
 	player_vars.p1Score = 0
 	player_vars.p2Score = 0
-	player_vars.numrounds = 3 #All that matters
+	player_vars.numrounds = 100000 #All that matters
 	player_vars.player1 = "Player 1"
 	player_vars.player2 = "Player 2"
 	player_vars.winner = player_vars.player1
 	
 func _unhandled_input(event):
 	if event is InputEventMouseButton and event.pressed and not event.is_echo() and event.button_index == BUTTON_LEFT:
-		print_debug("Inside IF")
+		#print_debug("Inside IF")
 		#print_debug(get_rect().has_point(to_local_mouse_position())    #(event.position)))
 		if get_rect().has_point(get_local_mouse_position()):
-			print_debug("Inside IF 2")
+			#print_debug("Inside IF 2")
 			if(get_tree().get_current_scene().get_name() == "Name1"):
 				get_tree().change_scene("res://Scenes/EnterName2.tscn")
 			elif(get_tree().get_current_scene().get_name() == "Name2"):

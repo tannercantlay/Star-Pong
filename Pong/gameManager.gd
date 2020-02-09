@@ -38,9 +38,11 @@ func hit(team):
 	if(player_vars.numrounds == 0):
 		if(player_vars.p2Score > player_vars.p1Score):
 			player_vars.winner = player_vars.player2
+# warning-ignore:return_value_discarded
 		get_tree().change_scene("res://Scenes/GameWin.tscn")
 	pass
 
+# warning-ignore:unused_argument
 func _physics_process(delta):
 	timer -= 1
 
@@ -68,11 +70,12 @@ func _physics_process(delta):
 			t.start()
 			yield(t, "timeout")
 			
-		whichpowerup = randi()%3
+		#whichpowerup = randi()%3
+		whichpowerup = 1
 		#print_debug(whichpowerup)
 		if(powerup != null):
 			get_node("..").remove_child(powerup)
-		print_debug("time up")
+		#print_debug("time up")
 		if (whichpowerup == 1):
 			powerup = wormholes.instance()
 			get_node("..").add_child(powerup)
@@ -80,11 +83,11 @@ func _physics_process(delta):
 			var wormhole2 = get_node("../Wormholes/Wormhole2")
 			
 			var temp = Vector2(rand_range(-25, -250), rand_range(-250,250))
-			print_debug(temp)
+			#print_debug(temp)
 			wormhole1.position = temp
 	
 			temp = Vector2(rand_range(25, 250), rand_range(-250,250))
-			print_debug(temp)
+			#print_debug(temp)
 			wormhole2.position = temp
 		
 		
@@ -121,7 +124,7 @@ func _physics_process(delta):
 	pass
 
 func _wormholeleave(animator):
-	print_debug("threading")
+	#print_debug("threading")
 	animator.play("Exit")
 	var t = Timer.new()
 	t.set_wait_time(1.4)

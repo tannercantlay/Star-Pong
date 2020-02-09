@@ -74,7 +74,7 @@ func _physics_process(delta):
 				#if Input.is_key_pressed(16777234):
 				#velocity = Vector2(0,speed)
 		# if ball hits a paddle
-		if collision.collider.has_method("getTeam"):
+		elif collision.collider.has_method("getTeam"):
 			lastHit = collision.collider.getTeam()
 			if(lastHit == "purple"):
 				get_node("../Paddle1/CollisionShape2D/paddleSpriteP/AudioStreamPlayer2D").play()
@@ -90,7 +90,7 @@ func _physics_process(delta):
 				Ring.texture = purpRing
 			velocity = 1.03 * velocity.bounce(collision.normal)
 			
-		if collision.collider.has_method("middleStar"):
+		elif collision.collider.has_method("middleStar"):
 			get_node("../Middle Star/CollisionShape2D/Sprite/AudioStreamPlayer2D").play()
 			var temp
 			var collisionNode = get_node("../Middle Star/CollisionShape2D")
@@ -104,24 +104,33 @@ func _physics_process(delta):
 			t.start()
 			yield(t, "timeout")
 			collisionNode.disabled = false
+
 			
-		if collision.collider.has_method("throughWormhole"):
+		elif collision.collider.has_method("throughWormhole"):
+			print_debug("teleport collide")
 			get_node("CollisionShape2D/ballSprite/Wormhole sounds").play()
 			var temp
+			var wormhole1 = get_node("../Wormholes/Wormhole1/CollisionShape2D")
+			var wormhole2 = get_node("../Wormholes/Wormhole2/CollisionShape2D")
+			wormhole1.disabled = true
+			wormhole2.disabled = true
 			temp = collision.collider.throughWormhole()
-			$CollisionShape2D.disabled = true
+			
 			position = temp
-			velocity *= .9
+			if velocity.length() > 400: 
+				velocity *= .9
 			var t = Timer.new()
 			t.set_wait_time(.2)
 			t.set_one_shot(true)
 			add_child(t)
 			t.start()
 			yield(t, "timeout")
-			$CollisionShape2D.disabled = false
+			wormhole1.disabled = false
+			wormhole2.disabled = false
+	
 			pass
 			
-		if collision.collider.has_method("speedracer"):
+		elif collision.collider.has_method("speedracer"):
 			get_node("CollisionShape2D/ballSprite/speedracer").play()
 			$CollisionShape2D.disabled = true
 			velocity = velocity * 2.0
