@@ -45,6 +45,7 @@ __meta__ = {
 }
 
 [node name="EnterName1" type="TextEdit" parent="."]
+modulate = Color( 0.607843, 0.678431, 0.717647, 1 )
 margin_left = -154.0
 margin_top = -20.0
 margin_right = 146.0
@@ -72,6 +73,7 @@ margin_right = 151.524
 margin_bottom = 51.2467
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.0784314, 0.784314, 0, 1 )
 text = "NExt"
 align = 1
 valign = 1

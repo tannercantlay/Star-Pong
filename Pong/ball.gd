@@ -8,7 +8,7 @@ var timer
 var velocity = Vector2()
 var returnValue
 var speed = 350
-var lastHit = "purple"
+var lastHit = "yellow"
 
 onready var paddle1 = get_node("../Paddle1")
 onready var paddle2 = get_node("../Paddle2")
@@ -19,7 +19,7 @@ onready var purpRing = load("res://Sprites/SpriteSheets/OuterRingYtoP.png")
 onready var animate = get_node("../OuterRing/CollisionPolygon2D/OuterRing_P/AnimationPlayer")
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	velocity = Vector2(0,(speed))
+	#velocity = Vector2(0,(speed))
 	
 	pass # Replace with function body.
 
@@ -31,8 +31,17 @@ func _physics_process(delta):
 		# if ball hit the outer ring
 		if collision.collider.has_method("hit"):
 			collision.collider.hit(lastHit)
+			velocity = Vector2(0,0)
+			$CollisionShape2D.disabled = true
+			get_node("CollisionShape2D/ballSprite/AnimationPlayer").play("Exit")
+			var g = Timer.new()
+			g.set_wait_time(.4)
+			g.set_one_shot(true)
+			add_child(g)
+			g.start()
+			yield(g, "timeout")
 			velocity = Vector2(0,lastHit)
-			
+			$CollisionShape2D.disabled = false
 			# repositions ball to center of game, offset up if purple scored or down if yellow scored
 			# ? will call logic from gameManager to update game score, reposition paddles after a score?
 			if lastHit == "yellow":
@@ -67,9 +76,13 @@ func _physics_process(delta):
 		if collision.collider.has_method("getTeam"):
 			lastHit = collision.collider.getTeam()
 			if(lastHit == "purple"):
+				get_node("../Paddle1/CollisionShape2D").disabled = true
+				get_node("../Paddle2/CollisionShape2D").disabled = false
 				animate.play("changeColor")
 				Ring.texture = yelRing
 			elif(lastHit == "yellow"):
+				get_node("../Paddle2/CollisionShape2D").disabled = true
+				get_node("../Paddle1/CollisionShape2D").disabled = false
 				animate.play("changeColor")
 				Ring.texture = purpRing
 			velocity = 1.03 * velocity.bounce(collision.normal)
@@ -113,7 +126,7 @@ func _physics_process(delta):
 			add_child(t)
 			t.start()
 			yield(t, "timeout")
-			velocity = velocity * .75
+			velocity = velocity * .625
 			$CollisionShape2D.disabled = false
 			pass
 
