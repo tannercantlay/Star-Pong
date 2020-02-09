@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/starexplosion.wav-b509de17e693dc514988da8a7e1bc9da.sample"
+
+[deps]
+
+source_file="res://Sounds/starexplosion.wav"
+dest_files=[ "res://.import/starexplosion.wav-b509de17e693dc514988da8a7e1bc9da.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

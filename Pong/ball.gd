@@ -30,6 +30,7 @@ func _physics_process(delta):
 	if collision:
 		# if ball hit the outer ring
 		if collision.collider.has_method("hit"):
+			get_node("../OuterRing/CollisionPolygon2D/OuterRing_P/AudioStreamPlayer2D").play()
 			collision.collider.hit(lastHit)
 			velocity = Vector2(0,0)
 			$CollisionShape2D.disabled = true
@@ -76,11 +77,13 @@ func _physics_process(delta):
 		if collision.collider.has_method("getTeam"):
 			lastHit = collision.collider.getTeam()
 			if(lastHit == "purple"):
+				get_node("../Paddle1/CollisionShape2D/paddleSpriteP/AudioStreamPlayer2D").play()
 				get_node("../Paddle1/CollisionShape2D").disabled = true
 				get_node("../Paddle2/CollisionShape2D").disabled = false
 				animate.play("changeColor")
 				Ring.texture = yelRing
 			elif(lastHit == "yellow"):
+				get_node("../Paddle2/CollisionShape2D/paddleSpriteY/AudioStreamPlayer2D").play()
 				get_node("../Paddle2/CollisionShape2D").disabled = true
 				get_node("../Paddle1/CollisionShape2D").disabled = false
 				animate.play("changeColor")
@@ -88,6 +91,7 @@ func _physics_process(delta):
 			velocity = 1.03 * velocity.bounce(collision.normal)
 			
 		if collision.collider.has_method("middleStar"):
+			get_node("../Middle Star/CollisionShape2D/Sprite/AudioStreamPlayer2D").play()
 			var temp
 			var collisionNode = get_node("../Middle Star/CollisionShape2D")
 			collisionNode.disabled = true
@@ -102,6 +106,7 @@ func _physics_process(delta):
 			collisionNode.disabled = false
 			
 		if collision.collider.has_method("throughWormhole"):
+			get_node("CollisionShape2D/ballSprite/Wormhole sounds").play()
 			var temp
 			temp = collision.collider.throughWormhole()
 			$CollisionShape2D.disabled = true
