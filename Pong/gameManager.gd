@@ -28,7 +28,7 @@ func hit(team):
 	roundsPlayed += 1
 	roundLabel.set_text("Round: " + str(roundsPlayed))
 	if(player_vars.numrounds == 0):
-		if(player_vars.p2Score < player_vars.p1Score):
+		if(player_vars.p2Score > player_vars.p1Score):
 			player_vars.winner = player_vars.player2
 		get_tree().change_scene("res://Scenes/GameWin.tscn")
 	pass
@@ -54,7 +54,7 @@ func _physics_process(delta):
 			var animator = get_node("../Boosterdad/Booster/CollisionShape2D/Sprite/AnimationPlayer")
 			animator.play("Exit")
 			var t = Timer.new()
-			t.set_wait_time(.7)
+			t.set_wait_time(.6)
 			t.set_one_shot(true)
 			add_child(t)
 			t.start()
@@ -99,7 +99,7 @@ func _physics_process(delta):
 			boosters.position = temp
 			var animator = get_node("../Boosterdad/Booster/CollisionShape2D/Sprite/AnimationPlayer")
 			var t = Timer.new()
-			t.set_wait_time(.7)
+			t.set_wait_time(.6)
 			t.set_one_shot(true)
 			add_child(t)
 			t.start()

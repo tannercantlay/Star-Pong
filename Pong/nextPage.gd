@@ -12,7 +12,7 @@ onready var player_vars = get_node("/root/PlayerVariables")
 func _ready():
 	player_vars.p1Score = 0
 	player_vars.p2Score = 0
-	player_vars.numrounds = 11
+	player_vars.numrounds = 3 #All that matters
 func pressed_handler(which):
 	pass
 

@@ -62,7 +62,7 @@ tracks/0/keys = {
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Booster"]
-scale = Vector2( 2, 2 )
+scale = Vector2( 2.75, 2.75 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="Booster/CollisionShape2D"]
