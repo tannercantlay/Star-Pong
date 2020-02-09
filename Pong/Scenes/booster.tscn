@@ -5,13 +5,13 @@
 
 [sub_resource type="CircleShape2D" id=1]
 
-[node name="Node2D" type="Node2D"]
+[node name="Boosterdad" type="Node2D"]
 
-[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+[node name="Booster" type="KinematicBody2D" parent="."]
 script = ExtResource( 1 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Booster"]
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="KinematicBody2D/CollisionShape2D"]
+[node name="Sprite" type="Sprite" parent="Booster/CollisionShape2D"]
 texture = ExtResource( 2 )

@@ -7,6 +7,7 @@ var velocity = Vector2(0,0)
 var timer = 500
 
 onready var wormholes = preload("res://Scenes/wormholes.tscn")
+onready var booster = preload("res://Scenes/booster.tscn")
 onready var player_vars = get_node("/root/PlayerVariables")
 onready var roundLabel = get_node("../Node/RoundsPlayed")
 var powerup
@@ -25,14 +26,18 @@ func hit(team):
 		player_vars.numrounds -= 1
 	roundsPlayed += 1
 	roundLabel.set_text("Round: " + str(roundsPlayed))
+	if(player_vars.numrounds == 0):
+		if(player_vars.p2Score < player_vars.p1Score):
+			player_vars.winner = player_vars.player2
+		get_tree().change_scene("res://Scenes/GameWin.tscn")
 	pass
 
 func _physics_process(delta):
 	timer -= 1
 
 	if(timer == 0):
-		var whichpowerup = 1
-		
+		var whichpowerup = randi()%3
+		print_debug(whichpowerup)
 		if(powerup != null):
 			get_node("..").remove_child(powerup)
 		print_debug("time up")
@@ -45,7 +50,13 @@ func _physics_process(delta):
 			wormhole1.position = temp
 			temp = Vector2(rand_range(25, 250), rand_range(-250,250))
 			wormhole2.position = temp
-		#f(whichpowerup == 2):
+		if(whichpowerup == 2):
+			powerup = booster.instance()
+			get_node("..").add_child(powerup)
+			var boosters = get_node("../Boosterdad/Booster")
+			var temp = Vector2(rand_range(-250, 250), rand_range(-250,250))
+			boosters.position = temp
+			
 			
 		timer = 500
 	pass

@@ -84,6 +84,14 @@ func _physics_process(delta):
 			$CollisionShape2D.disabled = false
 			pass
 		if collision.collider.has_method("speedracer"):
+			$CollisionShape2D.disabled = true
+			var t = Timer.new()
+			t.set_wait_time(.2)
+			t.set_one_shot(true)
+			add_child(t)
+			t.start()
+			yield(t, "timeout")
+			$CollisionShape2D.disabled = false
 			velocity *= 1.1
 			pass
 
