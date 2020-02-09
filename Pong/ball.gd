@@ -133,7 +133,7 @@ func _physics_process(delta):
 		elif collision.collider.has_method("speedracer"):
 			get_node("CollisionShape2D/ballSprite/Speedracer").play()
 			$CollisionShape2D.disabled = true
-			velocity = velocity * 2.0
+			velocity = velocity * 2.15
 			
 			var t = Timer.new()
 			t.set_wait_time(.2)
@@ -141,7 +141,7 @@ func _physics_process(delta):
 			add_child(t)
 			t.start()
 			yield(t, "timeout")
-			velocity = velocity * .625
+			velocity = velocity * .64
 			$CollisionShape2D.disabled = false
 			pass
 

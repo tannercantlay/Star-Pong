@@ -111,7 +111,7 @@ func _physics_process(delta):
 			powerup = booster.instance()
 			get_node("..").add_child(powerup)
 			var boosters = get_node("../Boosterdad/Booster")
-			var temp = Vector2(rand_range(-250, 250), rand_range(-250,250))
+			var temp = Vector2(rand_range(-225, 225), rand_range(-225,225))
 			boosters.position = temp
 			var animator = get_node("../Boosterdad/Booster/CollisionShape2D/Sprite/AnimationPlayer")
 			var t = Timer.new()
