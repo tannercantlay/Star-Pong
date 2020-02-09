@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 [autoload]
 
 PlayerVariables="*res://PlayerVariables.gd"
+Music="*res://Music.gd"
 
 [display]
 
