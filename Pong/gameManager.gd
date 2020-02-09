@@ -87,11 +87,11 @@ func _physics_process(delta):
 			var wormhole1 = get_node("../Wormholes/Wormhole1")
 			var wormhole2 = get_node("../Wormholes/Wormhole2")
 			
-			var temp = Vector2(rand_range(-25, -250), rand_range(-250,250))
+			var temp = Vector2(rand_range(-25, -225), rand_range(-225,225))
 			#print_debug(temp)
 			wormhole1.position = temp
 	
-			temp = Vector2(rand_range(25, 250), rand_range(-250,250))
+			temp = Vector2(rand_range(25, 225), rand_range(-225,225))
 			#print_debug(temp)
 			wormhole2.position = temp
 		
