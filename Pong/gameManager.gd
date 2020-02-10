@@ -80,10 +80,10 @@ func _physics_process(delta):
 			get_node("..").add_child(powerup)
 			var wormhole1 = get_node("../Wormholes/Wormhole1")
 			var wormhole2 = get_node("../Wormholes/Wormhole2")
-			var temp = Vector2(rand_range(-30, -225), rand_range(-225,225))
+			var temp = Vector2(rand_range(-35, -225), rand_range(-225,225))
 			print_debug("Wormhole1: " + str(temp))
 			wormhole1.position = temp
-			temp = Vector2(rand_range(30, 225), rand_range(-225,225))
+			temp = Vector2(rand_range(35, 225), rand_range(-225,225))
 			print_debug("Wormhole2: " + str(temp))
 			wormhole2.position = temp
 			var animator1 = get_node("../Wormholes/Wormhole1/CollisionShape2D/Sprite/AnimationPlayer")
@@ -104,7 +104,7 @@ func _physics_process(delta):
 			var boosters = get_node("../Boosterdad/Booster")
 			
 			var temp = null
-			while (temp == null || abs(temp.x) < 30):
+			while (temp == null || abs(temp.x) < 35):
 				temp = Vector2(rand_range(-225, 225), rand_range(-225,225))
 			print_debug("Booster: " + str(temp))
 				
