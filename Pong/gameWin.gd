@@ -7,11 +7,6 @@ onready var player_vars = get_node("/root/PlayerVariables")
 onready var musicPlayer = get_node("/root/Music")
 onready var WinnerText = get_node("../Label")
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	WinnerText.text = player_vars.winner + " has taken over the galaxy!"

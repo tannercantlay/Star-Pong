@@ -19,7 +19,7 @@ func _ready():
 			stream = load("res://Sounds/mainmenu.ogg")
 	self.add_child(music)
 	music.set_stream(stream)
-	music.volume_db = 1
+	music.volume_db = -10
 	music.pitch_scale = 1
 	music.play()
 	pass # Replace with function body.
