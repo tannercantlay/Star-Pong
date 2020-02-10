@@ -22,7 +22,6 @@ font_data = ExtResource( 2 )
 [node name="Name1" type="Node2D"]
 
 [node name="background" type="Sprite" parent="."]
-position = Vector2( 0, -0.950012 )
 texture = ExtResource( 6 )
 
 [node name="Camera2D" type="Camera2D" parent="."]

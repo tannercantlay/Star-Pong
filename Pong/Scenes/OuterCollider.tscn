@@ -23,22 +23,7 @@
 [ext_resource path="res://Sounds/scoring.wav" type="AudioStream" id=21]
 [ext_resource path="res://Sounds/wormhole.wav" type="AudioStream" id=22]
 [ext_resource path="res://Sounds/speed.wav" type="AudioStream" id=23]
-
-[sub_resource type="Animation" id=1]
-resource_name = "twinkle"
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
-}
+[ext_resource path="res://Animations/Star_Idle.tres" type="Animation" id=24]
 
 [sub_resource type="Animation" id=2]
 resource_name = "twinkle"
@@ -303,20 +288,20 @@ tracks/0/keys = {
 [node name="Node2D" type="Node2D"]
 
 [node name="Background" type="Sprite" parent="."]
-z_index = -1
+position = Vector2( 2.15845, 0 )
 texture = ExtResource( 10 )
 
 [node name="Star1" type="Sprite" parent="."]
-position = Vector2( -307.022, -146.211 )
+position = Vector2( -307, -146 )
 texture = ExtResource( 13 )
 hframes = 10
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Star1"]
 autoplay = "twinkle"
-anims/twinkle = SubResource( 1 )
+anims/twinkle = ExtResource( 24 )
 
 [node name="Star2" type="Sprite" parent="."]
-position = Vector2( 277.158, 121.086 )
+position = Vector2( 277, 121 )
 rotation = 1.5708
 scale = Vector2( 1, -1 )
 texture = ExtResource( 13 )
@@ -328,7 +313,7 @@ autoplay = "twinkle"
 anims/twinkle = SubResource( 2 )
 
 [node name="Star3" type="Sprite" parent="."]
-position = Vector2( -168.328, 352.454 )
+position = Vector2( -168, 352 )
 scale = Vector2( -1, -1 )
 texture = ExtResource( 13 )
 hframes = 10
@@ -339,7 +324,7 @@ autoplay = "twinkle"
 anims/twinkle = SubResource( 3 )
 
 [node name="Star4" type="Sprite" parent="."]
-position = Vector2( 25.3472, -365.665 )
+position = Vector2( 25, -367 )
 rotation = 4.71239
 scale = Vector2( 1, -1 )
 texture = ExtResource( 13 )
@@ -350,49 +335,49 @@ frame = 7
 autoplay = "twinkle"
 anims/twinkle = SubResource( 4 )
 
-[node name="Star6" type="Sprite" parent="."]
-position = Vector2( 518.275, -179.873 )
+[node name="Star5" type="Sprite" parent="."]
+position = Vector2( 518, -180 )
 rotation = 3.14159
 texture = ExtResource( 13 )
 hframes = 10
 frame = 7
 
-[node name="AnimationPlayer4" type="AnimationPlayer" parent="Star6"]
+[node name="AnimationPlayer4" type="AnimationPlayer" parent="Star5"]
 autoplay = "twinkle"
 anims/twinkle = SubResource( 5 )
 
-[node name="Star7" type="Sprite" parent="."]
-position = Vector2( 774.225, 416.538 )
+[node name="Star6" type="Sprite" parent="."]
+position = Vector2( 774, 416 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
 texture = ExtResource( 13 )
 hframes = 10
-frame = 7
+frame = 6
 
-[node name="AnimationPlayer5" type="AnimationPlayer" parent="Star7"]
+[node name="AnimationPlayer5" type="AnimationPlayer" parent="Star6"]
 autoplay = "twinkle"
 anims/twinkle = SubResource( 6 )
 
-[node name="Star8" type="Sprite" parent="."]
-position = Vector2( -711.245, -304.931 )
+[node name="Star7" type="Sprite" parent="."]
+position = Vector2( -711, -305 )
 rotation = 3.14159
 scale = Vector2( -1, -1 )
 texture = ExtResource( 13 )
 hframes = 10
 frame = 7
 
-[node name="AnimationPlayer6" type="AnimationPlayer" parent="Star8"]
+[node name="AnimationPlayer6" type="AnimationPlayer" parent="Star7"]
 autoplay = "twinkle"
 anims/twinkle = SubResource( 7 )
 
-[node name="Star9" type="Sprite" parent="."]
-position = Vector2( -588.279, 279.873 )
+[node name="Star8" type="Sprite" parent="."]
+position = Vector2( -588, 280 )
 rotation = 3.14159
 texture = ExtResource( 13 )
 hframes = 10
 frame = 7
 
-[node name="AnimationPlayer7" type="AnimationPlayer" parent="Star9"]
+[node name="AnimationPlayer7" type="AnimationPlayer" parent="Star8"]
 autoplay = "twinkle"
 anims/twinkle = SubResource( 8 )
 
