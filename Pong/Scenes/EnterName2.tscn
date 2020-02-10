@@ -5,7 +5,9 @@
 [ext_resource path="res://PlayerNames.gd" type="Script" id=3]
 [ext_resource path="res://nextPage.gd" type="Script" id=4]
 [ext_resource path="res://Font/JOYSTIX.TTF" type="DynamicFontData" id=5]
+
 [ext_resource path="res://Scenes/Background.tscn" type="PackedScene" id=6]
+
 [ext_resource path="res://Sprites/Button.png" type="Texture" id=7]
 [ext_resource path="res://escape.gd" type="Script" id=8]
 

@@ -90,7 +90,12 @@ func _physics_process(delta):
 				get_node("../Paddle1/CollisionShape2D").disabled = false
 				animate.play("changeColor")
 				Ring.texture = purpRing
-			velocity = 1.03 * velocity.bounce(collision.normal)
+
+			var preVelocity = velocity
+			var postVelocity = velocity.bounce(collision.normal)
+			print_debug("Post Velocity: " + str(postVelocity))
+			velocity = 1.03 * postVelocity
+
 			
 		# if ball hit the Middle Star
 		elif collision.collider.has_method("middleStar"):
@@ -110,7 +115,7 @@ func _physics_process(delta):
 
 		# if ball hit the Wormhole
 		elif collision.collider.has_method("throughWormhole"):
-			print_debug("teleport collide")
+
 			get_node("CollisionShape2D/ballSprite/Wormhole sounds").play()
 			var temp
 			var wormhole1 = get_node("../Wormholes/Wormhole1/CollisionShape2D")
@@ -137,9 +142,11 @@ func _physics_process(delta):
 			#$CollisionShape2D.disabled = true
 			var booster = get_node("../Boosterdad/Booster/CollisionShape2D")
 			booster.disabled = true
-			velocity = velocity * 2.7
+
+			velocity = velocity * 2.5
 			if velocity.length() < 400: 
-				velocity *= 1.2
+				velocity *= 1.25
+
 			var t = Timer.new()
 			t.set_wait_time(.1)
 			t.set_one_shot(true)
@@ -147,14 +154,18 @@ func _physics_process(delta):
 			t.start()
 			yield(t, "timeout")
 			booster.disabled = false
-			velocity = velocity * .48
+
+			velocity = velocity * .8
+
 			#This second timer to slow it down slowly
 			t.set_wait_time(.2)
 			t.set_one_shot(true)
 			add_child(t)
 			t.start()
 			yield(t, "timeout")
-			velocity = velocity * .87
+
+			velocity = velocity * .55
+
 			#$CollisionShape2D.disabled = false
 
 	#Locks user out of DOUBLE TAPPING
