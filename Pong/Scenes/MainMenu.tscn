@@ -15,7 +15,7 @@
 [ext_resource path="res://Animations/Star_Idle.tres" type="Animation" id=13]
 [ext_resource path="res://escape.gd" type="Script" id=14]
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=1]
 resource_name = "twinkle"
 loop = true
 tracks/0/type = "value"
@@ -31,7 +31,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=2]
 resource_name = "twinkle"
 loop = true
 tracks/0/type = "value"
@@ -47,7 +47,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=3]
 resource_name = "twinkle"
 loop = true
 tracks/0/type = "value"
@@ -63,37 +63,36 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
 }
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=4]
 size = 50
 outline_size = 1
 outline_color = Color( 0.607843, 0.678431, 0.717647, 1 )
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=5]
 size = 30
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=6]
 size = 45
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=7]
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=8]
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=9]
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
 
-[sub_resource type="Animation" id=7]
-resource_name = "booster_idle"
+[sub_resource type="Animation" id=10]
 length = 0.9
 loop = true
 tracks/0/type = "value"
@@ -145,11 +144,9 @@ tracks/3/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
 
-[sub_resource type="Animation" id=8]
-resource_name = "wormhole_idle"
+[sub_resource type="Animation" id=11]
 
-[sub_resource type="Animation" id=9]
-resource_name = "almighty"
+[sub_resource type="Animation" id=12]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -190,7 +187,7 @@ hframes = 10
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Star2"]
 autoplay = "Star_Idle"
-anims/Star_Idle = SubResource( 10 )
+anims/Star_Idle = SubResource( 1 )
 
 [node name="Star3" type="Sprite" parent="."]
 position = Vector2( -50, -100 )
@@ -200,7 +197,7 @@ hframes = 10
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Star3"]
 autoplay = "Star_Idle"
-anims/Star_Idle = SubResource( 11 )
+anims/Star_Idle = SubResource( 2 )
 
 [node name="Star4" type="Sprite" parent="."]
 position = Vector2( 258.823, -251.82 )
@@ -210,7 +207,7 @@ hframes = 10
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Star4"]
 autoplay = "Star_Idle"
-anims/Star_Idle = SubResource( 12 )
+anims/Star_Idle = SubResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -223,7 +220,7 @@ margin_right = 391.0
 margin_bottom = 9.0
 rect_scale = Vector2( 0.820073, 0.663547 )
 rect_pivot_offset = Vector2( -198.856, 0 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0.0784314, 0.784314, 0, 1 )
 text = "Star Pong"
@@ -245,7 +242,7 @@ margin_left = -150.882
 margin_top = -47.8989
 margin_right = 149.118
 margin_bottom = 52.1011
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0.0784314, 0.784314, 0, 1 )
 text = "Start Game"
@@ -266,7 +263,7 @@ margin_left = -150.882
 margin_top = -47.8989
 margin_right = 149.118
 margin_bottom = 52.1011
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0.0784314, 0.784314, 0, 1 )
 text = "Exit"
@@ -285,7 +282,7 @@ margin_left = 266.0
 margin_top = -150.0
 margin_right = 434.0
 margin_bottom = 144.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0.0784314, 0.784314, 0, 1 )
 text = "Created by:
@@ -317,7 +314,7 @@ margin_left = -460.0
 margin_top = -225.0
 margin_right = -260.0
 margin_bottom = 75.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color_shadow = Color( 0.0784314, 0.784314, 0, 1 )
 text = "Controls
 
@@ -337,7 +334,7 @@ margin_left = -425.0
 margin_top = 50.0
 margin_right = -225.0
 margin_bottom = 250.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color_shadow = Color( 0.0784314, 0.784314, 0, 1 )
 text = "Powerups:
 
@@ -358,8 +355,8 @@ hframes = 16
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Booster"]
 autoplay = "booster_idle"
-anims/booster_idle = SubResource( 7 )
-anims/wormhole_idle = SubResource( 8 )
+anims/booster_idle = SubResource( 10 )
+anims/wormhole_idle = SubResource( 11 )
 
 [node name="Wormhole" type="Sprite" parent="."]
 position = Vector2( -200.355, 184.11 )
@@ -385,4 +382,4 @@ hframes = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Almighty"]
 autoplay = "almighty"
-anims/almighty = SubResource( 9 )
+anims/almighty = SubResource( 12 )

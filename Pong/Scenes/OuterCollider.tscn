@@ -26,7 +26,7 @@
 [ext_resource path="res://Animations/Star_Idle.tres" type="Animation" id=24]
 [ext_resource path="res://escape.gd" type="Script" id=25]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "twinkle"
 loop = true
 tracks/0/type = "value"
@@ -42,7 +42,7 @@ tracks/0/keys = {
 "values": [ 5, 6, 7, 8, 9, 0, 1, 2, 3, 4 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "twinkle"
 loop = true
 tracks/0/type = "value"
@@ -58,7 +58,7 @@ tracks/0/keys = {
 "values": [ 9, 0, 1, 2, 3, 4, 5, 6, 7, 8 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 resource_name = "twinkle"
 loop = true
 tracks/0/type = "value"
@@ -74,7 +74,7 @@ tracks/0/keys = {
 "values": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "twinkle"
 loop = true
 tracks/0/type = "value"
@@ -90,7 +90,7 @@ tracks/0/keys = {
 "values": [ 3, 4, 5, 6, 7, 8, 9, 0, 1, 2 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 resource_name = "twinkle"
 loop = true
 tracks/0/type = "value"
@@ -106,7 +106,7 @@ tracks/0/keys = {
 "values": [ 6, 7, 8, 9, 0, 1, 2, 3, 4, 5 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 resource_name = "twinkle"
 loop = true
 tracks/0/type = "value"
@@ -122,7 +122,7 @@ tracks/0/keys = {
 "values": [ 8, 9, 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 resource_name = "twinkle"
 loop = true
 tracks/0/type = "value"
@@ -138,10 +138,26 @@ tracks/0/keys = {
 "values": [ 4, 5, 6, 7, 8, 9, 0, 1, 2, 3 ]
 }
 
-[sub_resource type="CanvasItemMaterial" id=9]
+[sub_resource type="CanvasItemMaterial" id=8]
 
-[sub_resource type="RectangleShape2D" id=10]
-extents = Vector2( 50.2694, 19.2959 )
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 49.9561, 20.4028 )
+
+[sub_resource type="Animation" id=10]
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
 
 [sub_resource type="Animation" id=11]
 length = 0.6
@@ -159,26 +175,10 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5 ]
 }
 
-[sub_resource type="Animation" id=12]
-length = 0.6
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3, 4, 5 ]
-}
-
-[sub_resource type="CircleShape2D" id=13]
+[sub_resource type="CircleShape2D" id=12]
 radius = 10.9642
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=13]
 resource_name = "Enter"
 length = 0.4
 tracks/0/type = "value"
@@ -194,7 +194,7 @@ tracks/0/keys = {
 "values": [ 10, 11, 12, 13 ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=14]
 resource_name = "Exit"
 length = 0.4
 tracks/0/type = "value"
@@ -210,7 +210,7 @@ tracks/0/keys = {
 "values": [ 13, 12, 11, 10 ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=15]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -225,9 +225,9 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
 }
 
-[sub_resource type="CanvasItemMaterial" id=17]
+[sub_resource type="CanvasItemMaterial" id=16]
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=17]
 length = 0.49
 step = 0.07
 tracks/0/type = "value"
@@ -243,18 +243,18 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6 ]
 }
 
-[sub_resource type="DynamicFont" id=19]
+[sub_resource type="DynamicFont" id=18]
 size = 35
 font_data = ExtResource( 9 )
 
-[sub_resource type="DynamicFont" id=20]
+[sub_resource type="DynamicFont" id=19]
 size = 35
 font_data = ExtResource( 14 )
 
-[sub_resource type="CircleShape2D" id=21]
+[sub_resource type="CircleShape2D" id=20]
 radius = 22.3014
 
-[sub_resource type="Animation" id=22]
+[sub_resource type="Animation" id=21]
 length = 1.4
 loop = true
 tracks/0/type = "value"
@@ -270,7 +270,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 ]
 }
 
-[sub_resource type="Animation" id=23]
+[sub_resource type="Animation" id=22]
 length = 0.9
 loop = true
 tracks/0/type = "value"
@@ -312,7 +312,7 @@ frame = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Star2"]
 autoplay = "twinkle"
-anims/twinkle = SubResource( 2 )
+anims/twinkle = SubResource( 1 )
 
 [node name="Star3" type="Sprite" parent="."]
 position = Vector2( -168, 352 )
@@ -323,7 +323,7 @@ frame = 7
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Star3"]
 autoplay = "twinkle"
-anims/twinkle = SubResource( 3 )
+anims/twinkle = SubResource( 2 )
 
 [node name="Star4" type="Sprite" parent="."]
 position = Vector2( 25, -367 )
@@ -335,7 +335,7 @@ frame = 7
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="Star4"]
 autoplay = "twinkle"
-anims/twinkle = SubResource( 4 )
+anims/twinkle = SubResource( 3 )
 
 [node name="Star5" type="Sprite" parent="."]
 position = Vector2( 518, -180 )
@@ -346,7 +346,7 @@ frame = 7
 
 [node name="AnimationPlayer4" type="AnimationPlayer" parent="Star5"]
 autoplay = "twinkle"
-anims/twinkle = SubResource( 5 )
+anims/twinkle = SubResource( 4 )
 
 [node name="Star6" type="Sprite" parent="."]
 position = Vector2( 774, 416 )
@@ -358,7 +358,7 @@ frame = 6
 
 [node name="AnimationPlayer5" type="AnimationPlayer" parent="Star6"]
 autoplay = "twinkle"
-anims/twinkle = SubResource( 6 )
+anims/twinkle = SubResource( 5 )
 
 [node name="Star7" type="Sprite" parent="."]
 position = Vector2( -711, -305 )
@@ -370,7 +370,7 @@ frame = 7
 
 [node name="AnimationPlayer6" type="AnimationPlayer" parent="Star7"]
 autoplay = "twinkle"
-anims/twinkle = SubResource( 7 )
+anims/twinkle = SubResource( 6 )
 
 [node name="Star8" type="Sprite" parent="."]
 position = Vector2( -588, 280 )
@@ -381,7 +381,7 @@ frame = 7
 
 [node name="AnimationPlayer7" type="AnimationPlayer" parent="Star8"]
 autoplay = "twinkle"
-anims/twinkle = SubResource( 8 )
+anims/twinkle = SubResource( 7 )
 
 [node name="CenterPoint" type="Position2D" parent="."]
 
@@ -393,18 +393,19 @@ current = true
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle1"]
-material = SubResource( 9 )
-position = Vector2( 0, 492.7 )
-shape = SubResource( 10 )
+material = SubResource( 8 )
+position = Vector2( -0.276138, 493.006 )
+shape = SubResource( 9 )
 
 [node name="paddleSpriteP" type="Sprite" parent="Paddle1/CollisionShape2D"]
+position = Vector2( 0.0722351, -0.305725 )
 texture = ExtResource( 18 )
 hframes = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Paddle1/CollisionShape2D/paddleSpriteP"]
 autoplay = "paddle"
 method_call_mode = 1
-anims/paddle = SubResource( 11 )
+anims/paddle = SubResource( 10 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Paddle1/CollisionShape2D/paddleSpriteP"]
 stream = ExtResource( 19 )
@@ -414,9 +415,9 @@ volume_db = -2.0
 script = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle2"]
-material = SubResource( 9 )
+material = SubResource( 8 )
 position = Vector2( 0, -492.7 )
-shape = SubResource( 10 )
+shape = SubResource( 9 )
 
 [node name="paddleSpriteY" type="Sprite" parent="Paddle2/CollisionShape2D"]
 rotation = 3.14159
@@ -427,7 +428,7 @@ hframes = 6
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Paddle2/CollisionShape2D/paddleSpriteY"]
 autoplay = "yellow paddle"
 method_call_mode = 1
-"anims/yellow paddle" = SubResource( 12 )
+"anims/yellow paddle" = SubResource( 11 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Paddle2/CollisionShape2D/paddleSpriteY"]
 position = Vector2( 0.00243377, -960 )
@@ -441,7 +442,7 @@ script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
 position = Vector2( 0.513336, 0 )
-shape = SubResource( 13 )
+shape = SubResource( 12 )
 
 [node name="ballSprite" type="Sprite" parent="Ball/CollisionShape2D"]
 scale = Vector2( 2, 2 )
@@ -460,15 +461,15 @@ volume_db = 5.843
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Ball/CollisionShape2D/ballSprite"]
 autoplay = "ballRotate"
-anims/Enter = SubResource( 14 )
-anims/Exit = SubResource( 15 )
-anims/ballRotate = SubResource( 16 )
+anims/Enter = SubResource( 13 )
+anims/Exit = SubResource( 14 )
+anims/ballRotate = SubResource( 15 )
 
 [node name="OuterRing" type="StaticBody2D" parent="."]
 script = ExtResource( 8 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="OuterRing"]
-material = SubResource( 17 )
+material = SubResource( 16 )
 position = Vector2( -45.3893, 146.891 )
 scale = Vector2( 88.7414, 75.6079 )
 build_mode = 1
@@ -482,7 +483,7 @@ hframes = 7
 script = ExtResource( 15 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="OuterRing/CollisionPolygon2D/OuterRing_P"]
-anims/changeColor = SubResource( 18 )
+anims/changeColor = SubResource( 17 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="OuterRing/CollisionPolygon2D/OuterRing_P"]
 stream = ExtResource( 21 )
@@ -494,7 +495,7 @@ margin_left = -800.0
 margin_top = -475.0
 margin_right = -635.0
 margin_bottom = -370.0
-custom_fonts/font = SubResource( 19 )
+custom_fonts/font = SubResource( 18 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 align = 1
 script = ExtResource( 11 )
@@ -507,7 +508,7 @@ margin_left = 635.0
 margin_top = -475.0
 margin_right = 800.0
 margin_bottom = -370.0
-custom_fonts/font = SubResource( 19 )
+custom_fonts/font = SubResource( 18 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 align = 1
 script = ExtResource( 12 )
@@ -520,7 +521,7 @@ margin_left = 375.0
 margin_top = 370.0
 margin_right = 540.0
 margin_bottom = 475.0
-custom_fonts/font = SubResource( 20 )
+custom_fonts/font = SubResource( 19 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 align = 1
 valign = 2
@@ -532,7 +533,7 @@ __meta__ = {
 script = ExtResource( 16 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Middle Star"]
-shape = SubResource( 21 )
+shape = SubResource( 20 )
 
 [node name="Sprite" type="Sprite" parent="Middle Star/CollisionShape2D"]
 scale = Vector2( 3, 3 )
@@ -541,8 +542,8 @@ hframes = 23
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Middle Star/CollisionShape2D/Sprite"]
 autoplay = "IdleSun"
-anims/Exploding = SubResource( 22 )
-anims/IdleSun = SubResource( 23 )
+anims/Exploding = SubResource( 21 )
+anims/IdleSun = SubResource( 22 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Middle Star/CollisionShape2D/Sprite"]
 position = Vector2( 4.44899, -0.171115 )
