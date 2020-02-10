@@ -78,23 +78,21 @@ func _physics_process(delta):
 			
 		whichpowerup = randi() % 4
 		print_debug("WhichPowerUp: " + str(whichpowerup))
+		
 		if(powerup != null):
 			get_node("..").remove_child(powerup)
-		#print_debug("time up")
+		
 		if (whichpowerup == 2):
 			powerup = wormholes.instance()
 			get_node("..").add_child(powerup)
 			var wormhole1 = get_node("../Wormholes/Wormhole1")
 			var wormhole2 = get_node("../Wormholes/Wormhole2")
-			
 			var temp = Vector2(rand_range(-25, -225), rand_range(-225,225))
 			#print_debug(temp)
 			wormhole1.position = temp
-	
 			temp = Vector2(rand_range(25, 225), rand_range(-225,225))
 			#print_debug(temp)
 			wormhole2.position = temp
-		
 		
 			var animator1 = get_node("../Wormholes/Wormhole1/CollisionShape2D/Sprite/AnimationPlayer")
 			var animator2 = get_node("../Wormholes/Wormhole2/CollisionShape2D/Sprite/AnimationPlayer")
