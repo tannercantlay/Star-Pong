@@ -9,7 +9,8 @@ func middleStar(vector):
 	
 	randomDir = vector.rotated(angle)
 	animator = get_node("CollisionShape2D/Sprite/AnimationPlayer")
-	thread = Thread.new()
+
+	thread =  Thread.new()
 	thread.start(self,"_thread_function")
 	return randomDir
 

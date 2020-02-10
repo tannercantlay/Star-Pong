@@ -1,11 +1,15 @@
 extends Node
 
-onready var Ring = get_node("../Ring")
+
+onready var Ring = get_node("Ring")
+
 onready var yelRing = load("res://Sprites/OuterRing_Y.png")
 onready var purpRing = load("res://Sprites/OuterRing_P.png")
 onready var player_vars = get_node("/root/PlayerVariables")
 onready var musicPlayer = get_node("/root/Music")
-onready var WinnerText = get_node("../Label")
+
+onready var WinnerText = get_node("Winner")
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

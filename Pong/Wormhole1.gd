@@ -11,6 +11,7 @@ func _ready():
 	pass # Replace with function body.
 
 func throughWormhole():
+
 	otherWormhole = get_node("../Wormhole2")
 	return otherWormhole.position
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1,0 +1,219 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Sprites/SpriteSheets/Background.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/SpriteSheets/Star.png" type="Texture" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "star_idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "star_idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 5, 6, 7, 8, 9, 0, 1, 2, 3, 4 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "star_idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 9, 0, 1, 2, 3, 4, 5, 6, 7, 8 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "star_idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "star_idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 4, 5, 6, 7, 8, 9, 0, 1, 2 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "star_idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 6, 7, 8, 9, 0, 1, 2, 3, 4, 5 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "star_idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 8, 9, 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "star_idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 8, 9, 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+
+[node name="Background" type="Node2D"]
+
+[node name="background" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+
+[node name="Star1" type="Sprite" parent="."]
+position = Vector2( -307, -146 )
+texture = ExtResource( 2 )
+hframes = 10
+frame = 9
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Star1"]
+autoplay = "star_idle"
+anims/star_idle = SubResource( 1 )
+
+[node name="Star2" type="Sprite" parent="."]
+position = Vector2( 277, 121 )
+texture = ExtResource( 2 )
+hframes = 10
+frame = 9
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Star2"]
+autoplay = "star_idle"
+anims/star_idle = SubResource( 2 )
+
+[node name="Star3" type="Sprite" parent="."]
+position = Vector2( -168, 352 )
+texture = ExtResource( 2 )
+hframes = 10
+frame = 9
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Star3"]
+autoplay = "star_idle"
+anims/star_idle = SubResource( 3 )
+
+[node name="Star4" type="Sprite" parent="."]
+position = Vector2( 25, -367 )
+texture = ExtResource( 2 )
+hframes = 10
+frame = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Star4"]
+autoplay = "star_idle"
+anims/star_idle = SubResource( 4 )
+
+[node name="Star5" type="Sprite" parent="."]
+position = Vector2( 518, -180 )
+texture = ExtResource( 2 )
+hframes = 10
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Star5"]
+autoplay = "star_idle"
+anims/star_idle = SubResource( 5 )
+
+[node name="Star6" type="Sprite" parent="."]
+position = Vector2( 774, 416 )
+texture = ExtResource( 2 )
+hframes = 10
+frame = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Star6"]
+autoplay = "star_idle"
+anims/star_idle = SubResource( 6 )
+
+[node name="Star7" type="Sprite" parent="."]
+position = Vector2( -711, -305 )
+texture = ExtResource( 2 )
+hframes = 10
+frame = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Star7"]
+autoplay = "star_idle"
+anims/star_idle = SubResource( 7 )
+
+[node name="Star8" type="Sprite" parent="."]
+position = Vector2( -588, 280 )
+texture = ExtResource( 2 )
+hframes = 10
+frame = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Star8"]
+autoplay = "star_idle"
+anims/star_idle = SubResource( 8 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true

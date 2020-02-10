@@ -5,6 +5,7 @@
 [ext_resource path="res://Sprites/SpriteSheets/JamesonDontDeleteThis.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
+
 radius = 11.337
 
 [sub_resource type="Animation" id=2]
@@ -117,7 +118,7 @@ scale = Vector2( 2.5, 2.5 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="Wormhole1/CollisionShape2D"]
-position = Vector2( 0.399998, -0.4 )
+
 texture = ExtResource( 4 )
 hframes = 18
 frame = 10
@@ -138,7 +139,7 @@ scale = Vector2( 2.5, 2.5 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="Wormhole2/CollisionShape2D"]
-position = Vector2( 0.4, -0.400001 )
+
 texture = ExtResource( 4 )
 hframes = 18
 frame = 10
