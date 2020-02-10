@@ -16,7 +16,7 @@ onready var roundLabel = get_node("../Node/RoundsPlayed")
 var powerup
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	roundLabel.set_text("Round: " + str(roundsPlayed))
+	roundLabel.set_text("Round: " + str(roundsPlayed) + " out of " + str(player_vars.numrounds))
 	musicPlayer.music.stop()
 	musicPlayer.stream = load("res://Sounds/gameplay.ogg")
 	musicPlayer.music.set_stream(musicPlayer.stream)
@@ -29,10 +29,8 @@ func hit(team):
 	print_debug(player_vars.numrounds)
 	if(team == "purple"):
 		player_vars.p1Score += 1
-		player_vars.numrounds -= 1
 	if(team == "yellow"):
 		player_vars.p2Score += 1
-		player_vars.numrounds -= 1
 	roundsPlayed += 1
 	roundLabel.set_text("Round: " + str(roundsPlayed) + " out of " + str(player_vars.numrounds))
 	if(player_vars.p1Score == player_vars.maxwins):
