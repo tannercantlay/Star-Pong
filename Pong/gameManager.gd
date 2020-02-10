@@ -26,7 +26,6 @@ func _ready():
 	pass # Replace with function body.
 
 func hit(team):
-	print_debug(player_vars.numrounds)
 	if(team == "purple"):
 		player_vars.p1Score += 1
 	if(team == "yellow"):
@@ -39,14 +38,11 @@ func hit(team):
 	if(player_vars.p2Score == player_vars.maxwins):
 		player_vars.winner = player_vars.player2
 		get_tree().change_scene("res://Scenes/GameWin.tscn")
-	if(player_vars.numrounds == 0):
+	if((player_vars.numrounds - roundsPlayed) == 0):
 		if(player_vars.p2Score > player_vars.p1Score):
 			player_vars.winner = player_vars.player2
-# warning-ignore:return_value_discarded
 		get_tree().change_scene("res://Scenes/GameWin.tscn")
-	pass
 
-# warning-ignore:unused_argument
 func _physics_process(delta):
 	timer -= 1
 
