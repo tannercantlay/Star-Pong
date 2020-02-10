@@ -453,6 +453,7 @@ position = Vector2( 0, 50 )
 script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+position = Vector2( 0.513336, 0 )
 shape = SubResource( 13 )
 
 [node name="ballSprite" type="Sprite" parent="Ball/CollisionShape2D"]
@@ -557,5 +558,6 @@ anims/Exploding = SubResource( 22 )
 anims/IdleSun = SubResource( 23 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Middle Star/CollisionShape2D/Sprite"]
+position = Vector2( 4.44899, -0.171115 )
 stream = ExtResource( 20 )
 volume_db = -2.0
