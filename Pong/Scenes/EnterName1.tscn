@@ -5,7 +5,7 @@
 [ext_resource path="res://Sprites/OuterRing_P.png" type="Texture" id=3]
 [ext_resource path="res://PlayerNames.gd" type="Script" id=4]
 [ext_resource path="res://Font/JOYSTIX.TTF" type="DynamicFontData" id=5]
-[ext_resource path="res://Sprites/SpriteSheets/Background.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/Background.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Sprites/Button.png" type="Texture" id=7]
 [ext_resource path="res://escape.gd" type="Script" id=8]
 
@@ -23,8 +23,7 @@ font_data = ExtResource( 2 )
 [node name="Name1" type="Node2D"]
 script = ExtResource( 8 )
 
-[node name="background" type="Sprite" parent="."]
-texture = ExtResource( 6 )
+[node name="Background" parent="." instance=ExtResource( 6 )]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true

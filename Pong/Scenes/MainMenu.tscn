@@ -1,67 +1,17 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Sprites/OuterRing_Y.png" type="Texture" id=1]
 [ext_resource path="res://nextPage.gd" type="Script" id=2]
 [ext_resource path="res://joystix/JOYSTIX.TTF" type="DynamicFontData" id=3]
 [ext_resource path="res://Font/JOYSTIX.TTF" type="DynamicFontData" id=4]
-[ext_resource path="res://Sprites/SpriteSheets/Background.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Background.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Sprites/Button.png" type="Texture" id=6]
 [ext_resource path="res://Exit.gd" type="Script" id=7]
 [ext_resource path="res://Sprites/SpriteSheets/Boost_sheet.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/SpriteSheets/WormholeIdle.png" type="Texture" id=9]
 [ext_resource path="res://Sprites/SpriteSheets/Star_idle.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/SpriteSheets/The_Almighty.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/SpriteSheets/Star.png" type="Texture" id=12]
-[ext_resource path="res://Animations/Star_Idle.tres" type="Animation" id=13]
-[ext_resource path="res://escape.gd" type="Script" id=14]
-
-[sub_resource type="Animation" id=10]
-resource_name = "twinkle"
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
-}
-
-[sub_resource type="Animation" id=11]
-resource_name = "twinkle"
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
-}
-
-[sub_resource type="Animation" id=12]
-resource_name = "twinkle"
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
-}
+[ext_resource path="res://settings.gd" type="Script" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -94,7 +44,7 @@ font_data = ExtResource( 3 )
 
 [sub_resource type="Animation" id=7]
 resource_name = "booster_idle"
-length = 0.9
+length = 0.4
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -108,45 +58,46 @@ tracks/0/keys = {
 "update": 0,
 "values": [ 0, 1, 2, 3 ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath("../Wormhole:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ 0, 1, 2, 3, 4 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("../Star:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("../Almighty:frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
-}
 
 [sub_resource type="Animation" id=8]
 resource_name = "wormhole_idle"
+
+[sub_resource type="Animation" id=10]
+resource_name = "booster_idle"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "wormhole_idle"
+
+[sub_resource type="Animation" id=12]
+resource_name = "star_idle"
+length = 0.9
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ]
+}
 
 [sub_resource type="Animation" id=9]
 resource_name = "almighty"
@@ -166,51 +117,9 @@ tracks/0/keys = {
 }
 
 [node name="main" type="Node2D"]
-script = ExtResource( 14 )
 
-[node name="background" type="Sprite" parent="."]
+[node name="Background" parent="." instance=ExtResource( 5 )]
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 5 )
-
-[node name="Star1" type="Sprite" parent="."]
-position = Vector2( -399.772, 31.5284 )
-scale = Vector2( 0.601891, -0.600443 )
-texture = ExtResource( 12 )
-hframes = 10
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Star1"]
-autoplay = "Star_Idle"
-anims/Star_Idle = ExtResource( 13 )
-
-[node name="Star2" type="Sprite" parent="."]
-position = Vector2( 293.03, 140.967 )
-scale = Vector2( 0.574488, -0.600443 )
-texture = ExtResource( 12 )
-hframes = 10
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Star2"]
-autoplay = "Star_Idle"
-anims/Star_Idle = SubResource( 10 )
-
-[node name="Star3" type="Sprite" parent="."]
-position = Vector2( -50, -100 )
-scale = Vector2( 0.574488, -0.600443 )
-texture = ExtResource( 12 )
-hframes = 10
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Star3"]
-autoplay = "Star_Idle"
-anims/Star_Idle = SubResource( 11 )
-
-[node name="Star4" type="Sprite" parent="."]
-position = Vector2( 258.823, -251.82 )
-scale = Vector2( 0.574488, -0.600443 )
-texture = ExtResource( 12 )
-hframes = 10
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Star4"]
-autoplay = "Star_Idle"
-anims/Star_Idle = SubResource( 12 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -256,7 +165,7 @@ __meta__ = {
 }
 
 [node name="exit" type="Sprite" parent="."]
-position = Vector2( 0, 180 )
+position = Vector2( 0, 200 )
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 6 )
 script = ExtResource( 7 )
@@ -270,6 +179,27 @@ custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0.0784314, 0.784314, 0, 1 )
 text = "Exit"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="settings" type="Sprite" parent="."]
+position = Vector2( 0, 167 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 6 )
+script = ExtResource( 12 )
+
+[node name="Label" type="Label" parent="settings"]
+margin_left = -150.882
+margin_top = -47.8989
+margin_right = 149.118
+margin_bottom = 52.1011
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.0784314, 0.784314, 0, 1 )
+text = "Settings"
 align = 1
 valign = 1
 __meta__ = {
@@ -366,22 +296,30 @@ position = Vector2( -200.355, 184.11 )
 texture = ExtResource( 9 )
 offset = Vector2( -100, 0 )
 hframes = 5
+frame = 2
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Wormhole"]
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Wormhole"]
+autoplay = "booster_idle"
+anims/booster_idle = SubResource( 10 )
+anims/wormhole_idle = SubResource( 11 )
 
 [node name="Star" type="Sprite" parent="."]
 position = Vector2( -200.355, 102.08 )
 texture = ExtResource( 10 )
 offset = Vector2( -100, 0 )
 hframes = 9
+frame = 4
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Star"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Star"]
+autoplay = "star_idle"
+anims/star_idle = SubResource( 12 )
 
 [node name="Almighty" type="Sprite" parent="."]
 position = Vector2( 245.263, 109.474 )
 texture = ExtResource( 11 )
 offset = Vector2( 100, 0 )
 hframes = 8
+frame = 7
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Almighty"]
 autoplay = "almighty"
