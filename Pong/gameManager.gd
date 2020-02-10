@@ -47,8 +47,6 @@ func _physics_process(delta):
 
 	if(timer == 0):
 		if(whichpowerup == 2 && powerup != null):
-			#thread =  Thread.new()
-			#thread.start(self,"_wormholeleave")
 			var animator1 = get_node("../Wormholes/Wormhole1/CollisionShape2D/Sprite/AnimationPlayer")
 			var animator2 = get_node("../Wormholes/Wormhole2/CollisionShape2D/Sprite/AnimationPlayer")
 			animator1.play("Exit")
@@ -70,23 +68,24 @@ func _physics_process(delta):
 			yield(t, "timeout")
 			
 		whichpowerup = randi() % 4
-		print_debug("WhichPowerUp: " + str(whichpowerup))
+		if(whichpowerup == 0 || whichpowerup == 1):
+			print_debug("Nothingness has been chosen: ")
 		
 		if(powerup != null):
 			get_node("..").remove_child(powerup)
 		
 		if (whichpowerup == 2):
+			print_debug("Wormholes have been chosen: ")
 			powerup = wormholes.instance()
 			get_node("..").add_child(powerup)
 			var wormhole1 = get_node("../Wormholes/Wormhole1")
 			var wormhole2 = get_node("../Wormholes/Wormhole2")
 			var temp = Vector2(rand_range(-30, -225), rand_range(-225,225))
-			#print_debug(temp)
+			print_debug("Wormhole1: " + str(temp))
 			wormhole1.position = temp
 			temp = Vector2(rand_range(30, 225), rand_range(-225,225))
-			#print_debug(temp)
+			print_debug("Wormhole2: " + str(temp))
 			wormhole2.position = temp
-		
 			var animator1 = get_node("../Wormholes/Wormhole1/CollisionShape2D/Sprite/AnimationPlayer")
 			var animator2 = get_node("../Wormholes/Wormhole2/CollisionShape2D/Sprite/AnimationPlayer")
 			var t = Timer.new()
@@ -99,13 +98,15 @@ func _physics_process(delta):
 			animator2.play("Idle")
 		
 		elif(whichpowerup == 3):
+			print_debug("Booster has been chosen: ")
 			powerup = booster.instance()
 			get_node("..").add_child(powerup)
 			var boosters = get_node("../Boosterdad/Booster")
 			
 			var temp = null
-			while (temp == null || (abs(temp.x) < 20 and abs(temp.y) < 20)):
+			while (temp == null || abs(temp.x) < 30):
 				temp = Vector2(rand_range(-225, 225), rand_range(-225,225))
+			print_debug("Booster: " + str(temp))
 				
 			boosters.position = temp
 			var animator = get_node("../Boosterdad/Booster/CollisionShape2D/Sprite/AnimationPlayer")

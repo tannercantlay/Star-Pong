@@ -14,8 +14,8 @@ onready var paddle1 = get_node("../Paddle1")
 onready var paddle2 = get_node("../Paddle2")
 onready var Ring = get_node("../OuterRing/CollisionPolygon2D/OuterRing_P")
 
-onready var yelRing = load("res://Sprites/SpriteSheets/OuterRingPtoY.png")
-onready var purpRing = load("res://Sprites/SpriteSheets/OuterRingYtoP.png")
+onready var yelRing = load("res://Sprites/SpriteSheets/OuterRingPtoY.png") #BlueToRed.png")
+onready var purpRing = load("res://Sprites/SpriteSheets/OuterRingYtoP.png") #RedToBlue.png")
 onready var animate = get_node("../OuterRing/CollisionPolygon2D/OuterRing_P/AnimationPlayer")
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -137,15 +137,24 @@ func _physics_process(delta):
 			#$CollisionShape2D.disabled = true
 			var booster = get_node("../Boosterdad/Booster/CollisionShape2D")
 			booster.disabled = true
-			velocity = velocity * 2.2
+			velocity = velocity * 2.7
+			if velocity.length() < 400: 
+				velocity *= 1.2
 			var t = Timer.new()
+			t.set_wait_time(.1)
+			t.set_one_shot(true)
+			add_child(t)
+			t.start()
+			yield(t, "timeout")
+			booster.disabled = false
+			velocity = velocity * .48
+			#This second timer to slow it down slowly
 			t.set_wait_time(.2)
 			t.set_one_shot(true)
 			add_child(t)
 			t.start()
 			yield(t, "timeout")
-			velocity = velocity * .50
-			booster.disabled = false
+			velocity = velocity * .87
 			#$CollisionShape2D.disabled = false
 
 	#Locks user out of DOUBLE TAPPING

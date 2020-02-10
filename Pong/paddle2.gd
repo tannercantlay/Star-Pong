@@ -12,13 +12,10 @@ var radius = 22.5
 var rotation_dir
 var rotation_speed = 30
 var team = "yellow"
-#var teamColor = player.color or whatever
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
 	rotation_dir = 0
-	pass
 #	
 func getTeam():
 	return team
@@ -26,7 +23,6 @@ func getTeam():
 func reset():
 	rotation = 0
 	rotation_dir = 0
-	pass
 	
 func _input(event):
 	if event is InputEventKey and ((event.get_scancode() == 16777233 and event.is_pressed() == false) or (event.get_scancode() == 16777231 and event.is_pressed() == false)):
@@ -35,12 +31,12 @@ func _input(event):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	if(Input.is_key_pressed(16777233)): #16777233
-		if (abs(theta) < 0.1):
-			(theta += 0.006)
+		if (abs(theta) < 0.13):
+			(theta += 0.007)
 		rotation_dir += theta
 	if(Input.is_key_pressed(16777231)): #16777231
-		if (abs(theta) < 0.1):
-			(theta += 0.006)
+		if (abs(theta) < 0.13):
+			(theta += 0.007)
 		rotation_dir -= theta
 		
 	rotation = rotation_dir * rotation_speed * delta
