@@ -7,100 +7,158 @@ extends KinematicBody2D
 var timer
 var velocity = Vector2()
 var returnValue
-var speed = 250
-var lastHit = "purple"
+var speed = 350
+var lastHit = "yellow"
 
 onready var paddle1 = get_node("../Paddle1")
 onready var paddle2 = get_node("../Paddle2")
 onready var Ring = get_node("../OuterRing/CollisionPolygon2D/OuterRing_P")
 
-onready var yelRing = load("res://Sprites/SpriteSheets/OuterRingPtoY.png")
-onready var purpRing = load("res://Sprites/SpriteSheets/OuterRingYtoP.png")
+onready var yelRing = load("res://Sprites/SpriteSheets/OuterRingPtoY.png") #BlueToRed.png")
+onready var purpRing = load("res://Sprites/SpriteSheets/OuterRingYtoP.png") #RedToBlue.png")
 onready var animate = get_node("../OuterRing/CollisionPolygon2D/OuterRing_P/AnimationPlayer")
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	velocity = Vector2(0,(speed))
+	#velocity = Vector2(0,(speed))
 	
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func hit():
-	print_debug("ball hit")
 	
 func _physics_process(delta):
 	var collision = move_and_collide(velocity * delta)
 	if collision:
+		
 		# if ball hit the outer ring
 		if collision.collider.has_method("hit"):
-			print_debug("Entered Hit Method")
+			get_node("../OuterRing/CollisionPolygon2D/OuterRing_P/AudioStreamPlayer2D").play()
 			collision.collider.hit(lastHit)
+			velocity = Vector2(0,0)
+			$CollisionShape2D.disabled = true
+			get_node("CollisionShape2D/ballSprite/AnimationPlayer").play("Exit")
+			var g = Timer.new()
+			g.set_wait_time(.4)
+			g.set_one_shot(true)
+			add_child(g)
+			g.start()
+			yield(g, "timeout")
 			velocity = Vector2(0,lastHit)
-			
+			$CollisionShape2D.disabled = false
 			# repositions ball to center of game, offset up if purple scored or down if yellow scored
 			# ? will call logic from gameManager to update game score, reposition paddles after a score?
 			if lastHit == "yellow":
-				position = Vector2(0,100)
+				position = Vector2(0, 100) #100
 				paddle1.reset()
 				paddle2.reset()
+				get_node("CollisionShape2D/ballSprite/AnimationPlayer").play("Enter")
+				var t = Timer.new()
+				t.set_wait_time(.4)
+				t.set_one_shot(true)
+				add_child(t)
+				t.start()
+				yield(t, "timeout")
+				get_node("CollisionShape2D/ballSprite/AnimationPlayer").play("ballRotate")
 				#if(Input.is_key_pressed(83)):
 				#velocity = Vector2(0,(0-speed))
 			elif lastHit == "purple":
-				position = Vector2(0,-100)
+				position = Vector2(0,-100) #-100
 				paddle2.reset()
 				paddle1.reset()
+				get_node("CollisionShape2D/ballSprite/AnimationPlayer").play("Enter")
+				var t = Timer.new()
+				t.set_wait_time(.4)
+				t.set_one_shot(true)
+				add_child(t)
+				t.start()
+				yield(t, "timeout")
+				get_node("CollisionShape2D/ballSprite/AnimationPlayer").play("ballRotate")
 				#if Input.is_key_pressed(16777234):
 				#velocity = Vector2(0,speed)
+				
 		# if ball hits a paddle
-		if collision.collider.has_method("getTeam"):
-			print_debug("Entered team Method")
+		elif collision.collider.has_method("getTeam"):
 			lastHit = collision.collider.getTeam()
 			if(lastHit == "purple"):
+				get_node("../Paddle1/CollisionShape2D/paddleSpriteP/AudioStreamPlayer2D").play()
+				get_node("../Paddle1/CollisionShape2D").disabled = true
+				get_node("../Paddle2/CollisionShape2D").disabled = false
 				animate.play("changeColor")
 				Ring.texture = yelRing
 			elif(lastHit == "yellow"):
+				get_node("../Paddle2/CollisionShape2D/paddleSpriteY/AudioStreamPlayer2D").play()
+				get_node("../Paddle2/CollisionShape2D").disabled = true
+				get_node("../Paddle1/CollisionShape2D").disabled = false
 				animate.play("changeColor")
 				Ring.texture = purpRing
-			velocity = 1.1 * velocity.bounce(collision.normal)
-		if collision.collider.has_method("middleStar"):
+			velocity = 1.03 * velocity.bounce(collision.normal)
+			
+		# if ball hit the Middle Star
+		elif collision.collider.has_method("middleStar"):
+			get_node("../Middle Star/CollisionShape2D/Sprite/AudioStreamPlayer2D").play()
 			var temp
 			var collisionNode = get_node("../Middle Star/CollisionShape2D")
 			collisionNode.disabled = true
 			temp = collision.collider.middleStar(velocity)
 			velocity = temp;
 			var t = Timer.new()
-			t.set_wait_time(2)
+			t.set_wait_time(.2)
 			t.set_one_shot(true)
 			add_child(t)
 			t.start()
 			yield(t, "timeout")
 			collisionNode.disabled = false
 
-#			$CollisionShape2D.disabled = false
+		# if ball hit the Wormhole
+		elif collision.collider.has_method("throughWormhole"):
+			print_debug("teleport collide")
+			get_node("CollisionShape2D/ballSprite/Wormhole sounds").play()
+			var temp
+			var wormhole1 = get_node("../Wormholes/Wormhole1/CollisionShape2D")
+			var wormhole2 = get_node("../Wormholes/Wormhole2/CollisionShape2D")
+			wormhole1.disabled = true
+			wormhole2.disabled = true
+			temp = collision.collider.throughWormhole()
+			position = temp
+			if velocity.length() > 450: 
+				velocity *= .93
+			var t = Timer.new()
+			t.set_wait_time(.2)
+			t.set_one_shot(true)
+			add_child(t)
+			t.start()
+			yield(t, "timeout")
+			wormhole1.disabled = false
+			wormhole2.disabled = false
+			pass
 			
-			
+		# if ball hit the Booster
+		elif collision.collider.has_method("speedracer"):
+			get_node("CollisionShape2D/ballSprite/Speedracer").play()
+			#$CollisionShape2D.disabled = true
+			var booster = get_node("../Boosterdad/Booster/CollisionShape2D")
+			booster.disabled = true
+			velocity = velocity * 2.7
+			if velocity.length() < 400: 
+				velocity *= 1.2
+			var t = Timer.new()
+			t.set_wait_time(.1)
+			t.set_one_shot(true)
+			add_child(t)
+			t.start()
+			yield(t, "timeout")
+			booster.disabled = false
+			velocity = velocity * .48
+			#This second timer to slow it down slowly
+			t.set_wait_time(.2)
+			t.set_one_shot(true)
+			add_child(t)
+			t.start()
+			yield(t, "timeout")
+			velocity = velocity * .87
+			#$CollisionShape2D.disabled = false
+
+	#Locks user out of DOUBLE TAPPING
 	if(velocity == Vector2(0,0) && lastHit == "yellow" && (Input.is_key_pressed(65) || Input.is_key_pressed(68))):
 		velocity = Vector2(0,(speed))
 	if(velocity == Vector2(0,0) && lastHit == "purple" && (Input.is_key_pressed(16777233) || Input.is_key_pressed(16777231))):
 		velocity = Vector2(0,0-speed)
-	#returnValue = move_and_collide(velocity)
-	
-	#if(returnValue != null):		
-		#print(returnValue.get_collider())
-	
-	pass
-#func _wait( seconds ):
-#	self._create_timer(self, seconds, true, "_emit_timer_end_signal")
-#	yield(self,"$CollisionShape2D.disabled = false")
-#
-#func _emit_timer_end_signal():
-#	emit_signal("timer_end")
-#
-#func _create_timer(object_target, float_wait_time, bool_is_oneshot, string_function):
-#	timer = Timer.new()
-#	timer.set_one_shot(bool_is_oneshot)
-#	timer.set_timer_process_mode(0)
-#	timer.set_wait_time(float_wait_time)
-#	timer.connect("timeout", object_target, string_function)
-#	self.add_child(timer)
-#	timer.start()
-
