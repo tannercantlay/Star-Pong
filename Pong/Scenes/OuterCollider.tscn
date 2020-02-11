@@ -1,6 +1,4 @@
-
-[gd_scene load_steps=39 format=2]
-
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Sprites/SpriteSheets/OuterRingPtoY.png" type="Texture" id=1]
 [ext_resource path="res://paddle1.gd" type="Script" id=2]
@@ -24,15 +22,14 @@
 [ext_resource path="res://Sounds/scoring.wav" type="AudioStream" id=21]
 [ext_resource path="res://Sounds/wormhole.wav" type="AudioStream" id=22]
 [ext_resource path="res://Sounds/speed.wav" type="AudioStream" id=23]
-
 [ext_resource path="res://escape.gd" type="Script" id=25]
 
-[sub_resource type="CanvasItemMaterial" id=8]
+[sub_resource type="CanvasItemMaterial" id=1]
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 50.2694, 19.2959 )
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=3]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -45,12 +42,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-
 "values": [ 0, 1, 2, 3, 4, 5 ]
-
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=4]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -63,17 +58,15 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-
 "values": [ 0, 1, 2, 3, 4, 5 ]
 }
 
-[sub_resource type="CircleShape2D" id=12]
+[sub_resource type="CircleShape2D" id=5]
 radius = 10.9642
 
-
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=6]
 resource_name = "Enter"
-length = 0.4
+length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -81,15 +74,13 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
-
-"values": [ 10, 11, 12, 13 ]
-
+"values": [ 10, 11, 12, 13, 0 ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=7]
 resource_name = "Exit"
 length = 0.4
 tracks/0/type = "value"
@@ -102,12 +93,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-
 "values": [ 13, 12, 11, 10 ]
 }
 
-[sub_resource type="Animation" id=15]
-
+[sub_resource type="Animation" id=8]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -116,19 +105,22 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
 }
 
-[sub_resource type="CanvasItemMaterial" id=16]
+[sub_resource type="CanvasItemMaterial" id=9]
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=16]
+resource_name = "New Anim"
+length = 0.49
+step = 0.7
+
+[sub_resource type="Animation" id=10]
 length = 0.49
 step = 0.07
-
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -136,26 +128,25 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.07, 0.14, 0.21, 0.28, 0.35, 0.42 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3, 4, 5 ]
+"values": [ 0, 1, 2, 3, 4, 5, 6 ]
 }
 
-[sub_resource type="DynamicFont" id=18]
+[sub_resource type="DynamicFont" id=11]
 size = 35
 font_data = ExtResource( 9 )
 
-[sub_resource type="DynamicFont" id=19]
+[sub_resource type="DynamicFont" id=12]
 size = 35
 font_data = ExtResource( 14 )
 
-[sub_resource type="CircleShape2D" id=20]
+[sub_resource type="CircleShape2D" id=13]
 radius = 22.3014
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=14]
 length = 1.4
-
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -164,17 +155,15 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 ]
 }
 
-[sub_resource type="Animation" id=22]
+[sub_resource type="Animation" id=15]
 length = 0.9
 loop = true
-
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -182,7 +171,6 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
@@ -194,7 +182,6 @@ script = ExtResource( 25 )
 
 [node name="Background" parent="." instance=ExtResource( 10 )]
 
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 0.583742, 2.97754 )
 current = true
@@ -203,20 +190,18 @@ current = true
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle1"]
-material = SubResource( 8 )
-
+material = SubResource( 1 )
 position = Vector2( 0, 492.7 )
-shape = SubResource( 9 )
+shape = SubResource( 2 )
 
 [node name="paddleSpriteP" type="Sprite" parent="Paddle1/CollisionShape2D"]
-
 texture = ExtResource( 18 )
 hframes = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Paddle1/CollisionShape2D/paddleSpriteP"]
 autoplay = "paddle"
 method_call_mode = 1
-anims/paddle = SubResource( 10 )
+anims/paddle = SubResource( 3 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Paddle1/CollisionShape2D/paddleSpriteP"]
 stream = ExtResource( 19 )
@@ -226,20 +211,21 @@ volume_db = -2.0
 script = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle2"]
-material = SubResource( 8 )
+material = SubResource( 1 )
 position = Vector2( 0, -492.7 )
-shape = SubResource( 9 )
+shape = SubResource( 2 )
 
 [node name="paddleSpriteY" type="Sprite" parent="Paddle2/CollisionShape2D"]
 rotation = 3.14159
 texture = ExtResource( 6 )
 normal_map = ExtResource( 3 )
 hframes = 6
+frame = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Paddle2/CollisionShape2D/paddleSpriteY"]
 autoplay = "yellow paddle"
 method_call_mode = 1
-"anims/yellow paddle" = SubResource( 11 )
+"anims/yellow paddle" = SubResource( 4 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Paddle2/CollisionShape2D/paddleSpriteY"]
 position = Vector2( 0.00243377, -960 )
@@ -253,13 +239,13 @@ script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
 position = Vector2( 0.513336, 0 )
-shape = SubResource( 12 )
+shape = SubResource( 5 )
 
 [node name="ballSprite" type="Sprite" parent="Ball/CollisionShape2D"]
 scale = Vector2( 2, 2 )
 texture = ExtResource( 7 )
 hframes = 14
-frame = 10
+frame = 5
 
 [node name="Wormhole sounds" type="AudioStreamPlayer2D" parent="Ball/CollisionShape2D/ballSprite"]
 scale = Vector2( 0.5, 0.5 )
@@ -272,15 +258,15 @@ volume_db = 5.843
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Ball/CollisionShape2D/ballSprite"]
 autoplay = "ballRotate"
-anims/Enter = SubResource( 13 )
-anims/Exit = SubResource( 14 )
-anims/ballRotate = SubResource( 15 )
+anims/Enter = SubResource( 6 )
+anims/Exit = SubResource( 7 )
+anims/ballRotate = SubResource( 8 )
 
 [node name="OuterRing" type="StaticBody2D" parent="."]
 script = ExtResource( 8 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="OuterRing"]
-material = SubResource( 16 )
+material = SubResource( 9 )
 position = Vector2( -45.3893, 146.891 )
 scale = Vector2( 88.7414, 75.6079 )
 build_mode = 1
@@ -294,7 +280,8 @@ hframes = 7
 script = ExtResource( 15 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="OuterRing/CollisionPolygon2D/OuterRing_P"]
-anims/changeColor = SubResource( 17 )
+"anims/New Anim" = SubResource( 16 )
+anims/changeColor = SubResource( 10 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="OuterRing/CollisionPolygon2D/OuterRing_P"]
 stream = ExtResource( 21 )
@@ -306,7 +293,7 @@ margin_left = -800.0
 margin_top = -475.0
 margin_right = -635.0
 margin_bottom = -370.0
-custom_fonts/font = SubResource( 18 )
+custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 align = 1
 script = ExtResource( 11 )
@@ -319,7 +306,7 @@ margin_left = 635.0
 margin_top = -475.0
 margin_right = 800.0
 margin_bottom = -370.0
-custom_fonts/font = SubResource( 18 )
+custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 align = 1
 script = ExtResource( 12 )
@@ -332,7 +319,7 @@ margin_left = 375.0
 margin_top = 370.0
 margin_right = 540.0
 margin_bottom = 475.0
-custom_fonts/font = SubResource( 19 )
+custom_fonts/font = SubResource( 12 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 align = 1
 valign = 2
@@ -344,7 +331,7 @@ __meta__ = {
 script = ExtResource( 16 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Middle Star"]
-shape = SubResource( 20 )
+shape = SubResource( 13 )
 
 [node name="Sprite" type="Sprite" parent="Middle Star/CollisionShape2D"]
 scale = Vector2( 3, 3 )
@@ -353,8 +340,8 @@ hframes = 23
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Middle Star/CollisionShape2D/Sprite"]
 autoplay = "IdleSun"
-anims/Exploding = SubResource( 21 )
-anims/IdleSun = SubResource( 22 )
+anims/Exploding = SubResource( 14 )
+anims/IdleSun = SubResource( 15 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Middle Star/CollisionShape2D/Sprite"]
 position = Vector2( 4.44899, -0.171115 )

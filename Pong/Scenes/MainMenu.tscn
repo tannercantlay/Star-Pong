@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Sprites/OuterRing_Y.png" type="Texture" id=1]
 [ext_resource path="res://nextPage.gd" type="Script" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Sprites/SpriteSheets/Star_idle.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/SpriteSheets/The_Almighty.png" type="Texture" id=11]
 [ext_resource path="res://settings.gd" type="Script" id=12]
+[ext_resource path="res://escape.gd" type="Script" id=13]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -62,7 +63,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=8]
 resource_name = "wormhole_idle"
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=9]
 resource_name = "booster_idle"
 length = 0.5
 loop = true
@@ -79,10 +80,10 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4 ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=10]
 resource_name = "wormhole_idle"
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=11]
 resource_name = "star_idle"
 length = 0.9
 loop = true
@@ -99,8 +100,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ]
 }
 
-[sub_resource type="Animation" id=9]
-resource_name = "almighty"
+[sub_resource type="Animation" id=12]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -117,6 +117,7 @@ tracks/0/keys = {
 }
 
 [node name="main" type="Node2D"]
+script = ExtResource( 13 )
 
 [node name="Background" parent="." instance=ExtResource( 5 )]
 scale = Vector2( 0.5, 0.5 )
@@ -300,8 +301,8 @@ frame = 2
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="Wormhole"]
 autoplay = "booster_idle"
-anims/booster_idle = SubResource( 10 )
-anims/wormhole_idle = SubResource( 11 )
+anims/booster_idle = SubResource( 9 )
+anims/wormhole_idle = SubResource( 10 )
 
 [node name="Star" type="Sprite" parent="."]
 position = Vector2( -200.355, 102.08 )
@@ -312,7 +313,7 @@ frame = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Star"]
 autoplay = "star_idle"
-anims/star_idle = SubResource( 12 )
+anims/star_idle = SubResource( 11 )
 
 [node name="Almighty" type="Sprite" parent="."]
 position = Vector2( 245.263, 109.474 )
@@ -323,4 +324,4 @@ frame = 7
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Almighty"]
 autoplay = "almighty"
-anims/almighty = SubResource( 9 )
+anims/almighty = SubResource( 12 )

@@ -1,9 +1,5 @@
 extends KinematicBody2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 var timer
 var velocity = Vector2()
 var returnValue
@@ -17,14 +13,7 @@ onready var Ring = get_node("../OuterRing/CollisionPolygon2D/OuterRing_P")
 onready var yelRing = load("res://Sprites/SpriteSheets/OuterRingPtoY.png") #BlueToRed.png")
 onready var purpRing = load("res://Sprites/SpriteSheets/OuterRingYtoP.png") #RedToBlue.png")
 onready var animate = get_node("../OuterRing/CollisionPolygon2D/OuterRing_P/AnimationPlayer")
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	#velocity = Vector2(0,(speed))
-	
-	pass # Replace with function body.
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-	
 func _physics_process(delta):
 	var collision = move_and_collide(velocity * delta)
 	if collision:
@@ -47,7 +36,7 @@ func _physics_process(delta):
 			# repositions ball to center of game, offset up if purple scored or down if yellow scored
 			# ? will call logic from gameManager to update game score, reposition paddles after a score?
 			if lastHit == "yellow":
-				position = Vector2(0, 100) #100
+				position = Vector2(0, 50) #100
 				paddle1.reset()
 				paddle2.reset()
 				get_node("CollisionShape2D/ballSprite/AnimationPlayer").play("Enter")
@@ -61,7 +50,7 @@ func _physics_process(delta):
 				#if(Input.is_key_pressed(83)):
 				#velocity = Vector2(0,(0-speed))
 			elif lastHit == "purple":
-				position = Vector2(0,-100) #-100
+				position = Vector2(0,-50) #-100
 				paddle2.reset()
 				paddle1.reset()
 				get_node("CollisionShape2D/ballSprite/AnimationPlayer").play("Enter")
@@ -154,18 +143,15 @@ func _physics_process(delta):
 			t.start()
 			yield(t, "timeout")
 			booster.disabled = false
-
 			velocity = velocity * .8
-
+			
 			#This second timer to slow it down slowly
 			t.set_wait_time(.2)
 			t.set_one_shot(true)
 			add_child(t)
 			t.start()
 			yield(t, "timeout")
-
 			velocity = velocity * .55
-
 			#$CollisionShape2D.disabled = false
 
 	#Locks user out of DOUBLE TAPPING
