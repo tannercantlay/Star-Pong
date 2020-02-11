@@ -44,7 +44,7 @@ func hit(team):
 	if((player_vars.numrounds - roundsPlayed) == 0):
 		if(player_vars.p2Score > player_vars.p1Score):
 			player_vars.winner = player_vars.player2
-		get_tree().change_scene("res://Scenes/GameWin.tscn")
+			get_tree().change_scene("res://Scenes/GameWin.tscn")
 
 func _physics_process(delta):
 	timer -= 1
