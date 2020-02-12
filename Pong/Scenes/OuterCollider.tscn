@@ -24,6 +24,29 @@
 [ext_resource path="res://Sounds/speed.wav" type="AudioStream" id=23]
 [ext_resource path="res://escape.gd" type="Script" id=25]
 
+[sub_resource type="CanvasItemMaterial" id=9]
+
+[sub_resource type="Animation" id=10]
+resource_name = "New Anim"
+length = 0.49
+step = 0.7
+
+[sub_resource type="Animation" id=11]
+length = 0.49
+step = 0.07
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.07, 0.14, 0.21, 0.28, 0.35, 0.42 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6 ]
+}
+
 [sub_resource type="CanvasItemMaterial" id=1]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -111,29 +134,6 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
 }
 
-[sub_resource type="CanvasItemMaterial" id=9]
-
-[sub_resource type="Animation" id=10]
-resource_name = "New Anim"
-length = 0.49
-step = 0.7
-
-[sub_resource type="Animation" id=11]
-length = 0.49
-step = 0.07
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.07, 0.14, 0.21, 0.28, 0.35, 0.42 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3, 4, 5, 6 ]
-}
-
 [sub_resource type="DynamicFont" id=12]
 size = 35
 font_data = ExtResource( 9 )
@@ -186,12 +186,37 @@ script = ExtResource( 25 )
 position = Vector2( 0.583742, 2.97754 )
 current = true
 
+[node name="OuterRing" type="StaticBody2D" parent="."]
+script = ExtResource( 8 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="OuterRing"]
+material = SubResource( 9 )
+position = Vector2( -45.3893, 146.891 )
+scale = Vector2( 88.7414, 75.6079 )
+build_mode = 1
+polygon = PoolVector2Array( 0.0575035, -8.35868, 0.818746, -8.3942, 1.31438, -8.34034, 1.74577, -8.23261, 2.08537, -8.11411, 2.52593, -7.9202, 2.98485, -7.70475, 3.47131, -7.38156, 3.8568, -7.05838, 4.21476, -6.70288, 4.56354, -6.29351, 4.83889, -5.92724, 5.20603, -5.29165, 5.39878, -4.84996, 5.62824, -4.26823, 5.83016, -3.50337, 5.9403, -2.74928, 5.99537, -2.16755, 5.96784, -1.42423, 5.83016, -0.42236, 5.61906, 0.374824, 5.35288, 1.04274, 5.16932, 1.48442, 4.85725, 1.97997, 4.49929, 2.48629, 4.03119, 2.9926, 3.5172, 3.41274, 2.94814, 3.81133, 2.38826, 4.09143, 1.85591, 4.28534, 1.3511, 4.40384, 0.644357, 4.46847, 0.0385821, 4.46847, -0.695691, 4.31765, -1.31982, 4.11297, -1.85217, 3.85442, -2.45795, 3.47738, -2.93522, 3.08956, -3.44004, 2.54015, -3.82553, 1.99074, -4.14678, 1.48442, -4.42213, 0.870371, -4.65159, 0.267097, -4.83516, -0.486997, -4.9453, -1.33804, -4.96365, -2.23218, -4.89023, -3.04014, -4.72502, -3.89119, -4.45884, -4.73146, -4.05499, -5.57174, -3.57771, -6.30429, -3.00865, -6.93988, -2.41205, -7.43543, -1.85217, -7.8017, -1.18214, -8.10334, -0.677331, -8.24338, -0.291837, -8.32956, 0.0299303, -8.36138, 0.257409, -8.48274, 0.443527, -8.6068, 0.632049, -8.8701, -0.743512, -8.71216, -1.42382, -8.44015, -1.9247, -8.1155, -2.33588, -7.95756, -2.74705, -7.72065, -3.14327, -7.29947, -3.54697, -6.91339, -3.92824, -6.45712, -4.18989, -6.08859, -4.47398, -5.69374, -4.85525, -4.86017, -5.04214, -4.2986, -5.24399, -3.59664, -5.40099, -2.49106, -5.31875, -1.2714, -5.24399, -0.560666, -5.12295, 0.231533, -4.94465, 0.789598, -4.67912, 1.37669, -4.44966, 1.72142, -4.20184, 2.14156, -3.86224, 2.62633, -3.32071, 3.22961, -3.1555, 3.42352, -2.41205, 4.03756, -1.9256, 4.34997, -1.08734, 4.70052, -0.526974, 4.87061, 0.352887, 4.9139, 1.373, 4.83036, 2.25077, 4.69114, 2.9862, 4.38485, 3.95887, 3.86973, 4.5994, 3.20146, 5.10263, 2.58938, 5.60351, 1.83477, 6.01469, 0.97487, 6.28382, -0.271107, 6.44829, -1.31527, 6.42586, -2.42086, 6.17702, -3.6622, 5.96983, -4.69345, 5.46895, -5.73761, 4.90825, -6.55364, 4.2728, -7.2556, 3.82425, -7.67677, 3.15142, -8.02775, 2.82248, -8.22956, 2.19451, -8.44015, 1.67867, -8.68583, 1.22264, -8.74726, 0.654477, -8.77358, 0.413657, -8.56634 )
+
+[node name="OuterRing_P" type="Sprite" parent="OuterRing/CollisionPolygon2D"]
+position = Vector2( 0.511478, -1.96511 )
+scale = Vector2( 0.0112687, 0.0132261 )
+texture = ExtResource( 1 )
+hframes = 7
+frame = 6
+script = ExtResource( 15 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="OuterRing/CollisionPolygon2D/OuterRing_P"]
+"anims/New Anim" = SubResource( 10 )
+anims/changeColor = SubResource( 11 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="OuterRing/CollisionPolygon2D/OuterRing_P"]
+stream = ExtResource( 21 )
+
 [node name="Paddle1" type="KinematicBody2D" parent="."]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle1"]
 material = SubResource( 1 )
-position = Vector2( 0, 492.7 )
+position = Vector2( 0, 499 )
 shape = SubResource( 2 )
 
 [node name="paddleSpriteP" type="Sprite" parent="Paddle1/CollisionShape2D"]
@@ -212,7 +237,7 @@ script = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle2"]
 material = SubResource( 1 )
-position = Vector2( 0, -492.7 )
+position = Vector2( 0, -501 )
 shape = SubResource( 2 )
 
 [node name="paddleSpriteY" type="Sprite" parent="Paddle2/CollisionShape2D"]
@@ -261,31 +286,6 @@ autoplay = "ballRotate"
 anims/Enter = SubResource( 6 )
 anims/Exit = SubResource( 7 )
 anims/ballRotate = SubResource( 8 )
-
-[node name="OuterRing" type="StaticBody2D" parent="."]
-script = ExtResource( 8 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="OuterRing"]
-material = SubResource( 9 )
-position = Vector2( -45.3893, 146.891 )
-scale = Vector2( 88.7414, 75.6079 )
-build_mode = 1
-polygon = PoolVector2Array( 0.0575035, -8.35868, 0.818746, -8.3942, 1.31438, -8.34034, 1.74577, -8.23261, 2.08537, -8.11411, 2.52593, -7.9202, 2.98485, -7.70475, 3.47131, -7.38156, 3.8568, -7.05838, 4.21476, -6.70288, 4.56354, -6.29351, 4.83889, -5.92724, 5.20603, -5.29165, 5.39878, -4.84996, 5.62824, -4.26823, 5.83016, -3.50337, 5.9403, -2.74928, 5.99537, -2.16755, 5.96784, -1.42423, 5.83016, -0.42236, 5.61906, 0.374824, 5.35288, 1.04274, 5.16932, 1.48442, 4.85725, 1.97997, 4.49929, 2.48629, 4.03119, 2.9926, 3.5172, 3.41274, 2.94814, 3.81133, 2.38826, 4.09143, 1.85591, 4.28534, 1.3511, 4.40384, 0.644357, 4.46847, 0.0385821, 4.46847, -0.695691, 4.31765, -1.31982, 4.11297, -1.85217, 3.85442, -2.45795, 3.47738, -2.93522, 3.08956, -3.44004, 2.54015, -3.82553, 1.99074, -4.14678, 1.48442, -4.42213, 0.870371, -4.65159, 0.267097, -4.83516, -0.486997, -4.9453, -1.33804, -4.96365, -2.23218, -4.89023, -3.04014, -4.72502, -3.89119, -4.45884, -4.73146, -4.05499, -5.57174, -3.57771, -6.30429, -3.00865, -6.93988, -2.41205, -7.43543, -1.85217, -7.8017, -1.18214, -8.10334, -0.677331, -8.24338, -0.291837, -8.32956, 0.0299303, -8.36138, 0.257409, -8.48274, 0.443527, -8.6068, 0.632049, -8.8701, -0.743512, -8.71216, -1.42382, -8.44015, -1.9247, -8.1155, -2.33588, -7.95756, -2.74705, -7.72065, -3.14327, -7.29947, -3.54697, -6.91339, -3.92824, -6.45712, -4.18989, -6.08859, -4.47398, -5.69374, -4.85525, -4.86017, -5.04214, -4.2986, -5.24399, -3.59664, -5.40099, -2.49106, -5.31875, -1.2714, -5.24399, -0.560666, -5.12295, 0.231533, -4.94465, 0.789598, -4.67912, 1.37669, -4.44966, 1.72142, -4.20184, 2.14156, -3.86224, 2.62633, -3.32071, 3.22961, -3.1555, 3.42352, -2.41205, 4.03756, -1.9256, 4.34997, -1.08734, 4.70052, -0.526974, 4.87061, 0.352887, 4.9139, 1.373, 4.83036, 2.25077, 4.69114, 2.9862, 4.38485, 3.95887, 3.86973, 4.5994, 3.20146, 5.10263, 2.58938, 5.60351, 1.83477, 6.01469, 0.97487, 6.28382, -0.271107, 6.44829, -1.31527, 6.42586, -2.42086, 6.17702, -3.6622, 5.96983, -4.69345, 5.46895, -5.73761, 4.90825, -6.55364, 4.2728, -7.2556, 3.82425, -7.67677, 3.15142, -8.02775, 2.82248, -8.22956, 2.19451, -8.44015, 1.67867, -8.68583, 1.22264, -8.74726, 0.654477, -8.77358, 0.413657, -8.56634 )
-
-[node name="OuterRing_P" type="Sprite" parent="OuterRing/CollisionPolygon2D"]
-position = Vector2( 0.511478, -1.96511 )
-scale = Vector2( 0.0112687, 0.0132261 )
-texture = ExtResource( 1 )
-hframes = 7
-frame = 6
-script = ExtResource( 15 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="OuterRing/CollisionPolygon2D/OuterRing_P"]
-"anims/New Anim" = SubResource( 10 )
-anims/changeColor = SubResource( 11 )
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="OuterRing/CollisionPolygon2D/OuterRing_P"]
-stream = ExtResource( 21 )
 
 [node name="Node" type="Node" parent="."]
 

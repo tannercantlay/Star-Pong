@@ -22,7 +22,7 @@ size = 30
 font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 30
+size = 40
 font_data = ExtResource( 2 )
 
 [node name="Name1" type="Node2D"]
