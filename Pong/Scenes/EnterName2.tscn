@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://joystix/JOYSTIX.TTF" type="DynamicFontData" id=1]
 [ext_resource path="res://Sprites/SpriteSheets/OuterRingYtoP.png" type="Texture" id=2]
@@ -12,8 +12,7 @@
 [ext_resource path="res://Purple player.gd" type="Script" id=10]
 [ext_resource path="res://Yellow player.gd" type="Script" id=11]
 [ext_resource path="res://Red player.gd" type="Script" id=12]
-
-
+[ext_resource path="res://RingChange.gd" type="Script" id=13]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 5 )
@@ -90,12 +89,14 @@ __meta__ = {
 }
 
 [node name="Red" type="Sprite" parent="."]
+visible = false
 position = Vector2( -680.656, 341.03 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 7 )
 script = ExtResource( 12 )
 
 [node name="Label" type="Label" parent="Red"]
+visible = false
 margin_left = -148.0
 margin_top = -48.0
 margin_right = 152.0
@@ -111,12 +112,14 @@ __meta__ = {
 }
 
 [node name="Blue" type="Sprite" parent="."]
+visible = false
 position = Vector2( -315.504, 316.686 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 7 )
 script = ExtResource( 9 )
 
 [node name="Label" type="Label" parent="Blue"]
+visible = false
 margin_left = -148.0
 margin_top = -48.0
 margin_right = 152.0
@@ -132,12 +135,14 @@ __meta__ = {
 }
 
 [node name="Purple" type="Sprite" parent="."]
+visible = false
 position = Vector2( 294.515, 359.646 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 7 )
 script = ExtResource( 10 )
 
 [node name="Label" type="Label" parent="Purple"]
+visible = false
 margin_left = -148.0
 margin_top = -48.0
 margin_right = 152.0
@@ -153,12 +158,14 @@ __meta__ = {
 }
 
 [node name="Yellow" type="Sprite" parent="."]
+visible = false
 position = Vector2( 676.851, 358.214 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 7 )
 script = ExtResource( 11 )
 
 [node name="Label" type="Label" parent="Yellow"]
+visible = false
 margin_left = -148.0
 margin_top = -48.0
 margin_right = 152.0
@@ -177,3 +184,5 @@ __meta__ = {
 scale = Vector2( 0.5, -0.5 )
 texture = ExtResource( 2 )
 hframes = 7
+frame = 6
+script = ExtResource( 13 )
