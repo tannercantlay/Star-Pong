@@ -18,7 +18,7 @@ func _unhandled_input(event):
 				player_vars.p1RingColor = load("res://Sprites/SpriteSheets/OuterRingRedToBlue.png")
 			elif(get_tree().get_current_scene().get_name() == "Name2"):
 				player_vars.p2RingColor = load("res://Sprites/SpriteSheets/OuterRingRedToBlue.png")
-		get_node("../outer_ring").texture = load("res://Sprites/SpriteSheets/OuterRingBlueToRed.png")
+			get_node("../outer_ring").texture = load("res://Sprites/SpriteSheets/OuterRingBlueToRed.png")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
