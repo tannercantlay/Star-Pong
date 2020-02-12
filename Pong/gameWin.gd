@@ -15,9 +15,9 @@ onready var WinnerText = get_node("Winner")
 func _ready():
 	WinnerText.text = player_vars.winner + " has taken over the galaxy!"
 	if player_vars.winner == player_vars.player1:
-		Ring.texture = purpRing
+		Ring.texture = player_vars.p1RingColor
 	elif player_vars.winner == player_vars.player2:
-		Ring.texture = yelRing
+		Ring.texture = player_vars.p2RingColor
 	else:
 		print_debug("what why are we here")
 	musicPlayer.music.stop()

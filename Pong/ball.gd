@@ -9,9 +9,7 @@ var lastHit = "yellow"
 onready var paddle1 = get_node("../Paddle1")
 onready var paddle2 = get_node("../Paddle2")
 onready var Ring = get_node("../OuterRing/CollisionPolygon2D/OuterRing_P")
-
-onready var yelRing = load("res://Sprites/SpriteSheets/OuterRingPtoY.png") #BlueToRed.png")
-onready var purpRing = load("res://Sprites/SpriteSheets/OuterRingYtoP.png") #RedToBlue.png")
+onready var player_vars = get_node("/root/PlayerVariables")
 onready var animate = get_node("../OuterRing/CollisionPolygon2D/OuterRing_P/AnimationPlayer")
 
 func _physics_process(delta):
@@ -72,13 +70,13 @@ func _physics_process(delta):
 				get_node("../Paddle1/CollisionShape2D").disabled = true
 				get_node("../Paddle2/CollisionShape2D").disabled = false
 				animate.play("changeColor")
-				Ring.texture = yelRing
+				Ring.texture = player_vars.p2RingColor
 			elif(lastHit == "yellow"):
 				get_node("../Paddle2/CollisionShape2D/paddleSpriteY/AudioStreamPlayer2D").play()
 				get_node("../Paddle2/CollisionShape2D").disabled = true
 				get_node("../Paddle1/CollisionShape2D").disabled = false
 				animate.play("changeColor")
-				Ring.texture = purpRing
+				Ring.texture = player_vars.p1RingColor
 
 			var preVelocity = velocity
 			var postVelocity = velocity.bounce(collision.normal)
