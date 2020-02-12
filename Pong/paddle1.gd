@@ -33,12 +33,12 @@ func _input(event):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	if(Input.is_key_pressed(65)): #Key_A
-		if (abs(theta) < 0.13):
-			(theta += 0.007)
+		if (abs(theta) < 0.11):
+			(theta += 0.0035)
 		rotation_dir += theta
 	if(Input.is_key_pressed(68)): #Key_D
-		if (abs(theta) < 0.13):
-			(theta += 0.007)
+		if (abs(theta) < 0.11):
+			(theta += 0.0035)
 		rotation_dir -= theta
 			
 	rotation = rotation_dir * rotation_speed * delta

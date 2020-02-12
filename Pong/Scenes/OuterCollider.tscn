@@ -113,12 +113,12 @@ tracks/0/keys = {
 
 [sub_resource type="CanvasItemMaterial" id=9]
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=10]
 resource_name = "New Anim"
 length = 0.49
 step = 0.7
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=11]
 length = 0.49
 step = 0.07
 tracks/0/type = "value"
@@ -134,18 +134,18 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6 ]
 }
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=12]
 size = 35
 font_data = ExtResource( 9 )
 
-[sub_resource type="DynamicFont" id=12]
+[sub_resource type="DynamicFont" id=13]
 size = 35
 font_data = ExtResource( 14 )
 
-[sub_resource type="CircleShape2D" id=13]
+[sub_resource type="CircleShape2D" id=14]
 radius = 22.3014
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=15]
 length = 1.4
 loop = true
 tracks/0/type = "value"
@@ -161,7 +161,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=16]
 length = 0.9
 loop = true
 tracks/0/type = "value"
@@ -280,8 +280,8 @@ hframes = 7
 script = ExtResource( 15 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="OuterRing/CollisionPolygon2D/OuterRing_P"]
-"anims/New Anim" = SubResource( 16 )
-anims/changeColor = SubResource( 10 )
+"anims/New Anim" = SubResource( 10 )
+anims/changeColor = SubResource( 11 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="OuterRing/CollisionPolygon2D/OuterRing_P"]
 stream = ExtResource( 21 )
@@ -293,7 +293,7 @@ margin_left = -800.0
 margin_top = -475.0
 margin_right = -635.0
 margin_bottom = -370.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 align = 1
 script = ExtResource( 11 )
@@ -306,7 +306,7 @@ margin_left = 635.0
 margin_top = -475.0
 margin_right = 800.0
 margin_bottom = -370.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 align = 1
 script = ExtResource( 12 )
@@ -319,7 +319,7 @@ margin_left = 480.0
 margin_top = 370.0
 margin_right = 645.0
 margin_bottom = 475.0
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 13 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 align = 1
 valign = 2
@@ -331,7 +331,7 @@ __meta__ = {
 script = ExtResource( 16 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Middle Star"]
-shape = SubResource( 13 )
+shape = SubResource( 14 )
 
 [node name="Sprite" type="Sprite" parent="Middle Star/CollisionShape2D"]
 scale = Vector2( 3, 3 )
@@ -340,8 +340,8 @@ hframes = 23
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Middle Star/CollisionShape2D/Sprite"]
 autoplay = "IdleSun"
-anims/Exploding = SubResource( 14 )
-anims/IdleSun = SubResource( 15 )
+anims/Exploding = SubResource( 15 )
+anims/IdleSun = SubResource( 16 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Middle Star/CollisionShape2D/Sprite"]
 position = Vector2( 4.44899, -0.171115 )
