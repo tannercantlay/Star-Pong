@@ -5,24 +5,24 @@
 [ext_resource path="res://Sprites/SpriteSheets/Platform_Y.png" type="Texture" id=3]
 [ext_resource path="res://ball.gd" type="Script" id=4]
 [ext_resource path="res://paddle2.gd" type="Script" id=5]
-[ext_resource path="res://Sprites/SpriteSheets/Platform_Y4.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/SpriteSheets/Purple_Paddle.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/SpriteSheets/Ball_withFadeIn.png" type="Texture" id=7]
 [ext_resource path="res://gameManager.gd" type="Script" id=8]
 [ext_resource path="res://joystix/JOYSTIX.TTF" type="DynamicFontData" id=9]
 [ext_resource path="res://Scenes/Background.tscn" type="PackedScene" id=10]
 [ext_resource path="res://p1Score.gd" type="Script" id=11]
 [ext_resource path="res://p2Score.gd" type="Script" id=12]
+[ext_resource path="res://nextPage.gd" type="Script" id=13]
 [ext_resource path="res://Font/JOYSTIX.TTF" type="DynamicFontData" id=14]
 [ext_resource path="res://RingChange.gd" type="Script" id=15]
 [ext_resource path="res://MiddleStar.gd" type="Script" id=16]
 [ext_resource path="res://Sprites/SpriteSheets/Star_sheet.png" type="Texture" id=17]
-[ext_resource path="res://Sprites/SpriteSheets/Platform_P4.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/SpriteSheets/Yellow_Paddle.png" type="Texture" id=18]
 [ext_resource path="res://Sounds/paddlehit.wav" type="AudioStream" id=19]
 [ext_resource path="res://Sounds/starexplosion.wav" type="AudioStream" id=20]
 [ext_resource path="res://Sounds/scoring.wav" type="AudioStream" id=21]
 [ext_resource path="res://Sounds/wormhole.wav" type="AudioStream" id=22]
 [ext_resource path="res://Sounds/speed.wav" type="AudioStream" id=23]
-[ext_resource path="res://escape.gd" type="Script" id=25]
 
 [sub_resource type="CanvasItemMaterial" id=9]
 
@@ -178,9 +178,9 @@ tracks/0/keys = {
 }
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource( 25 )
 
 [node name="Background" parent="." instance=ExtResource( 10 )]
+position = Vector2( 0, -1.43198 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 0.583742, 2.97754 )
@@ -220,8 +220,7 @@ position = Vector2( 0, 499 )
 shape = SubResource( 2 )
 
 [node name="paddleSpriteP" type="Sprite" parent="Paddle1/CollisionShape2D"]
-texture = ExtResource( 18 )
-hframes = 6
+texture = ExtResource( 6 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Paddle1/CollisionShape2D/paddleSpriteP"]
 autoplay = "paddle"
@@ -242,10 +241,8 @@ shape = SubResource( 2 )
 
 [node name="paddleSpriteY" type="Sprite" parent="Paddle2/CollisionShape2D"]
 rotation = 3.14159
-texture = ExtResource( 6 )
+texture = ExtResource( 18 )
 normal_map = ExtResource( 3 )
-hframes = 6
-frame = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Paddle2/CollisionShape2D/paddleSpriteY"]
 autoplay = "yellow paddle"
@@ -349,3 +346,6 @@ anims/IdleSun = SubResource( 16 )
 position = Vector2( 4.44899, -0.171115 )
 stream = ExtResource( 20 )
 volume_db = -2.0
+
+[node name="DoesNothing" type="Sprite" parent="."]
+script = ExtResource( 13 )
