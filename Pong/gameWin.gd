@@ -15,11 +15,16 @@ onready var WinnerText = get_node("Winner")
 func _ready():
 	WinnerText.text = player_vars.winner + " has taken over the galaxy!"
 	if player_vars.winner == player_vars.player1:
-		Ring.texture = player_vars.p1RingColor
-	elif player_vars.winner == player_vars.player2:
 		Ring.texture = player_vars.p2RingColor
+		# You set it to the other player's ring color becuase
+		# it is the animation from p2->p1
+	elif player_vars.winner == player_vars.player2:
+		Ring.texture = player_vars.p1RingColor
+		# You set it to the other player's ring color becuase
+		# it is the animation from p1->p2
 	else:
-		print_debug("what why are we here")
+		print_debug("what why are we here, trollololololo")
+		
 	musicPlayer.music.stop()
 	musicPlayer.stream = load("res://Sounds/victory.ogg")
 	musicPlayer.music.set_stream(musicPlayer.stream)

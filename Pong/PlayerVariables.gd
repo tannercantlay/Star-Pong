@@ -11,8 +11,8 @@ var p2Score
 var numrounds
 var winner
 var maxwins
-var p1RingColor = load("res://Sprites/SpriteSheets/OuterRingPToY.png")
-var p2RingColor = load("res://Sprites/SpriteSheets/OuterRingYToP.png")
+var p1RingColor = load("res://Sprites/SpriteSheets/OuterRingYToP.png")
+var p2RingColor = load("res://Sprites/SpriteSheets/OuterRingPToY.png")
 var p1PaddleColor
 var p2PaddleColor
 
