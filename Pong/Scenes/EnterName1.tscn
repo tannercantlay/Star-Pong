@@ -33,7 +33,7 @@ script = ExtResource( 8 )
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 
-[node name="Label" type="Label" parent="."]
+[node name="Label1" type="Label" parent="."]
 margin_left = -200.0
 margin_top = -110.0
 margin_right = 3.99997

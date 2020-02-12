@@ -41,4 +41,3 @@ func _physics_process(delta):
 		
 	rotation = rotation_dir * rotation_speed * delta
 	
-	pass

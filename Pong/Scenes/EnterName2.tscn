@@ -33,14 +33,14 @@ script = ExtResource( 8 )
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 
-[node name="Label" type="Label" parent="."]
+[node name="Label2" type="Label" parent="."]
 margin_left = -202.0
 margin_top = -110.0
 margin_right = 2.0
 margin_bottom = -50.0
 rect_scale = Vector2( 2, 2 )
 custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.878431, 0.862745, 0.564706, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Enter Player 2 
