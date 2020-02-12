@@ -277,6 +277,7 @@ position = Vector2( 0.511478, -1.96511 )
 scale = Vector2( 0.0112687, 0.0132261 )
 texture = ExtResource( 1 )
 hframes = 7
+frame = 6
 script = ExtResource( 15 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="OuterRing/CollisionPolygon2D/OuterRing_P"]
@@ -337,6 +338,7 @@ shape = SubResource( 14 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 17 )
 hframes = 23
+frame = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Middle Star/CollisionShape2D/Sprite"]
 autoplay = "IdleSun"

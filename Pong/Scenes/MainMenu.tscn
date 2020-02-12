@@ -320,7 +320,6 @@ position = Vector2( 245.263, 109.474 )
 texture = ExtResource( 11 )
 offset = Vector2( 100, 0 )
 hframes = 8
-frame = 7
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Almighty"]
 autoplay = "almighty"
