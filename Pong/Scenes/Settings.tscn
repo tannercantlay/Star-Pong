@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scenes/Background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/Button.png" type="Texture" id=2]
@@ -7,16 +7,24 @@
 [ext_resource path="res://PurpleYellowTheme.gd" type="Script" id=5]
 [ext_resource path="res://BlueRedTheme.gd" type="Script" id=6]
 [ext_resource path="res://Sprites/SpriteSheets/OuterRingPtoY.png" type="Texture" id=7]
-[ext_resource path="res://nextPage.gd" type="Script" id=8]
 [ext_resource path="res://PinkGreenTheme.gd" type="Script" id=9]
-[ext_resource path="res://escape.gd" type="Script" id=10]
+[ext_resource path="res://SettingScript.gd" type="Script" id=10]
+[ext_resource path="res://getNumRounds.gd" type="Script" id=11]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 60
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=1]
-size = 28
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 30
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
 font_data = ExtResource( 3 )
 
 [node name="settings" type="Node2D"]
@@ -29,7 +37,7 @@ margin_left = -180.0
 margin_top = -345.181
 margin_right = 180.0
 margin_bottom = -281.181
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Settings"
 align = 1
@@ -47,9 +55,9 @@ margin_left = -151.0
 margin_top = -50.0
 margin_right = 149.0
 margin_bottom = 49.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0.0784314, 0.784314, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.717647, 0.431373, 0.831373, 1 )
 text = "Back to 
 Main Menu"
 align = 1
@@ -69,9 +77,9 @@ margin_left = -148.689
 margin_top = -49.5528
 margin_right = 151.311
 margin_bottom = 49.4472
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0.0784314, 0.784314, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.819608, 0.0156863, 0.0156863, 1 )
 text = "Red and 
 Blue theme"
 align = 1
@@ -87,13 +95,13 @@ texture = ExtResource( 2 )
 script = ExtResource( 5 )
 
 [node name="Label" type="Label" parent="PurpleYellow"]
-margin_left = -150.619
+margin_left = -149.259
 margin_top = -49.4979
-margin_right = 149.381
+margin_right = 150.741
 margin_bottom = 49.5021
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0.0784314, 0.784314, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.717647, 0.431373, 0.831373, 1 )
 text = "Purple and Yellow Theme"
 align = 1
 valign = 1
@@ -112,9 +120,9 @@ margin_left = -149.329
 margin_top = -49.9132
 margin_right = 150.671
 margin_bottom = 49.0868
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0.0784314, 0.784314, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.0392157, 0.321569, 0.0705882, 1 )
 text = "Green and 
 Pink theme"
 align = 1
@@ -128,5 +136,29 @@ __meta__ = {
 texture = ExtResource( 7 )
 hframes = 7
 
-[node name="DoesNothing" type="Sprite" parent="."]
-script = ExtResource( 8 )
+[node name="Label" type="Label" parent="."]
+margin_left = 34.0095
+margin_top = -134.317
+margin_right = 425.01
+margin_bottom = -67.3169
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Number of Rounds:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="."]
+margin_left = 36.8019
+margin_top = -91.0
+margin_right = 413.802
+margin_bottom = -30.0
+custom_fonts/font = SubResource( 4 )
+align = 1
+max_length = 2
+placeholder_text = "11"
+placeholder_alpha = 0.323
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

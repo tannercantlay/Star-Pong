@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://nextPage.gd" type="Script" id=1]
 [ext_resource path="res://joystix/JOYSTIX.TTF" type="DynamicFontData" id=2]
@@ -7,11 +7,7 @@
 [ext_resource path="res://Font/JOYSTIX.TTF" type="DynamicFontData" id=5]
 [ext_resource path="res://Scenes/Background.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Sprites/Button.png" type="Texture" id=7]
-[ext_resource path="res://escape.gd" type="Script" id=8]
-[ext_resource path="res://Red player.gd" type="Script" id=9]
-[ext_resource path="res://Yellow player.gd" type="Script" id=10]
-[ext_resource path="res://Blue Player.gd" type="Script" id=11]
-[ext_resource path="res://Purple player.gd" type="Script" id=12]
+[ext_resource path="res://EnterName1Script.gd" type="Script" id=8]
 [ext_resource path="res://RingChange.gd" type="Script" id=13]
 
 [sub_resource type="DynamicFont" id=1]
@@ -56,8 +52,6 @@ margin_top = -20.0
 margin_right = 146.0
 margin_bottom = 30.0
 custom_fonts/font = SubResource( 2 )
-custom_colors/selection_color = Color( 0.717647, 0.431373, 0.831373, 1 )
-custom_colors/cursor_color = Color( 0.717647, 0.431373, 0.831373, 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_uneditable = Color( 0, 0, 0, 1 )
 align = 1
@@ -84,98 +78,6 @@ custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0.0784314, 0.784314, 0, 1 )
 text = "NExt"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Red" type="Sprite" parent="."]
-visible = false
-position = Vector2( -545.44, 362.131 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 7 )
-script = ExtResource( 9 )
-
-[node name="Label" type="Label" parent="Red"]
-visible = false
-margin_left = -148.0
-margin_top = -48.0
-margin_right = 152.0
-margin_bottom = 52.0
-custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0.0784314, 0.784314, 0, 1 )
-text = "Red"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Yellow" type="Sprite" parent="."]
-visible = false
-position = Vector2( 579.732, 356.579 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 7 )
-script = ExtResource( 10 )
-
-[node name="Label" type="Label" parent="Yellow"]
-visible = false
-margin_left = -148.0
-margin_top = -48.0
-margin_right = 152.0
-margin_bottom = 52.0
-custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0.0784314, 0.784314, 0, 1 )
-text = "Yellow"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Purple" type="Sprite" parent="."]
-visible = false
-position = Vector2( 141.137, 363.982 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 7 )
-script = ExtResource( 12 )
-
-[node name="Label" type="Label" parent="Purple"]
-visible = false
-margin_left = -148.0
-margin_top = -48.0
-margin_right = 152.0
-margin_bottom = 52.0
-custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0.0784314, 0.784314, 0, 1 )
-text = "Purple"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Blue" type="Sprite" parent="."]
-visible = false
-position = Vector2( -282.653, 356.579 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 7 )
-script = ExtResource( 11 )
-
-[node name="Label" type="Label" parent="Blue"]
-visible = false
-margin_left = -148.0
-margin_top = -48.0
-margin_right = 152.0
-margin_bottom = 52.0
-custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0.0784314, 0.784314, 0, 1 )
-text = "Blue"
 align = 1
 valign = 1
 __meta__ = {

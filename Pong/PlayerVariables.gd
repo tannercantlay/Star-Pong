@@ -8,7 +8,7 @@ var player1
 var player2
 var p1Score
 var p2Score
-var numrounds
+var numrounds = null
 var winner
 var maxwins
 var p1RingColor = load("res://Sprites/SpriteSheets/OuterRingYToP.png")

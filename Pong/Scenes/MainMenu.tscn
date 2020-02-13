@@ -12,7 +12,7 @@
 [ext_resource path="res://Sprites/SpriteSheets/Star_idle.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/SpriteSheets/The_Almighty.png" type="Texture" id=11]
 [ext_resource path="res://settings.gd" type="Script" id=12]
-[ext_resource path="res://escape.gd" type="Script" id=13]
+[ext_resource path="res://MainMenuScript.gd" type="Script" id=13]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50

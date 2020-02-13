@@ -14,4 +14,6 @@ func _unhandled_input(event):
 
 			var giantCircle = get_node("../Outer_Ring")
 			giantCircle.texture = player_vars.p1RingColor
+			var label = get_node("../BackMainMenu/Label")
+			label.add_color_override("font_color_shadow", Color("0a5212"))
 

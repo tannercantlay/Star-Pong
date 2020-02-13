@@ -12,7 +12,6 @@
 [ext_resource path="res://Scenes/Background.tscn" type="PackedScene" id=10]
 [ext_resource path="res://p1Score.gd" type="Script" id=11]
 [ext_resource path="res://p2Score.gd" type="Script" id=12]
-[ext_resource path="res://nextPage.gd" type="Script" id=13]
 [ext_resource path="res://Font/JOYSTIX.TTF" type="DynamicFontData" id=14]
 [ext_resource path="res://RingChange.gd" type="Script" id=15]
 [ext_resource path="res://MiddleStar.gd" type="Script" id=16]
@@ -23,6 +22,7 @@
 [ext_resource path="res://Sounds/scoring.wav" type="AudioStream" id=21]
 [ext_resource path="res://Sounds/wormhole.wav" type="AudioStream" id=22]
 [ext_resource path="res://Sounds/speed.wav" type="AudioStream" id=23]
+[ext_resource path="res://OuterColliderScript.gd" type="Script" id=24]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
@@ -176,6 +176,7 @@ tracks/0/keys = {
 }
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource( 24 )
 
 [node name="Background" parent="." instance=ExtResource( 10 )]
 position = Vector2( 0, -1.43198 )
@@ -344,6 +345,3 @@ anims/IdleSun = SubResource( 16 )
 position = Vector2( 4.44899, -0.171115 )
 stream = ExtResource( 20 )
 volume_db = -2.0
-
-[node name="DoesNothing" type="Sprite" parent="."]
-script = ExtResource( 13 )

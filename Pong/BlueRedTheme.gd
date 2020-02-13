@@ -13,5 +13,7 @@ func _unhandled_input(event):
 			player_vars.p2PaddleColor = load("res://Sprites/SpriteSheets/Blue_Paddle.png")
 			
 			var giantCircle = get_node("../Outer_Ring")
-			giantCircle.texture = player_vars.p1RingColor
+			giantCircle.texture = player_vars.p1RingColor		
+			var label = get_node("../BackMainMenu/Label")
+			label.add_color_override("font_color_shadow", Color("d10404"))
 

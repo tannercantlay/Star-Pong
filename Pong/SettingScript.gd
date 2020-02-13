@@ -7,12 +7,8 @@ func _input(event):
 	if event is InputEventKey and ((event.get_scancode() == 16777217 and event.is_pressed() == false)): 
 		get_tree().quit()
 		
-func _ready():
-	if(get_tree().get_current_scene().get_name() == "main"):
-		if player_vars.p1RingColor != null:
-			var giantCircle = get_node("outer_ring")
-			giantCircle.texture = player_vars.p1RingColor
-	elif(get_tree().get_current_scene().get_name() == "settings"):
+func _ready():	
+	if(get_tree().get_current_scene().get_name() == "settings"):
 		if player_vars.p1RingColor != null:
 			var giantCircle = get_node("Outer_Ring")
 			giantCircle.texture = player_vars.p1RingColor
