@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/OuterRingYtoP.png-d6ef98d650788f580729867de2a7c2cb.stex"
+path="res://.import/OuterRingPurpleToYellow.png-f48c4013bf76cd2fc295431d31ec901d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/SpriteSheets/OuterRingYtoP.png"
-dest_files=[ "res://.import/OuterRingYtoP.png-d6ef98d650788f580729867de2a7c2cb.stex" ]
+source_file="res://Sprites/SpriteSheets/OuterRingPurpleToYellow.png"
+dest_files=[ "res://.import/OuterRingPurpleToYellow.png-f48c4013bf76cd2fc295431d31ec901d.stex" ]
 
 [params]
 

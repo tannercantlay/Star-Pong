@@ -6,10 +6,11 @@
 [ext_resource path="res://settings.gd" type="Script" id=4]
 [ext_resource path="res://ThemePurpleYellow.gd" type="Script" id=5]
 [ext_resource path="res://ThemeBlueRed.gd" type="Script" id=6]
-[ext_resource path="res://Sprites/SpriteSheets/OuterRingPtoY.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/SpriteSheets/OuterRingPurpleToYellow.png" type="Texture" id=7]
 [ext_resource path="res://ThemePinkGreen.gd" type="Script" id=9]
 [ext_resource path="res://SettingScript.gd" type="Script" id=10]
 [ext_resource path="res://getNumRounds.gd" type="Script" id=11]
+
 
 [sub_resource type="DynamicFont" id=1]
 size = 60

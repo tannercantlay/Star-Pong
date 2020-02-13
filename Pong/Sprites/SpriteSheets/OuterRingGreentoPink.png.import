@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/OuterRingGreentoPink.png-93e4e9f85df77141c1f65ce3a35ebcd0.stex"
+path="res://.import/OuterRingGreenToPink.png-2496b5619aad90fc1c6d6329b2d7159d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/SpriteSheets/OuterRingGreentoPink.png"
-dest_files=[ "res://.import/OuterRingGreentoPink.png-93e4e9f85df77141c1f65ce3a35ebcd0.stex" ]
+source_file="res://Sprites/SpriteSheets/OuterRingGreenToPink.png"
+dest_files=[ "res://.import/OuterRingGreenToPink.png-2496b5619aad90fc1c6d6329b2d7159d.stex" ]
 
 [params]
 

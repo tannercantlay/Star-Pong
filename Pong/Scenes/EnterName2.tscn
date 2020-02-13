@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://joystix/JOYSTIX.TTF" type="DynamicFontData" id=1]
-[ext_resource path="res://Sprites/SpriteSheets/OuterRingYtoP.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/SpriteSheets/OuterRingYellowToPurple.png" type="Texture" id=2]
 [ext_resource path="res://PlayerNames.gd" type="Script" id=3]
 [ext_resource path="res://nextPage.gd" type="Script" id=4]
 [ext_resource path="res://Font/JOYSTIX.TTF" type="DynamicFontData" id=5]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Sprites/Button.png" type="Texture" id=7]
 [ext_resource path="res://EnterName2Script.gd" type="Script" id=8]
 [ext_resource path="res://RingChange.gd" type="Script" id=13]
+
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 5 )
