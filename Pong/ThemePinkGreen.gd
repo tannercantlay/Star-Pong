@@ -9,8 +9,8 @@ func _unhandled_input(event):
 			player_vars.p2RingColor = load("res://Sprites/SpriteSheets/OuterRingGreenToPink.png")
 			player_vars.player1Color = "green"
 			player_vars.player2Color = "pink"
-			player_vars.p1PaddleColor = load("res://Sprites/SpriteSheets/Green_Paddle.png")
-			player_vars.p2PaddleColor = load("res://Sprites/SpriteSheets/Pink_Paddle.png")
+			player_vars.p1PaddleColor = load("res://Sprites/SpriteSheets/Dope_Green_Paddle.png")
+			player_vars.p2PaddleColor = load("res://Sprites/SpriteSheets/Dope_Pink_Paddle.png")
 
 			var giantCircle = get_node("../Outer_Ring")
 			giantCircle.texture = player_vars.p1RingColor

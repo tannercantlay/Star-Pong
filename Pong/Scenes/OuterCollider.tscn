@@ -5,18 +5,18 @@
 [ext_resource path="res://Sprites/SpriteSheets/Platform_Y.png" type="Texture" id=3]
 [ext_resource path="res://ball.gd" type="Script" id=4]
 [ext_resource path="res://paddle2.gd" type="Script" id=5]
-[ext_resource path="res://Sprites/SpriteSheets/Purple_Paddle.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/SpriteSheets/Dope_Yellow_Paddle.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/SpriteSheets/Ball_withFadeIn.png" type="Texture" id=7]
 [ext_resource path="res://gameManager.gd" type="Script" id=8]
 [ext_resource path="res://joystix/JOYSTIX.TTF" type="DynamicFontData" id=9]
 [ext_resource path="res://Scenes/Background.tscn" type="PackedScene" id=10]
 [ext_resource path="res://p1Score.gd" type="Script" id=11]
 [ext_resource path="res://p2Score.gd" type="Script" id=12]
+[ext_resource path="res://Sprites/SpriteSheets/Dope_Purple_Paddle.png" type="Texture" id=13]
 [ext_resource path="res://Font/JOYSTIX.TTF" type="DynamicFontData" id=14]
 [ext_resource path="res://RingChange.gd" type="Script" id=15]
 [ext_resource path="res://MiddleStar.gd" type="Script" id=16]
 [ext_resource path="res://Sprites/SpriteSheets/Star_sheet.png" type="Texture" id=17]
-[ext_resource path="res://Sprites/SpriteSheets/Yellow_Paddle.png" type="Texture" id=18]
 [ext_resource path="res://Sounds/paddlehit.wav" type="AudioStream" id=19]
 [ext_resource path="res://Sounds/starexplosion.wav" type="AudioStream" id=20]
 [ext_resource path="res://Sounds/scoring.wav" type="AudioStream" id=21]
@@ -219,7 +219,7 @@ position = Vector2( 0, 500 )
 shape = SubResource( 5 )
 
 [node name="paddleSpriteP" type="Sprite" parent="Paddle1/CollisionShape2D"]
-texture = ExtResource( 6 )
+texture = ExtResource( 13 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Paddle1/CollisionShape2D/paddleSpriteP"]
 autoplay = "paddle"
@@ -240,7 +240,7 @@ shape = SubResource( 5 )
 
 [node name="paddleSpriteY" type="Sprite" parent="Paddle2/CollisionShape2D"]
 rotation = 3.14159
-texture = ExtResource( 18 )
+texture = ExtResource( 6 )
 normal_map = ExtResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Paddle2/CollisionShape2D/paddleSpriteY"]

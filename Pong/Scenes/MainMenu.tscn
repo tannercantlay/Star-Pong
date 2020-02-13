@@ -21,7 +21,7 @@ outline_color = Color( 0.607843, 0.678431, 0.717647, 1 )
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 30
+size = 34
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=3]
@@ -152,9 +152,9 @@ script = ExtResource( 2 )
 
 [node name="Label" type="Label" parent="Start"]
 margin_left = -150.882
-margin_top = -47.8989
+margin_top = -49.8989
 margin_right = 149.118
-margin_bottom = 52.1011
+margin_bottom = 50.1011
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0.0784314, 0.784314, 0, 1 )
