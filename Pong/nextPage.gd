@@ -39,14 +39,6 @@ func _ready():
 		elif player_vars.winner == player_vars.player2 && player_vars.player2Color == "pink":
 			gameWinLabel.add_color_override("font_color", Color("ed00c7"))
 			
-#	elif(get_tree().get_current_scene().get_name() == "main"):
-#		var giantCircle = get_node("outer_ring")
-#		giantCircle.texture = player_vars.p2RingColor
-			
-#	elif(get_tree().get_current_scene().get_name() == "settings"):
-#		var giantCircle = get_node("Outer_Ring")
-#		giantCircle.texture = player_vars.p2RingColor
-			
 	elif(get_tree().get_current_scene().get_name() == "Node2D"):
 		var paddle1 = get_node("../Paddle1/CollisionShape2D/paddleSpriteP")
 		var paddle2 = get_node("../Paddle2/CollisionShape2D/paddleSpriteY")		

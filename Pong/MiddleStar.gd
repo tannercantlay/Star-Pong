@@ -5,7 +5,7 @@ var animator
 var thread
 
 func middleStar(vector):
-	var angle = rand_range(-(PI/2), (PI/2))
+	var angle = rand_range(-(PI/3), (PI/3))
 	
 	randomDir = vector.rotated(angle)
 	animator = get_node("CollisionShape2D/Sprite/AnimationPlayer")

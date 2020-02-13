@@ -1,6 +1,6 @@
 [gd_scene load_steps=26 format=2]
 
-[ext_resource path="res://Sprites/OuterRing_Y.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/SpriteSheets/OuterRingYtoP.png" type="Texture" id=1]
 [ext_resource path="res://nextPage.gd" type="Script" id=2]
 [ext_resource path="res://joystix/JOYSTIX.TTF" type="DynamicFontData" id=3]
 [ext_resource path="res://Font/JOYSTIX.TTF" type="DynamicFontData" id=4]
@@ -210,6 +210,7 @@ __meta__ = {
 [node name="outer_ring" type="Sprite" parent="."]
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
+hframes = 7
 
 [node name="Credits" type="Label" parent="."]
 margin_left = 266.0

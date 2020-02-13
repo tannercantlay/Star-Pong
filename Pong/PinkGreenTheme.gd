@@ -12,4 +12,6 @@ func _unhandled_input(event):
 			player_vars.p1PaddleColor = load("res://Sprites/SpriteSheets/Green_Paddle.png")
 			player_vars.p2PaddleColor = load("res://Sprites/SpriteSheets/Pink_Paddle.png")
 
+			var giantCircle = get_node("../Outer_Ring")
+			giantCircle.texture = player_vars.p1RingColor
 
