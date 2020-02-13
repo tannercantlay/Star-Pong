@@ -8,10 +8,11 @@ func _ready():
 	if get_tree().get_current_scene().get_name() == "Name1":
 		var enterName1Label = get_node("../Label1")
 		if player_vars.player1Color == "purple":
-			print_debug("PURPLE")
 			enterName1Label.add_color_override("font_color", Color("b76ed4"))
 		elif player_vars.player1Color == "red":
 			enterName1Label.add_color_override("font_color", Color("d10404"))
+		elif player_vars.player1Color == "green":
+			enterName1Label.add_color_override("font_color", Color("0a5212"))
 			
 	elif get_tree().get_current_scene().get_name() == "Name2":
 		var enterName2Label = get_node("../Label2")
@@ -19,6 +20,8 @@ func _ready():
 			enterName2Label.add_color_override("font_color", Color("e0dc90"))
 		elif player_vars.player2Color == "blue":
 			enterName2Label.add_color_override("font_color", Color("0000cd"))
+		elif player_vars.player2Color == "pink":
+			enterName2Label.add_color_override("font_color", Color("ed00c7"))
 			
 	elif(get_tree().get_current_scene().get_name() == "gamewin"):
 		var gameWinLabel = get_node("../Winner")
@@ -27,21 +30,37 @@ func _ready():
 			gameWinLabel.add_color_override("font_color", Color("b76ed4"))
 		elif player_vars.winner == player_vars.player1 && player_vars.player1Color == "red":
 			gameWinLabel.add_color_override("font_color", Color("d10404"))
+		elif player_vars.winner == player_vars.player1 && player_vars.player1Color == "green":
+			gameWinLabel.add_color_override("font_color", Color("0a5212"))
 		elif player_vars.winner == player_vars.player2 && player_vars.player2Color == "yellow":
 			gameWinLabel.add_color_override("font_color", Color("e0dc90"))
 		elif player_vars.winner == player_vars.player2 && player_vars.player2Color == "blue":
 			gameWinLabel.add_color_override("font_color", Color("0000cd"))
+		elif player_vars.winner == player_vars.player2 && player_vars.player2Color == "pink":
+			gameWinLabel.add_color_override("font_color", Color("ed00c7"))
+			
+#	elif(get_tree().get_current_scene().get_name() == "main"):
+#		var giantCircle = get_node("outer_ring")
+#		giantCircle.texture = player_vars.p2RingColor
+			
+#	elif(get_tree().get_current_scene().get_name() == "settings"):
+#		var giantCircle = get_node("Outer_Ring")
+#		giantCircle.texture = player_vars.p2RingColor
 			
 	elif(get_tree().get_current_scene().get_name() == "Node2D"):
 		var paddle1 = get_node("../Paddle1/CollisionShape2D/paddleSpriteP")
 		var paddle2 = get_node("../Paddle2/CollisionShape2D/paddleSpriteY")		
-		if   player_vars.player1Color == "purple":
+		if player_vars.player1Color == "purple":
 			paddle1.texture = player_vars.p1PaddleColor
-		elif player_vars.player1Color == "red":
+		if player_vars.player1Color == "red":
 			paddle1.texture = player_vars.p1PaddleColor
-		elif player_vars.player2Color == "yellow":
+		if player_vars.player1Color == "green":
+			paddle1.texture = player_vars.p1PaddleColor
+		if player_vars.player2Color == "yellow":
 			paddle2.texture = player_vars.p2PaddleColor
 		if player_vars.player2Color == "blue":
+			paddle2.texture = player_vars.p2PaddleColor
+		if player_vars.player2Color == "pink":
 			paddle2.texture = player_vars.p2PaddleColor
 			
 func _input(event):

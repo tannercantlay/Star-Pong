@@ -17,11 +17,8 @@ onready var ring = get_node("CollisionPolygon2D/OuterRing_P")
 var powerup
 # Called when the node enters the scene tree for the first time.
 func _ready():
-
 	ring.texture = player_vars.p1RingColor
-	
 	roundLabel.set_text("Round: " + str(roundsPlayed) + " / " + str(player_vars.numrounds))
-
 	musicPlayer.music.stop()
 	musicPlayer.stream = load("res://Sounds/gameplay.ogg")
 	musicPlayer.music.set_stream(musicPlayer.stream)
@@ -64,7 +61,6 @@ func _physics_process(delta):
 			add_child(t)
 			t.start()
 			yield(t, "timeout")
-
 			get_node("..").remove_child(powerup)
 
 		if(whichpowerup == 3 && powerup != null):
@@ -83,18 +79,15 @@ func _physics_process(delta):
 		
 		if (whichpowerup == 2):
 			#print_debug("Wormholes have been chosen: ")
-
 			powerup = wormholes.instance()
 			get_node("..").add_child(powerup)
 			var wormhole1 = get_node("../Wormholes/Wormhole1")
 			var wormhole2 = get_node("../Wormholes/Wormhole2")
 			var temp = Vector2(rand_range(-35, -225), rand_range(-225,225))
-
 			#print_debug("Wormhole1: " + str(temp))
 			wormhole1.position = temp
 			temp = Vector2(rand_range(35, 225), rand_range(-225,225))
 			#print_debug("Wormhole2: " + str(temp))
-
 			wormhole2.position = temp
 			var animator1 = get_node("../Wormholes/Wormhole1/CollisionShape2D/Sprite/AnimationPlayer")
 			var animator2 = get_node("../Wormholes/Wormhole2/CollisionShape2D/Sprite/AnimationPlayer")
@@ -108,9 +101,7 @@ func _physics_process(delta):
 			animator2.play("Idle")
 		
 		elif(whichpowerup == 3):
-
 			#print_debug("Booster has been chosen: ")
-
 			powerup = booster.instance()
 			get_node("..").add_child(powerup)
 			var boosters = get_node("../Boosterdad/Booster")
