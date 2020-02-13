@@ -34,7 +34,7 @@ func _ready():
 		elif player_vars.player1Color == "red":
 			shadowColor = "d10404"
 		elif player_vars.player1Color == "green":
-			shadowColor = "0a5212"
+			shadowColor = "089217"
 		label1.add_color_override("font_color_shadow", Color(shadowColor))
 		label2.add_color_override("font_color_shadow", Color(shadowColor))
 		label3.add_color_override("font_color_shadow", Color(shadowColor))

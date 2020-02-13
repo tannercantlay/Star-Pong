@@ -16,7 +16,7 @@ func _ready():
 			paddle2.texture = player_vars.p2PaddleColor
 		if player_vars.player2Color == "blue":
 			paddle2.texture = player_vars.p2PaddleColor
-		if player_vars.player2Color == "pink":
+		if player_vars.player2Color == "orange":
 			paddle2.texture = player_vars.p2PaddleColor
 
 func _input(event):

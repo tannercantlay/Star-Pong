@@ -35,13 +35,13 @@ func _ready():
 		elif player_vars.winner == player_vars.player1 && player_vars.player1Color == "red":
 			gameWinLabel.add_color_override("font_color", Color("d10404"))
 		elif player_vars.winner == player_vars.player1 && player_vars.player1Color == "green":
-			gameWinLabel.add_color_override("font_color", Color("0a5212"))
+			gameWinLabel.add_color_override("font_color", Color("089217"))
 		elif player_vars.winner == player_vars.player2 && player_vars.player2Color == "yellow":
 			gameWinLabel.add_color_override("font_color", Color("e0dc90"))
 		elif player_vars.winner == player_vars.player2 && player_vars.player2Color == "blue":
 			gameWinLabel.add_color_override("font_color", Color("0000cd"))
-		elif player_vars.winner == player_vars.player2 && player_vars.player2Color == "pink":
-			gameWinLabel.add_color_override("font_color", Color("ed00c7"))
+		elif player_vars.winner == player_vars.player2 && player_vars.player2Color == "orange":
+			gameWinLabel.add_color_override("font_color", Color("db4804"))
 			
 		var label =  get_node("PlayAgain/Label")
 		if player_vars.player1Color == "purple":
@@ -49,7 +49,7 @@ func _ready():
 		elif player_vars.player1Color == "red":
 			label.add_color_override("font_color_shadow", Color("d10404"))
 		elif player_vars.player1Color == "green":
-			label.add_color_override("font_color_shadow", Color("0a5212"))
+			label.add_color_override("font_color_shadow", Color("089217"))
 			
 		WinnerText.text = player_vars.winner + " has taken over the galaxy!"
 		if player_vars.winner == player_vars.player1:

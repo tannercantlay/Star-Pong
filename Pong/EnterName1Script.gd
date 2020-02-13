@@ -23,5 +23,5 @@ func _ready():
 			enterName1Label.add_color_override("font_color", Color("d10404"))
 			label.add_color_override("font_color_shadow", Color("d10404"))
 		elif player_vars.player1Color == "green":
-			enterName1Label.add_color_override("font_color", Color("0a5212"))
-			label.add_color_override("font_color_shadow", Color("0a5212"))
+			enterName1Label.add_color_override("font_color", Color("089217"))
+			label.add_color_override("font_color_shadow", Color("089217"))

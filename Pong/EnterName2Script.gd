@@ -22,6 +22,6 @@ func _ready():
 		elif player_vars.player2Color == "blue":
 			enterName2Label.add_color_override("font_color", Color("0000cd"))
 			label.add_color_override("font_color_shadow", Color("d10404"))
-		elif player_vars.player2Color == "pink":
-			enterName2Label.add_color_override("font_color", Color("ed00c7"))
-			label.add_color_override("font_color_shadow", Color("0a5212"))
+		elif player_vars.player2Color == "orange":
+			enterName2Label.add_color_override("font_color", Color("db4804"))
+			label.add_color_override("font_color_shadow", Color("089217"))
