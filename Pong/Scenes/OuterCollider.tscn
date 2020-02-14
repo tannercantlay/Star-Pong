@@ -24,7 +24,6 @@
 [ext_resource path="res://Sounds/speed.wav" type="AudioStream" id=23]
 [ext_resource path="res://OuterColliderScript.gd" type="Script" id=24]
 
-
 [sub_resource type="CanvasItemMaterial" id=1]
 
 [sub_resource type="Animation" id=2]
@@ -86,7 +85,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="CircleShape2D" id=8]
-radius = 10.9642
+radius = 10.8365
 
 [sub_resource type="Animation" id=9]
 length = 0.5
@@ -267,7 +266,6 @@ shape = SubResource( 8 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 7 )
 hframes = 14
-frame = 5
 
 [node name="Wormhole sounds" type="AudioStreamPlayer2D" parent="Ball/CollisionShape2D/ballSprite"]
 scale = Vector2( 0.5, 0.5 )

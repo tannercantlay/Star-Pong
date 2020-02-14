@@ -1,7 +1,5 @@
 extends StaticBody2D
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+
 var roundsPlayed = 1
 var velocity = Vector2(0,0)
 var timer = 500

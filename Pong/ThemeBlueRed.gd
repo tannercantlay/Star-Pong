@@ -16,4 +16,6 @@ func _unhandled_input(event):
 			giantCircle.texture = player_vars.p1RingColor		
 			var label = get_node("../BackMainMenu/Label")
 			label.add_color_override("font_color_shadow", Color("d10404"))
+			
+			player_vars.ballColor = load("res://Sprites/SpriteSheets/Ball_Red_Blue.png")
 

@@ -37,7 +37,7 @@ func _ready():
 		elif player_vars.winner == player_vars.player1 && player_vars.player1Color == "green":
 			gameWinLabel.add_color_override("font_color", Color("089217"))
 		elif player_vars.winner == player_vars.player2 && player_vars.player2Color == "yellow":
-			gameWinLabel.add_color_override("font_color", Color("e0dc90"))
+			gameWinLabel.add_color_override("font_color", Color("c7e814"))
 		elif player_vars.winner == player_vars.player2 && player_vars.player2Color == "blue":
 			gameWinLabel.add_color_override("font_color", Color("0000cd"))
 		elif player_vars.winner == player_vars.player2 && player_vars.player2Color == "orange":

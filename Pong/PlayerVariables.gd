@@ -15,6 +15,7 @@ var p1RingColor = load("res://Sprites/SpriteSheets/OuterRingYellowToPurple_New.p
 var p2RingColor = load("res://Sprites/SpriteSheets/OuterRingPurpleToYellow_New.png")
 var p1PaddleColor = load("res://Sprites/SpriteSheets/Dope_New_Purple_Paddle.png")
 var p2PaddleColor = load("res://Sprites/SpriteSheets/Dope_New_Yellow_Paddle.png")
+var ballColor = load("res://Sprites/SpriteSheets/Ball_Purple_Yellow.png")
 var player1Color = "purple"
 var player2Color = "yellow"
 

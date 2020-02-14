@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Sprites/SpriteSheets/OuterRingYellowToPurple.png" type="Texture" id=1]
 [ext_resource path="res://nextPage.gd" type="Script" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Sprites/SpriteSheets/The_Almighty.png" type="Texture" id=11]
 [ext_resource path="res://settings.gd" type="Script" id=12]
 [ext_resource path="res://MainMenuScript.gd" type="Script" id=13]
+[ext_resource path="res://AlmightSeeingEye.gd" type="Script" id=14]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -321,6 +322,7 @@ position = Vector2( 245.263, 109.474 )
 texture = ExtResource( 11 )
 offset = Vector2( 100, 0 )
 hframes = 8
+script = ExtResource( 14 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Almighty"]
 autoplay = "almighty"

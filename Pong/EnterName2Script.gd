@@ -17,7 +17,7 @@ func _ready():
 		var label =  get_node("Sprite/Label")
 		var enterName2Label = get_node("Label2")
 		if player_vars.player2Color == "yellow":
-			enterName2Label.add_color_override("font_color", Color("e0dc90"))
+			enterName2Label.add_color_override("font_color", Color("c7e814"))
 			label.add_color_override("font_color_shadow", Color("b76ed4"))
 		elif player_vars.player2Color == "blue":
 			enterName2Label.add_color_override("font_color", Color("0000cd"))

@@ -17,3 +17,4 @@ func _unhandled_input(event):
 			var label = get_node("../BackMainMenu/Label")
 			label.add_color_override("font_color_shadow", Color("089217"))
 
+			player_vars.ballColor = load("res://Sprites/SpriteSheets/Ball_Green_Orange.png")

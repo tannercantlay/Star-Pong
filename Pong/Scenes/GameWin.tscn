@@ -9,7 +9,6 @@
 [ext_resource path="res://Sprites/Button.png" type="Texture" id=7]
 [ext_resource path="res://SettingScript.gd" type="Script" id=8]
 
-
 [sub_resource type="DynamicFont" id=1]
 size = 24
 font_data = ExtResource( 4 )

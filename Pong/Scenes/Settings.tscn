@@ -11,14 +11,12 @@
 [ext_resource path="res://SettingScript.gd" type="Script" id=10]
 [ext_resource path="res://getNumRounds.gd" type="Script" id=11]
 
-
-
 [sub_resource type="DynamicFont" id=1]
 size = 60
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 30
+size = 29
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=3]
@@ -126,7 +124,7 @@ custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0.0392157, 0.321569, 0.0705882, 1 )
 text = "Green and 
-Pink theme"
+Orange theme"
 align = 1
 valign = 1
 autowrap = true
