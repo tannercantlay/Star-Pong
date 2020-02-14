@@ -5,12 +5,30 @@ var velocity = Vector2()
 var returnValue
 var speed = 350
 var lastHit = "yellow"
+var paused = true
 
 onready var paddle1 = get_node("../Paddle1")
 onready var paddle2 = get_node("../Paddle2")
 onready var Ring = get_node("../OuterRing/CollisionPolygon2D/OuterRing_P")
 onready var player_vars = get_node("/root/PlayerVariables")
 onready var animate = get_node("../OuterRing/CollisionPolygon2D/OuterRing_P/AnimationPlayer")
+
+func _ready():
+	paddle1.rotation_speed = 0
+	paddle2.rotation_speed = 0
+	var stopMovingYouJerk = Timer.new()
+	stopMovingYouJerk.set_wait_time(3)
+	stopMovingYouJerk.set_one_shot(true)
+	add_child(stopMovingYouJerk)
+	stopMovingYouJerk.start()
+	yield(stopMovingYouJerk, "timeout")
+	paddle1.reset()
+	paddle2.reset()
+	paddle1.rotation_speed = 30
+	paddle2.rotation_speed = 30
+	paddle1.reset()
+	paddle2.reset()
+	paused = false
 
 func _physics_process(delta):
 	var collision = move_and_collide(velocity * delta)
@@ -33,34 +51,46 @@ func _physics_process(delta):
 			$CollisionShape2D.disabled = false
 			# repositions ball to center of game, offset up if purple scored or down if yellow scored
 			# ? will call logic from gameManager to update game score, reposition paddles after a score?
+			
+			paddle1.reset()
+			paddle2.reset()
+			
 			if lastHit == "yellow":
-				position = Vector2(0, 50) #100
-				paddle1.reset()
-				paddle2.reset()
-				get_node("CollisionShape2D/ballSprite/AnimationPlayer").play("Enter")
-				var t = Timer.new()
-				t.set_wait_time(.4)
-				t.set_one_shot(true)
-				add_child(t)
-				t.start()
-				yield(t, "timeout")
-				get_node("CollisionShape2D/ballSprite/AnimationPlayer").play("ballRotate")
-				#if(Input.is_key_pressed(83)):
-				#velocity = Vector2(0,(0-speed))
+				position = Vector2(0, 50)				
 			elif lastHit == "purple":
-				position = Vector2(0,-50) #-100
-				paddle2.reset()
-				paddle1.reset()
-				get_node("CollisionShape2D/ballSprite/AnimationPlayer").play("Enter")
-				var t = Timer.new()
-				t.set_wait_time(.4)
-				t.set_one_shot(true)
-				add_child(t)
-				t.start()
-				yield(t, "timeout")
-				get_node("CollisionShape2D/ballSprite/AnimationPlayer").play("ballRotate")
-				#if Input.is_key_pressed(16777234):
-				#velocity = Vector2(0,speed)
+				position = Vector2(0,-50)
+			
+			get_node("CollisionShape2D/ballSprite/AnimationPlayer").play("Enter")
+			
+			paused = true
+			
+			paddle1.rotation_speed = 0
+			paddle2.rotation_speed = 0
+			
+			var t = Timer.new()
+			t.set_wait_time(.4)
+			t.set_one_shot(true)
+			add_child(t)
+			t.start()
+			yield(t, "timeout")
+			get_node("CollisionShape2D/ballSprite/AnimationPlayer").play("ballRotate")
+			
+			var stopMovingYouJerk = Timer.new()
+			stopMovingYouJerk.set_wait_time(2.6)
+			stopMovingYouJerk.set_one_shot(true)
+			add_child(stopMovingYouJerk)
+			stopMovingYouJerk.start()
+			yield(stopMovingYouJerk, "timeout")
+			
+			paddle1.reset()
+			paddle2.reset()
+			paddle1.rotation_speed = 30
+			paddle2.rotation_speed = 30
+			paddle1.reset()
+			paddle2.reset()
+			
+			paused = false
+				
 				
 		# if ball hits a paddle
 		elif collision.collider.has_method("getTeam"):
@@ -152,8 +182,8 @@ func _physics_process(delta):
 			velocity = velocity * .55
 			#$CollisionShape2D.disabled = false
 
-	#Locks user out of DOUBLE TAPPING
-	if(velocity == Vector2(0,0) && lastHit == "yellow" && (Input.is_key_pressed(65) || Input.is_key_pressed(68))):
+	# THE BALLS STARTING VELOCITY
+	if(!paused && velocity == Vector2(0,0) && lastHit == "yellow" && (Input.is_key_pressed(65) || Input.is_key_pressed(68))):
 		velocity = Vector2(0,(speed))
-	if(velocity == Vector2(0,0) && lastHit == "purple" && (Input.is_key_pressed(16777233) || Input.is_key_pressed(16777231))):
+	if(!paused && velocity == Vector2(0,0) && lastHit == "purple" && (Input.is_key_pressed(16777233) || Input.is_key_pressed(16777231))):
 		velocity = Vector2(0,0-speed)

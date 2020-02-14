@@ -24,6 +24,16 @@ func reset():
 	rotation = 0
 	rotation_dir = 0
 	
+func lockInPlaceFor3Seconds():
+	rotation_speed = 0
+	var stopMovingYouJerk = Timer.new()
+	stopMovingYouJerk.set_wait_time(3)
+	stopMovingYouJerk.set_one_shot(true)
+	add_child(stopMovingYouJerk)
+	stopMovingYouJerk.start()
+	yield(stopMovingYouJerk, "timeout")
+	rotation_speed = 30
+	
 func _input(event):
 	if event is InputEventKey and ((event.get_scancode() == 16777233 and event.is_pressed() == false) or (event.get_scancode() == 16777231 and event.is_pressed() == false)):
 		theta = 0
