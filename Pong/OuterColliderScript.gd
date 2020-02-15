@@ -3,7 +3,22 @@ extends Node
 onready var player_vars = get_node("/root/PlayerVariables")
 
 func _ready():
+	print_debug("OUTER COLLIDER SCRIPT")
 	if(get_tree().get_current_scene().get_name() == "Node2D"):
+		# Setting the Paddle Colors, doing it here, casue this occurs sooner
+		# than in OuterColliderScript _ready function
+		var paddleSprite1 = get_node("Paddle1/CollisionShape2D/paddleSpriteP")
+		var paddleSprite2 = get_node("Paddle2/CollisionShape2D/paddleSpriteY")		
+		if player_vars.player1Color == "purple":
+			paddleSprite1.texture = player_vars.p1PaddleColor
+			paddleSprite2.texture = player_vars.p2PaddleColor
+		if player_vars.player1Color == "red":
+			paddleSprite1.texture = player_vars.p1PaddleColor
+			paddleSprite2.texture = player_vars.p2PaddleColor
+		if player_vars.player1Color == "green":
+			paddleSprite1.texture = player_vars.p1PaddleColor
+			paddleSprite2.texture = player_vars.p2PaddleColor
+				
 		var ball = get_node("Ball/CollisionShape2D/ballSprite")
 		ball.texture = player_vars.ballColor
 		var animator = get_node("Ball/CollisionShape2D/ballSprite/AnimationPlayer")
@@ -15,24 +30,6 @@ func _ready():
 		t.start()
 		yield(t, "timeout")
 		animator.play("ballRotate")
-		
-		var paddle1 = get_node("Paddle1/CollisionShape2D/paddleSpriteP")
-		var paddle2 = get_node("Paddle2/CollisionShape2D/paddleSpriteY")		
-		if player_vars.player1Color == "purple":
-			paddle1.texture = player_vars.p1PaddleColor
-			paddle2.texture = player_vars.p2PaddleColor
-		if player_vars.player1Color == "red":
-			paddle1.texture = player_vars.p1PaddleColor
-			paddle2.texture = player_vars.p2PaddleColor
-		if player_vars.player1Color == "green":
-			paddle1.texture = player_vars.p1PaddleColor
-			paddle2.texture = player_vars.p2PaddleColor
-#		if player_vars.player2Color == "yellow":
-#			paddle2.texture = player_vars.p2PaddleColor
-#		if player_vars.player2Color == "blue":
-#			paddle2.texture = player_vars.p2PaddleColor
-#		if player_vars.player2Color == "orange":
-#			paddle2.texture = player_vars.p2PaddleColor
 
 func _input(event):
 	#Escaping

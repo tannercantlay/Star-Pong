@@ -13,8 +13,10 @@ onready var musicPlayer = get_node("/root/Music")
 onready var roundLabel = get_node("../Node/RoundsPlayed")
 onready var ring = get_node("CollisionPolygon2D/OuterRing_P")
 var powerup
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	ring.texture = player_vars.p1RingColor
 	roundLabel.set_text("Round: " + str(roundsPlayed) + " / " + str(player_vars.numrounds))
 	musicPlayer.music.stop()

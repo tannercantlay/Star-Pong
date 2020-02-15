@@ -1,9 +1,10 @@
 extends KinematicBody2D
 
+var startingSpeed = 350
 var timer
 var velocity = Vector2()
 var returnValue
-var speed = 350
+var speed = startingSpeed
 var lastHit = "yellow"
 var paused = true
 
@@ -13,21 +14,56 @@ onready var Ring = get_node("../OuterRing/CollisionPolygon2D/OuterRing_P")
 onready var player_vars = get_node("/root/PlayerVariables")
 onready var animate = get_node("../OuterRing/CollisionPolygon2D/OuterRing_P/AnimationPlayer")
 
+onready var countdown = get_node("../Countdown")
+onready var leftScore = get_node("../ScoreBoardLeft")
+onready var rightScore = get_node("../ScoreBoardRight")
+onready var scoreLabel = get_node("../ScoreLabel")
+
 func _ready():
-	paddle1.rotation_speed = 0
-	paddle2.rotation_speed = 0
-	var stopMovingYouJerk = Timer.new()
-	stopMovingYouJerk.set_wait_time(3)
-	stopMovingYouJerk.set_one_shot(true)
-	add_child(stopMovingYouJerk)
-	stopMovingYouJerk.start()
-	yield(stopMovingYouJerk, "timeout")
-	paddle1.reset()
-	paddle2.reset()
-	paddle1.rotation_speed = 30
-	paddle2.rotation_speed = 30
-	paddle1.reset()
-	paddle2.reset()
+	
+	_lockPaddles(true)
+	velocity = Vector2(0,0)
+	paused = true
+	
+	# Initializing stuff so we dont have to on the 2D Scene
+	leftScore.visible = false
+	leftScore.text = "0"
+	rightScore.visible = false
+	rightScore.text = "0"
+	scoreLabel.visible = false
+	countdown.visible = false
+	
+	#Setting the Scoreboard's Color
+	if   player_vars.player2Color == "yellow":
+		rightScore.add_color_override("font_color", Color("c7e814"))
+	elif player_vars.player2Color == "blue":
+		rightScore.add_color_override("font_color", Color("0000cd"))
+	elif player_vars.player2Color == "orange":
+		rightScore.add_color_override("font_color", Color("db4804"))
+	if   player_vars.player1Color == "purple":
+		leftScore.add_color_override("font_color", Color("b76ed4"))
+	elif player_vars.player1Color == "red":
+		leftScore.add_color_override("font_color", Color("d10404"))
+	elif player_vars.player1Color == "green":
+		leftScore.add_color_override("font_color", Color("089217"))
+	countdown.add_color_override("font_color", Color("ffffff"))
+	
+	#Countdown
+	countdown.visible = true
+	yield(get_tree().create_timer(.95), "timeout")
+	countdown.text = "2"
+	yield(get_tree().create_timer(.95), "timeout")
+	countdown.text = "1"
+	yield(get_tree().create_timer(.95), "timeout")
+	countdown.visible = false
+	countdown.text = "3"
+	yield(get_tree().create_timer(.15), "timeout")
+	
+	countdown.visible = false
+
+	_lockPaddles(false)
+	_resetPaddleLocations()
+	
 	paused = false
 
 func _physics_process(delta):
@@ -38,59 +74,59 @@ func _physics_process(delta):
 		if collision.collider.has_method("hit"):
 			get_node("../OuterRing/CollisionPolygon2D/OuterRing_P/AudioStreamPlayer2D").play()
 			collision.collider.hit(lastHit)
-			velocity = Vector2(0,0)
+				
 			$CollisionShape2D.disabled = true
 			get_node("CollisionShape2D/ballSprite/AnimationPlayer").play("Exit")
-			var g = Timer.new()
-			g.set_wait_time(.4)
-			g.set_one_shot(true)
-			add_child(g)
-			g.start()
-			yield(g, "timeout")
-			velocity = Vector2(0,lastHit)
+			
+			# Makes the Ball Stop at the Ring instead of passing through
+			velocity = Vector2(0,0)
+			speed = 0
+			
+			yield(get_tree().create_timer(.4), "timeout")
+			
+			get_node("CollisionShape2D/ballSprite/AnimationPlayer").play("Enter")
 			$CollisionShape2D.disabled = false
 			# repositions ball to center of game, offset up if purple scored or down if yellow scored
 			# ? will call logic from gameManager to update game score, reposition paddles after a score?
-			
-			paddle1.reset()
-			paddle2.reset()
+					
+			_resetPaddleLocations()
 			
 			if lastHit == "yellow":
-				position = Vector2(0, 50)				
+				position = Vector2(0, 50)
+				rightScore.text = str(player_vars.p2Score)
 			elif lastHit == "purple":
 				position = Vector2(0,-50)
+				leftScore.text = str(player_vars.p1Score)
 			
-			get_node("CollisionShape2D/ballSprite/AnimationPlayer").play("Enter")
+			paused = true # ---------------------------- Paused -------------
+			velocity = Vector2(0,lastHit)
+			speed = startingSpeed
+			_lockPaddles(true)
 			
-			paused = true
-			
-			paddle1.rotation_speed = 0
-			paddle2.rotation_speed = 0
-			
-			var t = Timer.new()
-			t.set_wait_time(.4)
-			t.set_one_shot(true)
-			add_child(t)
-			t.start()
-			yield(t, "timeout")
+			# Reveals the Popup
+			countdown.visible = true
+			scoreLabel.visible = true
+			leftScore.visible = true
+			rightScore.visible = true
+	
+			yield(get_tree().create_timer(.4), "timeout")
 			get_node("CollisionShape2D/ballSprite/AnimationPlayer").play("ballRotate")
+			yield(get_tree().create_timer(.55), "timeout")
+			countdown.text = "2"
+			yield(get_tree().create_timer(.95), "timeout")
+			countdown.text = "1"
+			yield(get_tree().create_timer(.95), "timeout")
+			countdown.visible = false
+			scoreLabel.visible = false
+			leftScore.visible = false
+			rightScore.visible = false
+			countdown.text = "3"
 			
-			var stopMovingYouJerk = Timer.new()
-			stopMovingYouJerk.set_wait_time(2.6)
-			stopMovingYouJerk.set_one_shot(true)
-			add_child(stopMovingYouJerk)
-			stopMovingYouJerk.start()
-			yield(stopMovingYouJerk, "timeout")
+			yield(get_tree().create_timer(.15), "timeout")
 			
-			paddle1.reset()
-			paddle2.reset()
-			paddle1.rotation_speed = 30
-			paddle2.rotation_speed = 30
-			paddle1.reset()
-			paddle2.reset()
-			
-			paused = false
-				
+			_lockPaddles(false)
+			_resetPaddleLocations()
+			paused = false # --------------------------- Un-Paused -------------	
 				
 		# if ball hits a paddle
 		elif collision.collider.has_method("getTeam"):
@@ -110,10 +146,9 @@ func _physics_process(delta):
 
 			var preVelocity = velocity
 			var postVelocity = velocity.bounce(collision.normal)
-			print_debug("Post Velocity: " + str(postVelocity))
+
 			velocity = 1.03 * postVelocity
 
-			
 		# if ball hit the Middle Star
 		elif collision.collider.has_method("middleStar"):
 			get_node("../Middle Star/CollisionShape2D/Sprite/AudioStreamPlayer2D").play()
@@ -121,13 +156,8 @@ func _physics_process(delta):
 			var collisionNode = get_node("../Middle Star/CollisionShape2D")
 			collisionNode.disabled = true
 			temp = collision.collider.middleStar(velocity)
-			velocity = temp;
-			var t = Timer.new()
-			t.set_wait_time(.2)
-			t.set_one_shot(true)
-			add_child(t)
-			t.start()
-			yield(t, "timeout")
+			velocity = temp
+			yield(get_tree().create_timer(.2), "timeout")
 			collisionNode.disabled = false
 
 		# if ball hit the Wormhole
@@ -143,12 +173,7 @@ func _physics_process(delta):
 			position = temp
 			if velocity.length() > 450: 
 				velocity *= .93
-			var t = Timer.new()
-			t.set_wait_time(.2)
-			t.set_one_shot(true)
-			add_child(t)
-			t.start()
-			yield(t, "timeout")
+			yield(get_tree().create_timer(.2), "timeout")
 			wormhole1.disabled = false
 			wormhole2.disabled = false
 			pass
@@ -164,26 +189,29 @@ func _physics_process(delta):
 			if velocity.length() < 400: 
 				velocity *= 1.25
 
-			var t = Timer.new()
-			t.set_wait_time(.1)
-			t.set_one_shot(true)
-			add_child(t)
-			t.start()
-			yield(t, "timeout")
+			yield(get_tree().create_timer(.1), "timeout")
 			booster.disabled = false
 			velocity = velocity * .8
 			
 			#This second timer to slow it down slowly
-			t.set_wait_time(.2)
-			t.set_one_shot(true)
-			add_child(t)
-			t.start()
-			yield(t, "timeout")
+			yield(get_tree().create_timer(.2), "timeout")
 			velocity = velocity * .55
-			#$CollisionShape2D.disabled = false
 
 	# THE BALLS STARTING VELOCITY
-	if(!paused && velocity == Vector2(0,0) && lastHit == "yellow" && (Input.is_key_pressed(65) || Input.is_key_pressed(68))):
+	if(!paused && velocity == Vector2(0,0) && lastHit == "yellow"):
 		velocity = Vector2(0,(speed))
-	if(!paused && velocity == Vector2(0,0) && lastHit == "purple" && (Input.is_key_pressed(16777233) || Input.is_key_pressed(16777231))):
+	if(!paused && velocity == Vector2(0,0) && lastHit == "purple"):
 		velocity = Vector2(0,0-speed)
+		
+func _lockPaddles(boolean):
+	if boolean == true:
+		paddle1.rotation_speed = 0
+		paddle2.rotation_speed = 0
+	else:
+		paddle1.rotation_speed = paddle1.startingPaddleSpeed
+		paddle2.rotation_speed = paddle1.startingPaddleSpeed
+		
+func _resetPaddleLocations():
+	paddle1.reset()
+	paddle2.reset()
+
