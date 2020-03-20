@@ -131,6 +131,7 @@ func _physics_process(delta):
 		# if ball hits a paddle
 		elif collision.collider.has_method("getTeam"):
 			lastHit = collision.collider.getTeam()
+			var ball = get_node("CollisionShape2D")
 			if(lastHit == "purple"):
 				get_node("../Paddle1/CollisionShape2D/paddleSpriteP/AudioStreamPlayer2D").play()
 				get_node("../Paddle1/CollisionShape2D").disabled = true
@@ -144,10 +145,13 @@ func _physics_process(delta):
 				animate.play("changeColor")
 				Ring.texture = player_vars.p1RingColor
 
+			ball.disabled = true;
 			var preVelocity = velocity
 			var postVelocity = velocity.bounce(collision.normal)
 
 			velocity = 1.03 * postVelocity
+			yield(get_tree().create_timer(.05), "timeout")
+			ball.disabled = false;
 
 		# if ball hit the Middle Star
 		elif collision.collider.has_method("middleStar"):

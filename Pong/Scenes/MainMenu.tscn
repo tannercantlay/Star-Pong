@@ -210,6 +210,7 @@ __meta__ = {
 }
 
 [node name="solo" type="Sprite" parent="."]
+visible = false
 position = Vector2( 100, 250 )
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 6 )

@@ -111,7 +111,7 @@ func _physics_process(delta):
 			var boosters = get_node("../Boosterdad/Booster")
 			
 			var temp = null
-			while (temp == null || abs(temp.x) < 35):
+			while (temp == null || abs(temp.x) < 40):
 				temp = Vector2(rand_range(-225, 225), rand_range(-225,225))
 
 			#print_debug("Booster: " + str(temp))
