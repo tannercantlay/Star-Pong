@@ -7,7 +7,7 @@ func _physics_process(delta):
 	if(get_tree().get_current_scene().get_name() == "settings"):	
 		var stringInput = lineedit.get_text()
 		
-		if(stringInput.length() >= 1 ):
+		if(stringInput.length() >= 1):
 			var intInput = int(stringInput)
 			
 			if intInput % 2 == 0:

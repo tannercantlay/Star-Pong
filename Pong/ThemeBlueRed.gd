@@ -18,4 +18,3 @@ func _unhandled_input(event):
 			label.add_color_override("font_color_shadow", Color("d10404"))
 			
 			player_vars.ballColor = load("res://Sprites/SpriteSheets/Ball_Red_Blue.png")
-

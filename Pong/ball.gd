@@ -79,6 +79,7 @@ func _physics_process(delta):
 			get_node("CollisionShape2D/ballSprite/AnimationPlayer").play("Exit")
 			
 			# Makes the Ball Stop at the Ring instead of passing through
+			_lockPaddles(true)
 			velocity = Vector2(0,0)
 			speed = 0
 			
@@ -101,7 +102,6 @@ func _physics_process(delta):
 			paused = true # ---------------------------- Paused -------------
 			velocity = Vector2(0,lastHit)
 			speed = startingSpeed
-			_lockPaddles(true)
 			
 			# Reveals the Popup
 			countdown.visible = true
@@ -162,7 +162,6 @@ func _physics_process(delta):
 
 		# if ball hit the Wormhole
 		elif collision.collider.has_method("throughWormhole"):
-
 			get_node("CollisionShape2D/ballSprite/Wormhole sounds").play()
 			var temp
 			var wormhole1 = get_node("../Wormholes/Wormhole1/CollisionShape2D")
@@ -176,7 +175,6 @@ func _physics_process(delta):
 			yield(get_tree().create_timer(.2), "timeout")
 			wormhole1.disabled = false
 			wormhole2.disabled = false
-			pass
 			
 		# if ball hit the Booster
 		elif collision.collider.has_method("speedracer"):
@@ -202,6 +200,7 @@ func _physics_process(delta):
 		velocity = Vector2(0,(speed))
 	if(!paused && velocity == Vector2(0,0) && lastHit == "purple"):
 		velocity = Vector2(0,0-speed)
+		
 		
 func _lockPaddles(boolean):
 	if boolean == true:

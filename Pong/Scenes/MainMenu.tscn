@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Sprites/SpriteSheets/OuterRingYellowToPurple.png" type="Texture" id=1]
 [ext_resource path="res://nextPage.gd" type="Script" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://settings.gd" type="Script" id=12]
 [ext_resource path="res://MainMenuScript.gd" type="Script" id=13]
 [ext_resource path="res://AlmightSeeingEye.gd" type="Script" id=14]
+[ext_resource path="res://solo.gd" type="Script" id=15]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -194,14 +195,35 @@ texture = ExtResource( 6 )
 script = ExtResource( 12 )
 
 [node name="Label" type="Label" parent="settings"]
-margin_left = -150.882
-margin_top = -47.8989
-margin_right = 149.118
-margin_bottom = 52.1011
+margin_left = -150.341
+margin_top = -50.0
+margin_right = 149.659
+margin_bottom = 50.0
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0.0784314, 0.784314, 0, 1 )
 text = "Settings"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="solo" type="Sprite" parent="."]
+position = Vector2( 100, 250 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 6 )
+script = ExtResource( 15 )
+
+[node name="Label" type="Label" parent="solo"]
+margin_left = -150.341
+margin_top = -50.0
+margin_right = 149.659
+margin_bottom = 50.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.0784314, 0.784314, 0, 1 )
+text = "Solo"
 align = 1
 valign = 1
 __meta__ = {

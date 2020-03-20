@@ -16,7 +16,6 @@ var powerup
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
 	ring.texture = player_vars.p1RingColor
 	roundLabel.set_text("Round: " + str(roundsPlayed) + " / " + str(player_vars.numrounds))
 	musicPlayer.music.stop()
@@ -77,7 +76,12 @@ func _physics_process(delta):
 			
 		whichpowerup = randi() % 4
 		
-		if (whichpowerup == 2):
+		if false: #whichpowerup == 1:
+			var meteor =  get_node("../Meteor")
+			meteor.position(950, -300)
+			meteor.visible = true
+		
+		elif (whichpowerup == 2):
 			#print_debug("Wormholes have been chosen: ")
 			powerup = wormholes.instance()
 			get_node("..").add_child(powerup)
@@ -124,9 +128,8 @@ func _physics_process(delta):
 
 		timer = 500
 		# Set the timer to 100 if we spawn nothing
-		if(whichpowerup == 0 or whichpowerup == 1):
+		if(whichpowerup == 0 || whichpowerup == 1):
 			timer = 100
-	pass
 
 func _wormholeleave(animator):
 	#print_debug("threading")
