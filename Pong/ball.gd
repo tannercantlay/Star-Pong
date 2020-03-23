@@ -98,6 +98,8 @@ func _physics_process(delta):
 			elif lastHit == "purple":
 				position = Vector2(0,-50)
 				leftScore.text = str(player_vars.p1Score)
+				if player_vars.p1Score >= 10 && leftScore.rect_position.x != -200:
+					leftScore.rect_position.x = -200
 			
 			paused = true # ---------------------------- Paused -------------
 			velocity = Vector2(0,lastHit)

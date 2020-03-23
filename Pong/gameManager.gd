@@ -24,6 +24,19 @@ func _ready():
 	musicPlayer.music.volume_db = 1
 	musicPlayer.music.pitch_scale = 1
 	musicPlayer.music.play()
+	
+	var player1Label = get_node("../Node/P1 Score")
+	var player2Label = get_node("../Node/P2 Score")
+	
+	if   player_vars.player1Color == "purple":
+		player1Label.add_color_override("font_color", Color("b76ed4"))
+		player2Label.add_color_override("font_color", Color("c7e814"))
+	elif player_vars.player1Color == "green":
+		player1Label.add_color_override("font_color", Color("089217"))
+		player2Label.add_color_override("font_color", Color("db4804"))
+	elif player_vars.player2Color == "blue":
+		player1Label.add_color_override("font_color", Color("d10404"))
+		player2Label.add_color_override("font_color", Color("0000cd"))
 
 func hit(team):
 	if(team == "purple"):
